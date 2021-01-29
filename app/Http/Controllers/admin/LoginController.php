@@ -21,15 +21,13 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (auth('admin')->attempt($credentials)) {
             // Authentication passed...
-            //return redirect()->intended(route('dashboard'));
-            dd(1);
+            return redirect()->intended(route('admin.dashboard.index'));
         }
-        dd(2);
-        //return back()->withInput()->with('error_login', 'Tài khoản hoặc mật khẩu không đúng');
+        return back()->withInput()->with('error_login', 'Tài khoản hoặc mật khẩu không đúng');
     }
 
     public function logout(){
         auth()->logout();
-        return redirect()->route('login');
+        return redirect()->route('admin.login');
     }
 }

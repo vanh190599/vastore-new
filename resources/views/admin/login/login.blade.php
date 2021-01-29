@@ -18,19 +18,24 @@
             <div class="card mt-3">
                 <h5 class="card-header">Login</h5>
                 <div class="card-body">
-                    <form action="{{ route('postLogin') }}">
+                    <form action="{{ route('admin.postLogin') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label>Email</label>
-                            <input name="email" type="text" class="form-control">
+                            <input name="email" value="{{ old('email') }}" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input name="password" type="text" class="form-control">
+                            <input type="password" name="password" type="text" class="form-control">
                         </div>
+                        @if(session()->has('error_login'))
+                            <div class="text-danger mb-5">{{ session('error_login') }}</div>
+                        @endif
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-secondary mr-4">Cancel</button>
                             <button type="submit" class="btn btn-primary">Login</button>
                         </div>
+
                     </form>
                 </div>
             </div>

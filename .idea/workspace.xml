@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d82d2aa-aff1-4f4a-b9fe-ff7f3ac2e23c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Library/CGlobal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/admin/js/page/admin_account.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/account/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/account/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/layout/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/layout/test.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/DashboardController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/login/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/login/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +149,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OpenServer/domains/mail-relay-tracking" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OpenServer/domains/ecampaign" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -179,6 +185,7 @@
       <workItem from="1611760515467" duration="2024000" />
       <workItem from="1611842345419" duration="6990000" />
       <workItem from="1611935006354" duration="3344000" />
+      <workItem from="1612010012079" duration="25810000" />
     </task>
     <servers />
   </component>
@@ -186,45 +193,64 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611850249797">
+    <state x="375" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1612017405412">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1611850249797" />
-    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1611938170729">
+    <state x="375" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1612017405412" />
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612021964254">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1611938170729" />
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1611764093126">
+    <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1612021964254" />
+    <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1612065265029">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1611764093126" />
-    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1611764093125">
+    <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1612065265028" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1612063003041">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1611764093125" />
-    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1611764093125">
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1612063003041" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1612063003041">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1611764093125" />
-    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1611764093126">
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1612063003041" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1612063003041">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1611764093126" />
-    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1611935960251">
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1612063003041" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1612063003041">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1611935960251" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612063003041" />
+    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1612021738448">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1612021738448" />
     <state x="534" y="89" key="RollbackChangesDialog" timestamp="1611849809860">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="534" y="89" key="RollbackChangesDialog/0.0.1366.738@0.0.1366.738" timestamp="1611849809860" />
-    <state x="390" y="102" width="585" height="534" key="find.popup" timestamp="1611936804924">
+    <state x="390" y="102" width="585" height="592" key="find.popup" timestamp="1612068110915">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="390" y="102" width="585" height="534" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1611936804924" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1611937867328">
+    <state x="390" y="102" width="585" height="592" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1612068110915" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup" timestamp="1612060765949">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1611937867328" />
+    <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1612060765949" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1612068171397">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1612068171397" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/admin/layout/test.blade.php</url>
+          <line>1731</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -140,7 +140,9 @@ const Vastore_Admin = {
         let data = { id }
         $.post(url, data, function(res){
             if (res.success == 1) {
+
                 toastr.success(res.message)
+
                 setTimeout(function(){
                     window.location.reload()
                 }, 1000);

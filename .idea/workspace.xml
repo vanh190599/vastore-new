@@ -7,17 +7,14 @@
     <list default="true" id="3d82d2aa-aff1-4f4a-b9fe-ff7f3ac2e23c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/AdminService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/AdminService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/UploadFileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/UploadFileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin/js/page/admin_account.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/page/admin_account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/upload/product/1612869617_122905501_3430516810359577_5922047046839429503_o.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/upload/product/1612869692_122905501_3430516810359577_5922047046839429503_o.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/admin/js/page/admin_account.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/admin/js/page/admin_account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/account/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/account/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/account/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/account/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +152,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OpenServer/domains/bizflyappstore" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OpenServer/domains/mail-relay-tracking" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -196,7 +193,7 @@
       <workItem from="1612691249314" duration="78000" />
       <workItem from="1612712811002" duration="2409000" />
       <workItem from="1612751797888" duration="8131000" />
-      <workItem from="1612838290227" duration="20479000" />
+      <workItem from="1612838290227" duration="26989000" />
     </task>
     <servers />
   </component>
@@ -212,36 +209,36 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="124" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1612021964254" />
-    <state x="651" y="176" key="FileChooserDialogImpl" timestamp="1612867164368">
+    <state x="651" y="176" key="FileChooserDialogImpl" timestamp="1612885128286">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1612065265028" />
-    <state x="651" y="176" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1612867164368" />
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom" timestamp="1612860583617">
+    <state x="651" y="176" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1612885128286" />
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom" timestamp="1612869937604">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="13" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1612072468123" />
-    <state width="1877" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1612860583617" />
-    <state width="1877" height="260" key="GridCell.Tab.0.center" timestamp="1612860583616">
+    <state width="1877" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1612869937604" />
+    <state width="1877" height="196" key="GridCell.Tab.0.center" timestamp="1612869937604">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="13" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1612072468120" />
-    <state width="1877" height="260" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1612860583616" />
-    <state width="1877" height="260" key="GridCell.Tab.0.left" timestamp="1612860583616">
+    <state width="1877" height="196" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1612869937604" />
+    <state width="1877" height="196" key="GridCell.Tab.0.left" timestamp="1612869937604">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="13" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1612072468118" />
-    <state width="1877" height="260" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1612860583616" />
-    <state width="1877" height="260" key="GridCell.Tab.0.right" timestamp="1612860583617">
+    <state width="1877" height="196" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1612869937604" />
+    <state width="1877" height="196" key="GridCell.Tab.0.right" timestamp="1612869937604">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1323" height="13" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612072468122" />
-    <state width="1877" height="260" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1612860583617" />
-    <state x="727" y="415" key="NewPhpFileDialog" timestamp="1612864846399">
+    <state width="1877" height="196" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1612869937604" />
+    <state x="727" y="415" key="NewPhpFileDialog" timestamp="1612882157687">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1612193501989" />
-    <state x="727" y="415" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1612864846399" />
+    <state x="727" y="415" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1612882157687" />
     <state x="534" y="89" key="RollbackChangesDialog" timestamp="1611849809860">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -256,11 +253,11 @@
     </state>
     <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1612060765949" />
     <state x="476" y="235" width="945" height="964" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1612866855725" />
-    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup" timestamp="1612865968006">
+    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup" timestamp="1612885849173">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1612193635790" />
-    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1612865968006" />
+    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1612885849173" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

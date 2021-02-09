@@ -7,6 +7,7 @@
 @endpush
 @inject('CGlobal', 'App\Library\CGlobal' )
 @section('content')
+    <script src="https://cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
         <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -61,64 +62,98 @@
                             <!--end::Wizard Nav-->
                             <!--begin::Wizard Body-->
                             <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
-                                <div class="col-xl-12 col-xxl-7">
+                                <div class="col-xl-12 col-xxl-11">
                                     <!--begin::Wizard Form-->
                                     <form action="{{ route('admin.account.create') }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
-                                        @csrf
-                                        <!--begin::Wizard Step 1-->
+                                    @csrf
+                                    <!--begin::Wizard Step 1-->
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">
-                                            <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin cho tài khoản</h3>
-                                            <!--begin::Input-->
+                                            <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin cho sản phẩm</h3>
+
                                             <div class="form-group fv-plugins-icon-container">
-                                                <label>Ảnh đại diện<span class="text-danger">*</span></label><br>
-                                                <input type="file" class="upload-file"
-                                                       onchange="handleImage(this.files)" required >
+                                                <label>Tên sản phẩm <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control form-control-solid form-control-lg"
+                                                       name="name" placeholder="Nhập tên sản phẩm"
+                                                       value="{{ old('name') }}">
+                                                @error('name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                                 <div class="text-danger"></div>
                                                 <span class="form-text text-muted d-none">Hãy nhập đầy đủ họ và tên</span>
-                                                <div class="fv-plugins-message-container"></div></div>
-                                            <!--end::Input-->
-
-                                            <div class="img-avatar mb-3 d-none">
-                                                <img class="avatar-uploaded" alt="" width="100px" height="100px" style="object-fit: cover">
-                                                <input type="hidden" name="avatar" value="{{ old('avatar') }}">
+                                                <div class="fv-plugins-message-container"></div>
                                             </div>
 
-                                            <!--begin::Input-->
+                                            <div class="form-group">
+                                                <label>Hãng sản xuất</label>
+                                                <select class="form-control form-control-solid form-control-lg">
+                                                    <option>Apple</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+
                                             <div class="form-group fv-plugins-icon-container">
-                                                <label>Họ và tên <span class="text-danger">*</span></label>
+                                                <label>Tên sản phẩm <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="name" placeholder="Nguyen Van Anh"
                                                        value="{{ old('name') }}">
                                                 @error('name')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                                <div class="text-danger"></div>
-                                                <span class="form-text text-muted d-none">Hãy nhập đầy đủ họ và tên</span>
-                                                <div class="fv-plugins-message-container"></div></div>
-                                            <!--begin::Input-->
-                                            <div class="form-group">
-                                                <label>Email <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control form-control-solid form-control-lg"
-                                                       name="email" placeholder="anhnv@vccorp.vn"
-                                                       value="{{ old('email') }}">
-                                                @error('email')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <span class="form-text text-muted d-none">Hãy nhập email cá nhân</span>
+                                                <div class="text-danger"></div>
+                                                <div class="fv-plugins-message-container"></div>
                                             </div>
-                                            <!--end::Input-->
-                                            <!--begin::Input-->
-                                            <div class="form-group">
-                                                <label>Số điện thoại <span class="text-danger">*</span></label>
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Màu <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
-                                                       name="phone" placeholder="0843190599"
-                                                       value="{{ old('phone') }}">
-                                                @error('phone')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                       name="name"
+                                                       value="{{ old('name') }}">
+                                                @error('name')
+                                                <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <span class="form-text text-muted d-none">Hãy nhập số điện thoại cá nhân</span>
+                                                <div class="text-danger"></div>
+                                                <div class="fv-plugins-message-container"></div>
                                             </div>
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Giá <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control form-control-solid form-control-lg"
+                                                       name="name" placeholder=""
+                                                       value="{{ old('name') }}">
+                                                @error('name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                                <div class="text-danger"></div>
+                                                <div class="fv-plugins-message-container"></div>
+                                            </div>
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Giá <span class="text-danger">*</span></label>
+                                                <textarea name="" id="description" class="form-control form-control-solid form-control-lg"
+                                                          cols="30" rows="10"></textarea>
+
+                                                <script>
+                                                    CKEDITOR.replace('description');
+                                                </script>
+                                                @error('name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                                <div class="text-danger"></div>
+                                                <div class="fv-plugins-message-container"></div>
+                                            </div>
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Màu<span class="text-danger">*</span></label><br>
+                                                <input type="file" class="upload-file"
+                                                       onchange="handleImage(this.files)" required >
+                                                <div class="text-danger"></div>
+                                                <span class="form-text text-muted d-none"></span>
+                                                <div class="fv-plugins-message-container"></div></div>
                                             <!--end::Input-->
+
 
                                             <!--begin::Wizard Actions-->
                                             <div class="d-flex justify-content-center border-top  pt-5">
@@ -193,5 +228,4 @@
             }
         }
     </script>
-
 @endsection

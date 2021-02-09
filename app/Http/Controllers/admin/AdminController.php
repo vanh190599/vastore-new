@@ -84,7 +84,7 @@ class AdminController extends Controller{
 
     public function submitCreate(CreateRequest $request){
         $request->flash();
-        $data = $request->only('name', 'email', 'phone');
+        $data = $request->only('name', 'email', 'phone', 'avatar');
         $data['password'] = Hash::make('123456');
         $data['is_active'] = CGlobal::STATUS_ACTIVE;
 

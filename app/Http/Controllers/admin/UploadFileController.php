@@ -40,7 +40,7 @@ class UploadFileController extends Controller{
 
         //di chuyển
         $file_name = time().'_'.$fileName;
-        $file->move('admin/upload/product', $file_name);
+        $file->move('admin/upload/admin-account', $file_name);
 
         return response(['success'=>1, 'message'=> 'Tải ảnh lên thành công', 'data'=>$file_name]);
     }

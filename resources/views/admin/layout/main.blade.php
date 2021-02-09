@@ -14,6 +14,7 @@
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!--begin::Page Vendors Styles(used by this page)-->
     <link href="{{ asset('assets/admin/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors Styles-->
@@ -87,17 +88,17 @@
                 <!--end::Logo-->
                 <!--begin::Toggle-->
                 <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
-							<span class="svg-icon svg-icon svg-icon-xl">
-								<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Angle-double-left.svg-->
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<polygon points="0 0 24 0 24 24 0 24" />
-										<path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z" fill="#000000" fill-rule="nonzero" transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999)" />
-										<path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999)" />
-									</g>
-								</svg>
-                                <!--end::Svg Icon-->
-							</span>
+                        <span class="svg-icon svg-icon svg-icon-xl">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Angle-double-left.svg-->
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z" fill="#000000" fill-rule="nonzero" transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999)" />
+                                    <path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999)" />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
                 </button>
                 <!--end::Toolbar-->
             </div>
@@ -142,151 +143,7 @@
         </a>
     </div>
     <!--end::Header-->
-    <!--begin::Content-->
-    <div class="offcanvas-content">
-        <!--begin::Wrapper-->
-        <div class="offcanvas-wrapper mb-5 scroll-pull">
-            <!--begin::Item-->
-            <div class="d-flex align-items-center justify-content-between py-8">
-                <div class="d-flex flex-column mr-2">
-                    <a href="#" class="font-weight-bold text-dark-75 font-size-lg text-hover-primary">iBlender</a>
-                    <span class="text-muted">The best kitchen gadget in 2020</span>
-                    <div class="d-flex align-items-center mt-2">
-                        <span class="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 350</span>
-                        <span class="text-muted mr-1">for</span>
-                        <span class="font-weight-bold mr-2 text-dark-75 font-size-lg">5</span>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon mr-2">
-                            <i class="ki ki-minus icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon">
-                            <i class="ki ki-plus icon-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets/media/stock-600x400/img-1.jpg" title="" alt="" />
-                </a>
-            </div>
-            <!--end::Item-->
-            <!--begin::Separator-->
-            <div class="separator separator-solid"></div>
-            <!--end::Separator-->
-            <!--begin::Item-->
-            <div class="d-flex align-items-center justify-content-between py-8">
-                <div class="d-flex flex-column mr-2">
-                    <a href="#" class="font-weight-bold text-dark-75 font-size-lg text-hover-primary">SmartCleaner</a>
-                    <span class="text-muted">Smart tool for cooking</span>
-                    <div class="d-flex align-items-center mt-2">
-                        <span class="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 650</span>
-                        <span class="text-muted mr-1">for</span>
-                        <span class="font-weight-bold mr-2 text-dark-75 font-size-lg">4</span>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon mr-2">
-                            <i class="ki ki-minus icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon">
-                            <i class="ki ki-plus icon-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets/media/stock-600x400/img-2.jpg" title="" alt="" />
-                </a>
-            </div>
-            <!--end::Item-->
-            <!--begin::Separator-->
-            <div class="separator separator-solid"></div>
-            <!--end::Separator-->
-            <!--begin::Item-->
-            <div class="d-flex align-items-center justify-content-between py-8">
-                <div class="d-flex flex-column mr-2">
-                    <a href="#" class="font-weight-bold text-dark-75 font-size-lg text-hover-primary">CameraMax</a>
-                    <span class="text-muted">Professional camera for edge cutting shots</span>
-                    <div class="d-flex align-items-center mt-2">
-                        <span class="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 150</span>
-                        <span class="text-muted mr-1">for</span>
-                        <span class="font-weight-bold mr-2 text-dark-75 font-size-lg">3</span>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon mr-2">
-                            <i class="ki ki-minus icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon">
-                            <i class="ki ki-plus icon-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets/media/stock-600x400/img-3.jpg" title="" alt="" />
-                </a>
-            </div>
-            <!--end::Item-->
-            <!--begin::Separator-->
-            <div class="separator separator-solid"></div>
-            <!--end::Separator-->
-            <!--begin::Item-->
-            <div class="d-flex align-items-center justify-content-between py-8">
-                <div class="d-flex flex-column mr-2">
-                    <a href="#" class="font-weight-bold text-dark text-hover-primary">4D Printer</a>
-                    <span class="text-muted">Manufactoring unique objects</span>
-                    <div class="d-flex align-items-center mt-2">
-                        <span class="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 1450</span>
-                        <span class="text-muted mr-1">for</span>
-                        <span class="font-weight-bold mr-2 text-dark-75 font-size-lg">7</span>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon mr-2">
-                            <i class="ki ki-minus icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon">
-                            <i class="ki ki-plus icon-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets/media/stock-600x400/img-4.jpg" title="" alt="" />
-                </a>
-            </div>
-            <!--end::Item-->
-            <!--begin::Separator-->
-            <div class="separator separator-solid"></div>
-            <!--end::Separator-->
-            <!--begin::Item-->
-            <div class="d-flex align-items-center justify-content-between py-8">
-                <div class="d-flex flex-column mr-2">
-                    <a href="#" class="font-weight-bold text-dark text-hover-primary">MotionWire</a>
-                    <span class="text-muted">Perfect animation tool</span>
-                    <div class="d-flex align-items-center mt-2">
-                        <span class="font-weight-bold mr-1 text-dark-75 font-size-lg">$ 650</span>
-                        <span class="text-muted mr-1">for</span>
-                        <span class="font-weight-bold mr-2 text-dark-75 font-size-lg">7</span>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon mr-2">
-                            <i class="ki ki-minus icon-xs"></i>
-                        </a>
-                        <a href="#" class="btn btn-xs btn-light-success btn-icon">
-                            <i class="ki ki-plus icon-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="symbol symbol-70 flex-shrink-0">
-                    <img src="assets/media/stock-600x400/img-8.jpg" title="" alt="" />
-                </a>
-            </div>
-            <!--end::Item-->
-        </div>
-        <!--end::Wrapper-->
-        <!--begin::Purchase-->
-        <div class="offcanvas-footer">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-                <span class="font-weight-bold text-muted font-size-sm mr-2">Total</span>
-                <span class="font-weight-bolder text-dark-50 text-right">$1840.00</span>
-            </div>
-            <div class="d-flex align-items-center justify-content-between mb-7">
-                <span class="font-weight-bold text-muted font-size-sm mr-2">Sub total</span>
-                <span class="font-weight-bolder text-primary text-right">$5640.00</span>
-            </div>
-            <div class="text-right">
-                <button type="button" class="btn btn-primary text-weight-bold">Place Order</button>
-            </div>
-        </div>
-        <!--end::Purchase-->
-    </div>
-    <!--end::Content-->
+
 </div>
 <!--end::Quick Cart-->
 <!--begin::Quick Panel-->
@@ -323,7 +180,7 @@
                     <div class="d-flex align-items-center flex-wrap mb-5">
                         <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="" />
+{{--										<img src="assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="" />--}}
 									</span>
                         </div>
                         <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -337,7 +194,7 @@
                     <div class="d-flex align-items-center flex-wrap mb-5">
                         <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/015-telegram.svg" class="h-50 align-self-center" alt="" />
+{{--										<img src="assets/media/svg/misc/015-telegram.svg" class="h-50 align-self-center" alt="" />--}}
 									</span>
                         </div>
                         <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -351,7 +208,7 @@
                     <div class="d-flex align-items-center flex-wrap mb-5">
                         <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/003-puzzle.svg" class="h-50 align-self-center" alt="" />
+{{--										<img src="assets/media/svg/misc/003-puzzle.svg" class="h-50 align-self-center" alt="" />--}}
 									</span>
                         </div>
                         <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -365,7 +222,7 @@
                     <div class="d-flex align-items-center flex-wrap mb-5">
                         <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/005-bebo.svg" class="h-50 align-self-center" alt="" />
+{{--										<img src="assets/media/svg/misc/005-bebo.svg" class="h-50 align-self-center" alt="" />--}}
 									</span>
                         </div>
                         <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -379,7 +236,7 @@
                     <div class="d-flex align-items-center flex-wrap">
                         <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="assets/media/svg/misc/014-kickstarter.svg" class="h-50 align-self-center" alt="" />
+{{--										<img src="assets/media/svg/misc/014-kickstarter.svg" class="h-50 align-self-center" alt="" />--}}
 									</span>
                         </div>
                         <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -938,7 +795,7 @@
                             <div class="d-flex flex-column mb-5 align-items-start">
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-40 mr-3">
-                                        <img alt="Pic" src="assets/media/users/300_12.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_12.jpg" />--}}
                                     </div>
                                     <div>
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -956,7 +813,7 @@
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                     </div>
                                     <div class="symbol symbol-circle symbol-40 ml-3">
-                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />--}}
                                     </div>
                                 </div>
                                 <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
@@ -966,7 +823,7 @@
                             <div class="d-flex flex-column mb-5 align-items-start">
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-40 mr-3">
-                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />--}}
                                     </div>
                                     <div>
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -984,7 +841,7 @@
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                     </div>
                                     <div class="symbol symbol-circle symbol-40 ml-3">
-                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />--}}
                                     </div>
                                 </div>
                                 <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">You’ll receive notifications for all issues, pull requests!</div>
@@ -994,7 +851,7 @@
                             <div class="d-flex flex-column mb-5 align-items-start">
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-40 mr-3">
-                                        <img alt="Pic" src="assets/media/users/300_12.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_12.jpg" />--}}
                                     </div>
                                     <div>
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1013,7 +870,7 @@
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                     </div>
                                     <div class="symbol symbol-circle symbol-40 ml-3">
-                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />--}}
                                     </div>
                                 </div>
                                 <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
@@ -1023,7 +880,7 @@
                             <div class="d-flex flex-column mb-5 align-items-start">
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-40 mr-3">
-                                        <img alt="Pic" src="assets/media/users/300_12.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_12.jpg" />--}}
                                     </div>
                                     <div>
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1041,7 +898,7 @@
                                         <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                     </div>
                                     <div class="symbol symbol-circle symbol-40 ml-3">
-                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />
+{{--                                        <img alt="Pic" src="assets/media/users/300_21.jpg" />--}}
                                     </div>
                                 </div>
                                 <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
@@ -1081,333 +938,27 @@
 <!--end::Chat Panel-->
 <!--begin::Scrolltop-->
 <div id="kt_scrolltop" class="scrolltop">
-			<span class="svg-icon">
-				<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-						<polygon points="0 0 24 0 24 24 0 24" />
-						<rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
-						<path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
-					</g>
-				</svg>
-                <!--end::Svg Icon-->
-			</span>
+    <span class="svg-icon">
+        <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <polygon points="0 0 24 0 24 24 0 24" />
+                <rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+                <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+            </g>
+        </svg>
+        <!--end::Svg Icon-->
+    </span>
 </div>
 <!--end::Scrolltop-->
 
-<!--begin::Demo Panel-->
-<div id="kt_demo_panel" class="offcanvas offcanvas-right p-10">
-    <!--begin::Header-->
-    <div class="offcanvas-header d-flex align-items-center justify-content-between pb-7">
-        <h4 class="font-weight-bold m-0">Select A Demo</h4>
-        <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_demo_panel_close">
-            <i class="ki ki-close icon-xs text-muted"></i>
-        </a>
-    </div>
-    <!--end::Header-->
-    <!--begin::Content-->
-    <div class="offcanvas-content">
-        <!--begin::Wrapper-->
-        <div class="offcanvas-wrapper mb-5 scroll-pull">
-            <h5 class="font-weight-bold mb-4 text-center">Demo 1</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo offcanvas-demo-active">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo1.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo1/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo1/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 2</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo2.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo2/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo2/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 3</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo3.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo3/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo3/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 4</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo4.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo4/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo4/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 5</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo5.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo5/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo5/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 6</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo6.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo6/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo6/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 7</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo7.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo7/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo7/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 8</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo8.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo8/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo8/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 9</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo9.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo9/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo9/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 10</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo10.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo10/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo10/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 11</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo11.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo11/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo11/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 12</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo12.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo12/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo12/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 13</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo13.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="../../demo13/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
-                    <a href="https://preview.keenthemes.com/metronic/demo13/rtl/index.html" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">RTL Version</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 14</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo14.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 15</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo15.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 16</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo16.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 17</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo17.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 18</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo18.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 19</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo19.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 20</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo20.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 21</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo21.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 22</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo22.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 23</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo23.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 24</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo24.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 25</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo25.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 26</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo26.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 27</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo27.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 28</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo28.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 29</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo29.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-            <h5 class="font-weight-bold mb-4 text-center">Demo 30</h5>
-            <div class="overlay rounded-lg mb-8 offcanvas-demo">
-                <div class="overlay-wrapper rounded-lg">
-                    <img src="assets/media/demos/demo30.png" alt="" class="w-100" />
-                </div>
-                <div class="overlay-layer">
-                    <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
-                </div>
-            </div>
-        </div>
-        <!--end::Wrapper-->
-        <!--begin::Purchase-->
-        <div class="offcanvas-footer">
-            <a href="https://1.envato.market/EA4JP" target="_blank" class="btn btn-block btn-danger btn-shadow font-weight-bolder text-uppercase">Buy Metronic Now!</a>
-        </div>
-        <!--end::Purchase-->
-    </div>
-    <!--end::Content-->
-</div>
-<!--end::Demo Panel-->
+
 
 <!--begin::Global Config(global config for global JS scripts)-->
 <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
 <!--end::Global Config-->
 <!--begin::Global Theme Bundle(used by all pages)-->
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/admin/assets/plugins/global/plugins.bundle.js') }}"></script>
 <script src="{{ asset('assets/admin/assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
 <script src="{{ asset('assets/admin/assets/js/scripts.bundle.js') }}"></script>
@@ -1418,6 +969,8 @@
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{ asset('assets/admin/assets/js/pages/widgets.js') }} "></script>
 <!--end::Page Scripts-->
+<script src="{{ asset('js/init.js') }}"></script>
+{{--<script src="{{ asset('js/.js') }}"></script>--}}
 
 @stack('scripts')
 

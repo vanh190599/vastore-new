@@ -160,7 +160,8 @@
                                                                data-toggle="popover"
                                                                data-placement="bottom"
                                                                data-content="kích hoạt"
-                                                               data-click='test'>
+                                                               data-id="{{ $value->id }}"
+                                                               data-click='openChangeStatus'>
                                                                 <i class="la la-key"></i>
                                                             </a>
                                                             @elseif($value->is_active == $CGlobal::STATUS_ACTIVE)
@@ -168,7 +169,9 @@
                                                                data-container="body"
                                                                data-toggle="popover"
                                                                data-placement="bottom"
-                                                               data-content="Khóa">
+                                                               data-content="Khóa"
+                                                               data-id="{{ $value->id }}"
+                                                               data-click='openChangeStatus'>
                                                                 <i class="la la-lock"></i>
                                                             </a>
                                                             @endif
@@ -207,4 +210,5 @@
         </div>
         <!--end::Entry-->
     </div>
+
 @endsection

@@ -13,7 +13,6 @@ class CGlobal
         self::STATUS_BLOCK => 'Block'
     ];
 
-
     //Status
     const STATUS_SHOW = 1;
     const STATUS_HIDE = 0;

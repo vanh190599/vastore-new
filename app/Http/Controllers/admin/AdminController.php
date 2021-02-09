@@ -69,4 +69,29 @@ class AdminController extends Controller{
         return view('admin.account.create');
     }
 
+    public function changeStatus(Request $request){
+        $admin = $this->adminService->first(['id'=>$request->id]);
+        if (empty($admin)) {
+            return response(['success' => 0, 'message' => 'Không tồn tại tài khoản này']);
+        }
+
+        // active & block
+        if ($admin->is_active == CGlobal::STATUS_ACTIVE) { //block
+            $admin =  $this->adminService->edit($admin, ['is_active'=>CGlobal::STATUS_BLOCK]);
+            return response(['success' => 1, 'message' => 'Khóa thành công', 'data'=>$admin]);
+        }
+        elseif ($admin->is_active == CGlobal::STATUS_BLOCK) {
+            $admin =  $this->adminService->edit($admin, ['is_active'=>CGlobal::STATUS_ACTIVE]);
+            return response(['success' => 1, 'message' => 'Kích hoạt thành công', 'data'=>$admin]);
+        }
+    }
+
+    public function getAdminByID(Request $request){
+        $admin = $this->adminService->first(['id'=>$request->id]);
+        if (empty($admin)) {
+            return response(['success' => 0, 'message' => 'Không tồn tại tài khoản này']);
+        }
+
+        return response(['success' => 1, 'data' => $admin]);
+    }
 }

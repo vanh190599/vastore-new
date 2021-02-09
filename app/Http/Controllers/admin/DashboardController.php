@@ -19,4 +19,8 @@ class DashboardController extends Controller
     public function test(){
         return view('admin.layout.test');
     }
+
+    public function twd(){
+        return view('twd.index');
+    }
 }

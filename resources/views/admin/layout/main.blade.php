@@ -952,6 +952,8 @@
 </div>
 <!--end::Scrolltop-->
 
+<input type="hidden" class="success_message" value="{{ session()->has('success_message') ? session('success_message') : '' }}">
+<input type="hidden" class="error_message" value="{{ session()->has('error_message') ? session('error_message') : '' }}">
 
 
 <!--begin::Global Config(global config for global JS scripts)-->

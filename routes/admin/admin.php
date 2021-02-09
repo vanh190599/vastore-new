@@ -14,10 +14,13 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::get('search', 'AdminController@search')->name('account.search');
         Route::get('create', 'AdminController@create')->name('account.create');
         Route::post('create', 'AdminController@submitCreate')->name('account.create');
+        Route::post('delete', 'AdminController@delete')->name('account.delete');
 
         Route::get('get-admin-by-id', 'AdminController@getAdminByID')->name('account.getAdminByID');
         Route::post('change-status', 'AdminController@changeStatus')->name('account.changeStatus');
     });
+
+    Route::post('uploadFile', 'UploadFileController@uploadImage');
 });
 
 Route::get('test', 'DashboardController@test');

@@ -184,11 +184,15 @@
                                                                 <i class="la la-edit"></i>
                                                             </a>
 
+
                                                             <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
                                                                data-container="body"
                                                                data-toggle="popover"
                                                                data-placement="bottom"
-                                                               data-content="Xóa">
+                                                               data-content="Xóa"
+                                                               data-email="{{ $value->email }}"
+                                                               data-id="{{ $value->id }}"
+                                                               data-click="openDelete">
                                                                 <i class="la la-trash"></i>
                                                             </a>
                                                         </td>

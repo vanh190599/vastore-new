@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Account\CreateRequest;
 use App\Library\CGlobal;
 use App\Services\AdminService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller{
     private $adminService;
@@ -67,6 +69,27 @@ class AdminController extends Controller{
 
     public function create(){
         return view('admin.account.create');
+    }
+
+    public function delete(Request $request){
+        $id = $request->id;
+        $admin = $this->adminService->first(['id' => $id]);
+        if (empty($admin)) {
+            return response(['success'=>0, 'message'=>'Tài khoản không tồn tại']);
+        }
+
+        $this->adminService->delete(['id' => $id]);
+        return response(['success'=>1, 'message'=>'Xóa thành công']);
+    }
+
+    public function submitCreate(CreateRequest $request){
+        $request->flash();
+        $data = $request->only('name', 'email', 'phone');
+        $data['password'] = Hash::make('123456');
+        $data['is_active'] = CGlobal::STATUS_ACTIVE;
+
+        $admin = $this->adminService->create($data);
+        return redirect()->route('admin.account.search')->with('success_message', 'Thêm quản trị viên thành công!');
     }
 
     public function changeStatus(Request $request){

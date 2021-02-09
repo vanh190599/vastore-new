@@ -2312,7 +2312,6 @@ Github: https://github.com/vadimsva/waitMe
     return window.noty;
 });
 
-
 toastr.options = {
     "closeButton": false,
     "debug": false,
@@ -2329,6 +2328,13 @@ toastr.options = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
+}
+
+if ($('.success_message').val() != '') {
+    toastr.success($('.success_message').val(), 'Success')
+}
+if ($('.error_message').val() != '') {
+    toastr.error($('.error_message').val(), 'Error')
 }
 
 

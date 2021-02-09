@@ -76,4 +76,12 @@ class AdminService
         $admin = $admin->first();
         return $admin;
     }
+
+    public function delete($condition){
+        $admin = $this->admin;
+        foreach ($condition as $key => $value) {
+            $admin = $admin->where($key, $value);
+        }
+        $admin = $admin->delete();
+    }
 }

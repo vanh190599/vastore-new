@@ -3,23 +3,22 @@
 
 namespace App\Services;
 
-
-use App\Model\MySql\Admin;
+use App\Model\MySql\product;
 
 class ProductService
 {
 //    const STATUS_ACTIVE = 1; // hoạt động
 //    const STATUS_BLOCK = -1; // khóa
-    private $admin;
+    private $product;
 
-    public function __construct(Admin $admin)
+    public function __construct(product $product)
     {
-        $this->admin = $admin;
+        $this->product = $product;
     }
 
     public function search($data)
     {
-        $query = $this->admin;
+        $query = $this->product;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -51,37 +50,37 @@ class ProductService
 
     public function create($data)
     {
-        $admin = $this->admin;
+        $product = $this->product;
         foreach ($data as $key => $value) {
-            $admin->$key = $value;
+            $product->$key = $value;
         }
-        $admin->save();
-        return $admin;
+        $product->save();
+        return $product;
     }
 
-    public function edit($admin, $data)
+    public function edit($product, $data)
     {
         foreach ($data as $key => $value) {
-            $admin->$key = $value;
+            $product->$key = $value;
         }
-        $admin->save();
-        return $admin;
+        $product->save();
+        return $product;
     }
 
     public function first($condition){
-        $admin = $this->admin;
+        $product = $this->product;
         foreach ($condition as $key => $value) {
-            $admin = $admin->where($key, $value);
+            $product = $product->where($key, $value);
         }
-        $admin = $admin->first();
-        return $admin;
+        $product = $product->first();
+        return $product;
     }
 
     public function delete($condition){
-        $admin = $this->admin;
+        $product = $this->product;
         foreach ($condition as $key => $value) {
-            $admin = $admin->where($key, $value);
+            $product = $product->where($key, $value);
         }
-        $admin = $admin->delete();
+        $product = $product->delete();
     }
 }

@@ -6,15 +6,27 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Account\CreateRequest;
 use App\Library\CGlobal;
 use App\Services\AdminService;
+use App\Services\BrandService;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class ProductController extends Controller{
     private $adminService;
 
-    public function __construct(AdminService $adminService)
+    private $brandService;
+
+    private $productService;
+
+    public function __construct(
+        AdminService $adminService,
+        BrandService $brandService,
+        ProductService $productService
+    )
     {
         $this->adminService = $adminService;
+        $this->brandService = $brandService;
+        $this->productService = $productService;
     }
 
     public function search(Request $request)
@@ -68,6 +80,42 @@ class ProductController extends Controller{
     }
 
     public function create(){
-        return view('admin.product.create');
+        $brands = $this->brandService->get([])->pluck('name', 'id')->toArray();
+        return view('admin.product.create', compact(
+            'brands'
+        ));
+    }
+
+    public function submitCreate(Request $request) {
+        $data = $request->only([
+            "name",
+            'brand',
+            "price",
+            "price_discount",
+            "unit_num",
+            "unit_label",
+            "release_date",
+            "height",
+            "width",
+            "depth",
+            "tech_screen",
+            "size",
+            "cpu",
+            "ram",
+            "rom",
+            "battery_capacity",
+            "camera_before",
+            "camera_after",
+            "description",
+            "image",
+            "status"
+        ]);
+
+        $data['unit_label'] = 1;
+        $data['height'] = 1;
+        $data['image'] = 1;
+
+        $this->productService->create($data);
+        dd('ok');
     }
 }

@@ -27,6 +27,16 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::post('create', 'ProductController@submitCreate')->name('product.create');
     });
 
+    //brand
+    Route::prefix('brand')->group(function (){
+        Route::get('search', 'BrandController@search')->name('brand.search');
+        Route::get('create', 'BrandController@create')->name('brand.create');
+        Route::post('create', 'BrandController@submitCreate')->name('brand.create');
+        Route::get('edit', 'BrandController@edit')->name('brand.edit');
+        Route::post('edit', 'BrandController@submitEdit')->name('brand.edit');
+        Route::post('delete', 'BrandController@delete')->name('brand.delete');
+    });
+
     Route::post('uploadFile', 'UploadFileController@uploadImage');
 });
 

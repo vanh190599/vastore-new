@@ -6,12 +6,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class product extends Model
 {
-    protected $table = 'product';
+    protected $table = 'products';
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'name',
-        ''
+        'brand',
+        "price",
+        "price_discount" ,
+        "unit_num" ,
+        "unit_label" ,
+        "release_date" ,
+        "height" ,
+        "width" ,
+        "depth" ,
+        "tech_screen" ,
+        "size" ,
+        "cpu" ,
+        "ram" ,
+        "rom" ,
+        "battery_capacity" ,
+        "camera_before" ,
+        "camera_after" ,
+        "description" ,
+        "image",
+        "status"
     ];
 
     protected $dates = ['deleted_at'];

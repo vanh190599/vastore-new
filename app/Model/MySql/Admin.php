@@ -16,9 +16,8 @@ class Admin extends Authenticatable
         'email',
         'phone',
         'password',
-        'is_active',
-        'roles',
-        'permissions'
+        'status',
+        'type'
     ];
 
     protected $dates = ['deleted_at'];

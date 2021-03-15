@@ -1,0 +1,244 @@
+
+.banner{
+    background-image: url("../images/banner-1.png");
+    height: 58px;
+    background-size: cover;
+
+}
+.banner-img{
+    width: 100%;
+    height: 200px;
+}
+
+.a:hover .product-hover{
+    padding: 9px;
+    transition: 0.4s;
+}
+.img_product{
+    width: 230px;
+    height: 250px;
+    padding: 1px;
+    position: relative;
+}
+.product_price{
+    text-decoration: line-through;
+    color: grey;
+    font-size: 14px;
+}
+.anh_sale{
+    height: 30px;
+    width: 30px;
+    /*background-image: url("../images/sale.png") ;*/
+    background-image: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+    border-radius: 25px;
+    background-size: cover;
+    position: absolute;
+    left: 83%;
+    top: 1px;
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+
+}
+.phantram{
+    color: white;
+    margin-top: 8px;
+
+    /*margin-left: 6px;*/
+    position: absolute;
+    font-size: 12px;
+    /*font-family: Arial;*/
+}
+/*Tag khuyen mai*/
+.sale-tag{
+    height: 18px;
+    width: 100px;
+    /*background-image: url("../images/sale-tag.png");*/
+    background-image: url("../images/sale-1.png");
+    background-size: cover ;
+    position: absolute;
+    left: -121px;
+    top: 145px;
+    border-radius: 9px;
+}
+.content-1{
+    text-align: left;
+}
+.a1{
+    height: 100%;
+    background: #dddddd;
+}
+.newarrival{
+    border-radius: 30px !important;
+}
+.uu_dai{
+    /*background: red;*/
+    border-radius: 10px;
+    border: 1px solid #ec1933;
+    position: relative;
+    margin-top: 8px;
+    padding-left:  20px;
+
+}
+#uu-dai-img{
+    width: 15px;
+    height: 20px;
+    position: absolute;
+}
+/*Product detail ---------------------------------- */
+.product-detail-img:hover{
+    padding: 10px;
+}
+.uu_dai:hover{
+    cursor: pointer;
+}
+.view-product{
+    position: relative;
+}
+.sale-img-detail{
+    width: 80px;
+    height: 80px;
+    /*background-image: url("../images/sale.png") ;*/
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-image: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+    border-radius: 40px;
+}
+.phantram-detail{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+/*Hieu ứng trong details*/
+.product_name:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+.video{
+    width: 267px;
+    height: 185px;
+    border: 3px solid #dddddd;
+    margin: auto;
+    margin-bottom: 20px;
+}
+/*Search*/
+.thongbao{
+    height: 40px;
+    width: 90px;
+    background-image: url("../images/thongbao.png");
+}
+
+
+/*trang tin tuc*/
+.box{
+    padding: 1px;
+    border: 1px solid #dddddd;
+}
+.photo-news{
+    width: 100%px;
+    border: 0px solid red;
+}
+.photo-news img{
+    width: 100%;
+}
+.tilte-news{
+    padding: 10px;
+    font-weight: bold;
+
+}
+.tilte-news a{
+    color: #333333;
+    font-size: 16px;
+}
+.box p{
+    padding: 2px 0px 0px 10px;
+    color: gray;
+}
+
+/*news latest*/
+.box-right{
+    border: 1px solid #dddddd;
+}
+.title-lastest{
+    padding: 8px 0px 8px 0px;
+    background: orange;
+    color: white;
+}
+.box-right ul{
+    padding: 0;
+}
+.box-right ul li img{
+    border: 1px solid white;
+}
+.box-right ul li{
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.content-right{
+    margin-left: 5px
+}
+.content-right a{
+    color: black;
+}
+
+.box-right ul li:hover{
+    background: #dddddd;
+}
+
+/* end news latest*/
+
+/*hot news*/
+.title-hot-news, .title-rand-news {
+    padding: 2px;
+    background: orange;
+    font-size: 13px;
+    color: white;
+    width: 200px;
+    text-align: center;
+}
+.hot-new-content a img{
+    width: 150px;
+    height: 120px;
+    padding: 3px;
+    border-radius: 0px;
+}
+.title-news-hot{
+    padding-top: 8px;
+    color: black;
+}
+.hot-new-content:hover{
+    background: #dddddd;
+}
+.hot-new-content:hover .title-news-hot{
+    color: #333333;
+}
+.border{
+    border: 1px solid #dddddd;
+    margin: 8px 0 8px 0;
+    border-bottom: none;
+}
+
+/*end hot news*/
+
+/*end trang tin tuc*/
+
+
+/*news detail*/
+.title-news-detail{
+    font-weight: bold;
+    font-size: 19px;
+    padding: 10px 0 10px 0;
+}
+/*news detail*/
+.xemthem:hover {
+    color: #ce0707;
+}
+/*details*/
+.news-content p img{
+    width: 600px !important;
+}

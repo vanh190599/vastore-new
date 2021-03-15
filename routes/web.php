@@ -6,6 +6,6 @@ Route::namespace('Admin')->middleware([])->name('admin.')->prefix('admin')->grou
     require 'admin/admin.php';
 });
 
-Route::namespace('Site')->middleware([])->name('site.')->prefix('admin')->group(function () {
-    //require 'site';
+Route::namespace('Site')->middleware([])->name('site.')->prefix('site')->group(function () {
+    require 'site/site.php';
 });

@@ -1236,3 +1236,110 @@ body.waitMe_body .waitMe_container.text > div {
   }
 }
 
+#site-home .item-custom {
+  min-width: 300px;
+  min-height: 390px;
+  border-radius: 5px;
+}
+
+#site-home .item-custom .image {
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+#site-home .item-custom .image img {
+  width: 214px;
+  height: 214px;
+}
+
+#site-home .item-custom:hover .image-product {
+  width: 220px;
+  height: 220px;
+  transition-duration: 0.1s;
+}
+
+#site-home .item-custom:hover {
+  border: 1px solid #dddddd;
+  transition-duration: 0.1s;
+}
+
+#site-home .item-custom .info {
+  top: 210px;
+  position: absolute;
+  left: 23px;
+}
+
+#site-home .item-custom .info .discount .val {
+  background: #cb1c22;
+  color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  border-radius: 4px;
+}
+
+#site-home .item-custom .info .name {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: normal;
+  color: #474c51;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  margin-top: 10px;
+}
+
+#site-home .item-custom .info .price {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  align-items: center;
+}
+
+#site-home .item-custom .info .price .price-discount {
+  flex-basis: 130px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #cb1c22;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+#site-home .item-custom .info .price .price-root {
+  text-decoration: line-through;
+  color: #919191;
+  font-size: 14px;
+}
+
+#site-home .item-custom .info .config {
+  width: 93%;
+  min-height: 65px;
+  background: #f8f9fa;
+  border-radius: 7px;
+  margin-top: 10px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  color: #6c757d;
+}
+

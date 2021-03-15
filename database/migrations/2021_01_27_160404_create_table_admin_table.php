@@ -16,13 +16,12 @@ class CreateTableAdminTable extends Migration
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('avatar');
+            $table->text('avatar')->nullable();;
             $table->string('email');
-            $table->string('phone');
+            $table->string('phone')->nullable();;
             $table->string('password');
-            $table->integer('is_active');
-            $table->string('roles');
-            $table->string('permissions');
+            $table->integer('status')->default(1);
+            $table->string('type');
             $table->timestamps();
         });
     }

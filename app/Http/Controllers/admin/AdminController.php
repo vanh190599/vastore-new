@@ -60,6 +60,7 @@ class AdminController extends Controller{
         ];
 
         $aryStatus = CGlobal::$aryStatusActive;
+//        dd($aryStatus);
 
         $admins = $this->adminService->search($data);
         return view('admin.account.search')

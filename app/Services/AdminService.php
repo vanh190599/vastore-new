@@ -8,8 +8,6 @@ use App\Model\MySql\Admin;
 
 class AdminService
 {
-//    const STATUS_ACTIVE = 1; // hoạt động
-//    const STATUS_BLOCK = -1; // khóa
     private $admin;
 
     public function __construct(Admin $admin)

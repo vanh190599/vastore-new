@@ -66,4 +66,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - php artisan db:seed --class=OrganizeSeeder
 
 - artisan make:migration create_table_posts_table --create=posts.
+{{ asset('admin/upload/') }}/{{$value->image}}
 ```

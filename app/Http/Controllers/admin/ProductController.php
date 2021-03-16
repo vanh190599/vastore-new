@@ -71,31 +71,30 @@ class ProductController extends Controller{
             'sortOrder' => 'DESC'
         ];
 
-        $aryStatus = CGlobal::$aryStatusActive;
+        $aryStatus = CGlobal::$aryStatusShow;
 
-        //$admins = $this->adminService->search($data);
-        return view('admin.product.search');
-            //->with('admins', $admins)
-            //->with('aryStatus', $aryStatus);
+        $products = $this->productService->search($data);
+        $products->load('brand');
+        //dd($products);
+
+        return view('admin.product.search', compact(
+            'products', 'aryStatus'
+        ));
     }
 
     public function create(){
         $brands = $this->brandService->get([])->pluck('name', 'id')->toArray();
-        $aryLabel = array(
-            1 => 'ngày',
-            2 => 'tháng',
-            3 => 'năm',
-        );
+        $aryLabel = CGlobal::$aryLable;
         return view('admin.product.create', compact(
             'brands', 'aryLabel'
         ));
     }
 
-    public function submitCreate(CreateRequest $request) {
+    public function submitCreate(Request $request) {
         $request->flash();
         $data = $request->only([
             "name",
-            'brand',
+            'brand_id',
             "price",
             "price_discount",
             "unit_num",
@@ -119,7 +118,9 @@ class ProductController extends Controller{
             "attach_image",
         ]);
         $data["release_date"] = strtotime($data["release_date"]);
+        $data["status"] = 1;
+
         $this->productService->create($data);
-        dd('ok');
+        return redirect()->route('admin.product.search');
     }
 }

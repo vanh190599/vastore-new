@@ -76,10 +76,10 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <div class="brands_products"><!--products-->
-                        <h2 style="color: orangered">sản phẩm</h2>
+                        <h2 style="color: orangered">sản phẩm 1</h2>
                         <div class="">
                             <ul class="list-group" style="border-bottom: 2px solid #dddddd">
-                                <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Sản phẩm mới</a></li>
+                                <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Sản phẩm mới 1</a></li>
                                 <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Bán chạy</a></li>
                                 <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Ưu đãi, khuyến mãi</a></li>
                             </ul>
@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="brands_products">
-                        <h2 style="color: orangered">Thương hiệu</h2>
+                        <h2 style="color: orangered">Thương hiệu 1</h2>
                         <div class="">
                             <ul class="list-group" style="border-bottom: 2px solid #dddddd">
                                 <li class="">

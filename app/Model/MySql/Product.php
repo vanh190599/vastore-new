@@ -11,7 +11,7 @@ class product extends Model
 
     protected $fillable = [
         'name',
-        'brand',
+        'brand_id',
         "price",
         "price_discount" ,
         "unit_num" ,
@@ -36,4 +36,9 @@ class product extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id', 'id');
+    }
 }

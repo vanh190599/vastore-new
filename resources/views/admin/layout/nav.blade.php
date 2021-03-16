@@ -70,10 +70,9 @@
                 <!--end::Svg Icon-->
             </span>
             <span class="menu-text">Admin</span>
-            <i class="menu-arrow"></i>
         </a>
+
         <div class="menu-submenu">
-            <i class="menu-arrow"></i>
             <ul class="menu-subnav">
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                     <a href="{{ route('admin.account.search') }}" class="menu-link menu-toggle">
@@ -98,7 +97,7 @@
 
     <!-- sản phẩm -->
     <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-        <a href="javascript:;" class="menu-link menu-toggle">
+        <a href="{{ route('admin.product.search') }}" class="menu-link menu-toggle">
             <span class="svg-icon menu-icon">
                 <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Devices\Phone.svg-->
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -116,7 +115,6 @@
                 <!--end::Svg Icon-->
             </span>
             <!--end::Svg Icon-->
-
             <span class="menu-text">Sản phẩm</span>
         </a>
     </li>
@@ -145,10 +143,8 @@
             </span>
 
             <span class="menu-text">Đơn hàng</span>
-            <i class="menu-arrow"></i>
         </a>
         <div class="menu-submenu">
-            <i class="menu-arrow"></i>
             <ul class="menu-subnav">
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                     <a href="{{ route('admin.account.search') }}" class="menu-link menu-toggle">
@@ -194,10 +190,9 @@
             </span>
 
             <span class="menu-text">Tin tức</span>
-            <i class="menu-arrow"></i>
         </a>
+
         <div class="menu-submenu">
-            <i class="menu-arrow"></i>
             <ul class="menu-subnav">
                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                     <a href="{{ route('admin.brand.search') }}" class="menu-link menu-toggle">

@@ -67,7 +67,7 @@
                 .price-discount {
                     flex-basis: 130px;
                     padding-left: 15px;
-                    padding-right: 15px;
+                    //padding-right: 15px;
                     width: fit-content;
                     height: 28px;
                     border-radius: 15px;
@@ -78,7 +78,6 @@
                     display: flex;
                     align-items: center;
                     color: #fff;
-                    text-align: center;
                 }
                 .price-root {
                     text-decoration: line-through;
@@ -99,10 +98,89 @@
                 color: #6c757d;
             }
         }
-
-
-
-
     }
+}
+
+#site-detail {
+    .name {
+        font-weight: 500;
+        color: #212529;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .price {
+        font-weight: 500;
+        color: #cb1c22;
+        margin-right: 10px;
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .price-discount {
+        font-weight: 400;
+        color: #99a2aa;
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .config {
+        margin-top: 20px;
+        padding: 15px 20px 5px 20px;
+        border-radius: 4px;
+        border: solid 1px #e9ecef;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: space-between;
+
+        .cf-item {
+            margin-bottom: 15px;
+            color: #8A8F94;
+            font-size: 16px;
+        }
+    }
+
+    .uu-dai {
+        border-radius: 4px;
+        border: solid 1px #e9ecef;
+        background-color: #f8f9fa;
+        margin-bottom: 16px;
+        ul {
+            padding-left: 15px;
+        }
+        .ud-item {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            img {
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .buy-now {
+        height: 59px;
+        width: 100%;
+        color: #fff;
+        background: #cb1c22;
+        font-size: 18px;
+        line-height: 14px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover{
+            background: #ae1427;
+            animation-duration: 0.2s;
+        }
+    }
+
+    .description {
+        img  {
+            width: 100%;
+        }
+    }
+
 
 }

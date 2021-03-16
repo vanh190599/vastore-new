@@ -5,7 +5,7 @@
             <div class="row" style="border-bottom: none;">
                 <div class="col-md-6 col-sm-12">
                     <div class="logo pull-left" style="width: 150px">
-                        <a href="{{url('trang-chu')}}"><img src="eshoper/images/home/logo-3.png" class="logo-img" style="width: 150px; padding-top: 10px" alt="" /></a>
+                        <a href="{{ route('site.home.index') }}"><img src="eshoper/images/home/logo-3.png" class="logo-img" style="width: 150px; padding-top: 10px" alt="" /></a>
                     </div>
                 </div>
 
@@ -58,17 +58,18 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="shop-menu pull-right" style="margin-bottom: 5px">
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{ url('show-login') }}"  style="background: none; color: black;"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-                            <li><a href="{{ url('show-cart') }}"  style="background: none;color: black; "><i class="fa fa-shopping-cart"></i> Giỏ hàng (0) </a></li>
-                            <li style="">
-                                ok
-                            </li>
-                            <li>
-
-                            </li>
-                        </ul>
+                    <div class="pull-right">
+                        @if(Auth::guard('customers')->check())
+                            <div style="display: flex; align-items: center">
+                                <span>{{ auth('customers')->user()->name }}</span>&nbsp; &nbsp; &nbsp;
+                                <form action="{{ route('site.logout') }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-default">Đăng xuất</button>
+                                </form>
+                            </div>
+                        @else
+                            <a href="{{ route('site.login') }}" class="btn btn-default">Đăng nhập</a>
+                        @endif
                     </div>
                 </div>
             </div>

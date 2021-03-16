@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    @yield('title')
 
     <base href="{{asset('')}}">
     <link rel="stylesheet" href="eshoper/css/style.css">
@@ -20,7 +20,7 @@
     <script src="eshoper/js/html5shiv.js"></script>
     <script src="eshoper/js/resnews_imagepond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="eshoper/images/ico/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('eshoper/images/logo.jpg') }}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="eshoper/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="eshoper/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="eshoper/images/ico/apple-touch-icon-72-precomposed.png">
@@ -44,40 +44,8 @@
 </style>
 
 @include('site.layout.header')
-<div class="">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="https://hbmedia.com.vn/wp-content/uploads/2019/09/Banner_2.jpg" alt="Los Angeles" style="width:100%;">
-            </div>
-            <div class="item">
-                <img src="https://hbmedia.com.vn/wp-content/uploads/2019/09/Banner_2.jpg" alt="Los Angeles" style="width:100%;">
-            </div>
-            <div class="item">
-                <img src="https://hbmedia.com.vn/wp-content/uploads/2019/09/Banner_2.jpg" alt="Los Angeles" style="width:100%;">
-            </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
-
+@yield('slide')
 
 <div style="width: 100%; margin-top: 30px">
     <div class="container-fluid" s style="margin: auto">
@@ -88,9 +56,14 @@
                         <h2 style="color: orangered">Thương hiệu</h2>
                         <div class="">
                             <ul class="list-group" style="border-bottom: 2px solid #dddddd">
-                                <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Sản phẩm mới</a></li>
-                                <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Bán chạy</a></li>
-                                <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Ưu đãi, khuyến mãi</a></li>
+                                @if(!empty($data_brand))
+                                    @foreach($data_brand as $k => $v)
+                                        <li class="">
+                                            <a class="list-group-item text-dark" style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px" href="">
+                                                {{ $v->name }}</a>
+                                        </li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </div><!--/products-->

@@ -3,22 +3,23 @@
 
 namespace App\Services;
 
-use App\Model\MySql\product;
 
-class ProductService
+use App\Model\MySql\Brand;
+use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Exception;
+
+class CustomerService
 {
-//    const STATUS_ACTIVE = 1; // hoạt động
-//    const STATUS_BLOCK = -1; // khóa
-    private $product;
+    private $brand;
 
-    public function __construct(product $product)
+    public function __construct(Brand $brand)
     {
-        $this->product = $product;
+        $this->brand = $brand;
     }
 
     public function search($data)
     {
-        $query = $this->product;
+        $query = $this->brand;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -50,42 +51,63 @@ class ProductService
 
     public function create($data)
     {
-        $product = $this->product;
+        $brand = $this->brand;
         foreach ($data as $key => $value) {
-            $product->$key = $value;
+            $brand->$key = $value;
         }
-        $product->save();
-        return $product;
+        $brand->save();
+        return $brand;
     }
 
-    public function edit($product, $data)
+    public function edit($brand, $data)
     {
-        foreach ($data as $key => $value) {
-            $product->$key = $value;
+        try {
+            foreach ($data as $key => $value) {
+                $brand->$key = $value;
+            }
+            $brand->save();
+
+            DB::commit();
+            return $brand;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
         }
-        $product->save();
-        return $product;
     }
 
-    public function first($condition){
-        $product = $this->product;
+    public function first($condition)
+    {
+        $brand = $this->brand;
         foreach ($condition as $key => $value) {
-            $product = $product->where($key, $value);
+            $brand = $brand->where($key, $value);
         }
-        $product = $product->first();
-        return $product;
+        $brand = $brand->first();
+
+        return $brand;
     }
+
 
     public function delete($condition){
-        $product = $this->product;
-        foreach ($condition as $key => $value) {
-            $product = $product->where($key, $value);
+        try {
+            DB::beginTransaction();
+
+            $brand = $this->brand;
+            foreach ($condition as $key => $value) {
+                $brand = $brand->where($key, $value);
+            }
+            $brand = $brand->delete();
+
+            DB::commit();
+            return true;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
         }
-        $product = $product->delete();
     }
 
-    public function get($data){
-        $query = $this->product;
+    public function get($data)
+    {
+        $query = $this->brand;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -108,7 +130,9 @@ class ProductService
                 }
             }
         }
+
         $result = $query->get();
+
         return $result;
     }
 }

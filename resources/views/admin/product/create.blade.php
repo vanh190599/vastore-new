@@ -92,7 +92,7 @@
 
                                             <div class="form-group">
                                                 <label>Hãng sản xuất <span class="text-danger">*</span></label>
-                                                <select name="brand" class="form-control form-control-solid form-control-lg">
+                                                <select name="brand_id" class="form-control form-control-solid form-control-lg">
                                                     @if(sizeof($brands) > 0)
                                                         @foreach($brands as $key => $value)
                                                             <option value="{{ $key }}">{{ $value }}</option>

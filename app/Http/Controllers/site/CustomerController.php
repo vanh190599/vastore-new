@@ -8,10 +8,9 @@ use App\Library\CGlobal;
 use App\Services\AdminService;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class HomeController extends Controller{
+class CustomerController extends Controller {
 
     private $productService;
 
@@ -20,14 +19,5 @@ class HomeController extends Controller{
         $this->productService = $productService;
     }
 
-    public function index(Request $request)
-    {
-        $data['conditions'][] = ['key'=>'status', 'value'=>CGlobal::STATUS_SHOW];
-        $products = $this->productService->get($data);
-        $products->load('brand');
-        $aryStatus = CGlobal::$aryStatusActive;
-        return view('site.home.index', compact(
-            'products'
-        ));
-    }
+
 }

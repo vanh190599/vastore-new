@@ -46,6 +46,11 @@ return [
             'provider' => 'admin',
         ],
 
+        'customers' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -78,6 +83,10 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model' => \App\Model\MySql\Admin::class,
+        ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => \App\Model\MySql\Customer::class,
         ],
 
         // 'users' => [

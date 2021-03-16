@@ -7,6 +7,15 @@
 @endpush
 @inject('CGlobal', 'App\Library\CGlobal' )
 @section('content')
+    <style>
+        .image-product {
+            object-fit: cover;
+            border: 1px solid #dddddd;
+            padding: 5px;
+            border-radius: 5px
+        }
+    </style>
+
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
         <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -78,13 +87,15 @@
                                                     <div class="fv-plugins-message-container"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3">
-                                                <div class="form-group fv-plugins-icon-container">
-                                                    <label>Màu sắc</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="phone" placeholder="Màu sắc" value="{{ request('phone') }}">
-                                                    <div class="fv-plugins-message-container"></div>
-                                                </div>
-                                            </div>
+
+{{--                                            <div class="col-lg-3">--}}
+{{--                                                <div class="form-group fv-plugins-icon-container">--}}
+{{--                                                    <label>Màu sắc</label>--}}
+{{--                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="phone" placeholder="Màu sắc" value="{{ request('phone') }}">--}}
+{{--                                                    <div class="fv-plugins-message-container"></div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
                                             <div class="col-lg-3">
                                                 <div class="form-group fv-plugins-icon-container">
                                                     <label>Trạng thái</label>
@@ -94,6 +105,9 @@
                                                     <div class="fv-plugins-message-container"></div>
                                                 </div>
                                             </div>
+
+                                            <div class="col-lg-3"></div>
+
                                             <div class="col-lg-3">
 {{--                                                <div class="form-group fv-plugins-icon-container">--}}
 {{--                                                    <label>Màu sắc</label>--}}
@@ -134,60 +148,64 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Ảnh</th>
-                                            <th scope="col">Tên</th>
-                                            <th scope="col">Hãng</th>
-                                            <th scope="col">Mô tả</th>
-                                            <th scope="col">Màu sắc</th>
-                                            <th scope="col">Giá</th>
+                                            <th scope="col" width="5px">#</th>
+                                            <th scope="col" style="max-width: 60px">Ảnh</th>
+                                            <th scope="col" style="max-width: 200px">Tên</th>
+                                            <th scope="col" style="max-width: 100px">Hãng</th>
+                                            <th scope="col" style="max-width: 110px">Giá gốc</th>
+                                            <th scope="col" style="max-width: 110px">Giá sau khi giảm</th>
+                                            <th scope="col" style="max-width: 110px">Bảo hành</th>
+                                            <th scope="col" style="max-width: 110px">Phụ kiện đính kèm</th>
+                                            <th scope="col" style="max-width: 110px">Ảnh phụ kiện</th>
+                                            <th scope="col">Hiển thị</th>
                                             <th scope="col">Hành động</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(!empty($admins))
-                                            @foreach($admins as $key => $value)
+                                        @if(!empty($products))
+                                            @foreach($products as $key => $value)
                                                 <tr>
-                                                    <td class="align-middle"> {{ $value->id }} </td>
-                                                    <td><img src="{{ asset('admin/upload/admin-account') }}/{{$value->avatar}}" width="50px" height="50px" alt="" style="object-fit: cover"></td>
-                                                    <td class="align-middle">{{ $value->name }}</td>
-                                                    <td class="align-middle">{{ $value->email }}</td>
-                                                    <td class="align-middle">{{ $value->phone }}</td>
                                                     <td class="align-middle">
-                                                        @if($value->is_active == $CGlobal::STATUS_ACTIVE)
+                                                        {{ $key + $products->firstItem() }}
+                                                    </td>
+                                                    <td>
+                                                        <img src="{{ asset('admin/upload/') }}/{{$value->image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                    </td>
+                                                    <td class="align-middle">{{ $value->name }}</td>
+                                                    <td class="align-middle">{{ $value->brand->name }}</td>
+                                                    <td class="align-middle {{ $value->price_discount > 0 ? 'text-muted' : ''}}">
+                                                        {{ number_format($value->price) }} đ
+                                                    </td>
+
+                                                    <td class="align-middle ">
+                                                        {{ $value->price_discount > 0 ? number_format($value->price_discount).' đ' : '---' }}
+                                                    </td>
+
+                                                    <td  class="align-middle">
+                                                        {{ $CGlobal::showTime($value->unit_num, $value->unit_label) }}
+                                                    </td>
+
+                                                    <td class="align-middle">
+                                                        {{ $value->attach }}
+                                                    </td>
+
+                                                    <td class="align-middle">
+                                                        <img src="{{ asset('admin/upload/') }}/{{$value->attach_image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                    </td>
+
+                                                    <td class="align-middle">
+                                                        @if($value->status == $CGlobal::STATUS_SHOW)
                                                             <span class="label label-success label-pill label-inline mr-2">
-                                                                    {{ $aryStatus[$value->is_active] }}
-                                                                </span>
-                                                        @elseif($value->is_active == $CGlobal::STATUS_BLOCK)
+                                                                {{ $aryStatus[$value->status] }}
+                                                            </span>
+                                                        @elseif($value->status == $CGlobal::STATUS_HIDE)
                                                             <span class="label label-danger label-pill label-inline mr-2">
-                                                                    {{ $aryStatus[$value->is_active] }}
-                                                                </span>
+                                                                {{ $aryStatus[$value->status] }}
+                                                            </span>
                                                         @endif
                                                     </td>
-                                                    <td></td>
-                                                    <td class="align-middle">
-                                                        @if($value->is_active == $CGlobal::STATUS_BLOCK)
-                                                            <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-primary btn-sm mr-2"
-                                                               data-container="body"
-                                                               data-toggle="popover"
-                                                               data-placement="bottom"
-                                                               data-content="kích hoạt"
-                                                               data-id="{{ $value->id }}"
-                                                               data-click='openChangeStatus'>
-                                                                <i class="la la-key"></i>
-                                                            </a>
-                                                        @elseif($value->is_active == $CGlobal::STATUS_ACTIVE)
-                                                            <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
-                                                               data-container="body"
-                                                               data-toggle="popover"
-                                                               data-placement="bottom"
-                                                               data-content="Khóa"
-                                                               data-id="{{ $value->id }}"
-                                                               data-click='openChangeStatus'>
-                                                                <i class="la la-lock"></i>
-                                                            </a>
-                                                        @endif
 
+                                                    <td class="align-middle">
                                                         <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
                                                            data-container="body"
                                                            data-toggle="popover"
@@ -195,8 +213,6 @@
                                                            data-content="Sửa">
                                                             <i class="la la-edit"></i>
                                                         </a>
-
-
                                                         <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
                                                            data-container="body"
                                                            data-toggle="popover"
@@ -208,6 +224,7 @@
                                                             <i class="la la-trash"></i>
                                                         </a>
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         @endif

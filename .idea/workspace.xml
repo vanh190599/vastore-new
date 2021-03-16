@@ -24,17 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3d82d2aa-aff1-4f4a-b9fe-ff7f3ac2e23c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/UploadFileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/UploadFileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/MySql/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/MySql/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Model/MySql/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/MySql/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_182119_create_table_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_182119_create_table_products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +217,8 @@
       <workItem from="1615736433173" duration="6382000" />
       <workItem from="1615776545299" duration="2142000" />
       <workItem from="1615780616069" duration="12505000" />
-      <workItem from="1615799855010" duration="25525000" />
+      <workItem from="1615799855010" duration="26207000" />
+      <workItem from="1615864885332" duration="7380000" />
     </task>
     <servers />
   </component>
@@ -278,11 +272,11 @@
     </state>
     <state width="1323" height="13" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612072468122" />
     <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1615799710874" />
-    <state x="727" y="415" key="NewPhpFileDialog" timestamp="1615807556710">
+    <state x="727" y="415" key="NewPhpFileDialog" timestamp="1615865587661">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1612193501989" />
-    <state x="727" y="415" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1615807556710" />
+    <state x="727" y="415" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1615865587661" />
     <state x="534" y="89" key="RollbackChangesDialog" timestamp="1611849809860">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -292,16 +286,16 @@
     </state>
     <state x="390" y="102" width="585" height="592" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1612068110915" />
     <state x="548" y="145" width="823" height="843" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1615782979709" />
-    <state x="476" y="235" width="945" height="964" key="run.anything.popup" timestamp="1615823928076">
+    <state x="476" y="235" width="945" height="964" key="run.anything.popup" timestamp="1615865673966">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="339" y="165" width="672" height="677" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1612060765949" />
-    <state x="476" y="235" width="945" height="964" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1615823928076" />
-    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup" timestamp="1615833581932">
+    <state x="476" y="235" width="945" height="964" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1615865673966" />
+    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup" timestamp="1615885102373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1612193635790" />
-    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1615833581932" />
+    <state x="486" y="84" width="945" height="965" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1615885102373" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -318,13 +312,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/admin/product/create.blade.php</url>
-          <line>372</line>
+          <line>365</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/admin/product/create.blade.php</url>
-          <line>446</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -18,16 +18,16 @@
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
                         <i class="flaticon-paper-plane text-primary mr-4"></i>
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">Tài khoản</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">Sản phẩm</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Quản trị viên</a>
+                                <a href="" class="text-muted">Tạo</a>
                             </li>
-                            <li class="breadcrumb-item">
-                                <a href="" class="text-muted">Tìm kiếm</a>
-                            </li>
+{{--                            <li class="breadcrumb-item">--}}
+{{--                                <a href="" class="text-muted">Tìm kiếm</a>--}}
+{{--                            </li>--}}
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
@@ -39,7 +39,6 @@
                 <div class="d-flex align-items-center">
                     <!--begin::Actions-->
 
-
                     <button type="reset" class="btn btn-secondary mr-4">
                         Reset
                     </button>
@@ -47,8 +46,6 @@
                         Submit
                     </button>
 
-
-{{--                    <a href="#" class="btn btn-light-primary font-weight-bolder btn-sm">Đến trang Site</a>--}}
                     <!--end::Actions-->
                 </div>
                 <!--end::Toolbar-->
@@ -79,9 +76,9 @@
                                     <!--begin::Wizard Step 1-->
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">
                                             <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin cho sản phẩm</h3>
-
                                             <div class="form-group fv-plugins-icon-container">
                                                 <label>Tên sản phẩm <span class="text-danger">*</span></label>
+
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="name" placeholder="Nhập tên sản phẩm"
                                                        value="{{ old('name') }}">
@@ -104,24 +101,10 @@
                                                 </select>
                                             </div>
 
-
-{{--                                            <div class="form-group fv-plugins-icon-container">--}}
-{{--                                                <label>Màu <span class="text-danger">*</span></label>--}}
-{{--                                                <input type="text" class="form-control form-control-solid form-control-lg"--}}
-{{--                                                       name="name"--}}
-{{--                                                       value="{{ old('name') }}">--}}
-{{--                                                @error('name')--}}
-{{--                                                <div class="text-danger">{{ $message }}</div>--}}
-{{--                                                @enderror--}}
-{{--                                                <div class="text-danger"></div>--}}
-{{--                                                <div class="fv-plugins-message-container"></div>--}}
-{{--                                            </div>--}}
-
-
                                             <div class="form-group fv-plugins-icon-container">
                                                 <label>Giá <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
-                                                       name="price" placeholder=""
+                                                       name="price" placeholder="Nhập giá"
                                                        value="{{ old('price') }}">
                                                 @error('price')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -131,9 +114,9 @@
                                             </div>
 
                                             <div class="form-group fv-plugins-icon-container">
-                                                <label>Giá bán <span class="text-danger">*</span></label>
+                                                <label>Giá sau khi giảm <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
-                                                       name="price_discount" placeholder=""
+                                                       name="price_discount" placeholder="Giá sau khi giảm"
                                                        value="{{ old('price_discount') }}">
                                                 @error('price_discount')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -151,9 +134,11 @@
 
                                                     <div style="width: 10px"></div>
                                                     <select name="unit_label" id="" class="form-control form-control-solid form-control-lg" style="width: 150px">
-                                                        <option value="">Ngày</option>
-                                                        <option value="">Tháng</option>
-                                                        <option value="">Năm</option>
+                                                        @if(count($aryLabel) > 0)
+                                                            @foreach($aryLabel as $k => $v)
+                                                                <option value="{{ $k }}">{{ $v }}</option>
+                                                            @endforeach
+                                                        @endif
                                                     </select>
                                                 </div>
                                                 @error('unit_num')
@@ -163,12 +148,12 @@
                                                 <div class="fv-plugins-message-container"></div>
                                             </div>
 
-
                                             <div class="d-flex justify-content-between" >
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Ngày ra mắt <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="release_date" data-provide="datepicker" class="form-control form-control-solid form-control-lg">
+                                                        <input name="release_date" data-provide="datepicker"
+                                                               class="form-control form-control-solid form-control-lg">
                                                     </div>
                                                     @error('release_date')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -180,7 +165,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Xuất xứ <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="name" placeholder=""
+                                                           name="origin" placeholder="Xuất xứ"
                                                            value="{{ old('origin') }}" >
                                                     @error('origin')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -194,7 +179,8 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Chiều cao <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="height" data-provide="datepicker" class="form-control form-control-solid form-control-lg"
+                                                        <input name="height" class="form-control
+                                                        form-control-solid form-control-lg" placeholder="Nhập chiều cao"
                                                         value="{{ old('height') }}" >
                                                     </div>
                                                     @error('width')
@@ -207,7 +193,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Chiều rộng <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="width" placeholder=""
+                                                           name="width" placeholder="Nhập chiều rộng"
                                                            value="{{ old('width') }}" >
                                                     @error('width')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -221,7 +207,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Độ dày <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="depth" placeholder=""
+                                                           name="depth" placeholder="Nhập độ dày"
                                                            value="{{ old('depth') }}" >
                                                     @error('depth')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -233,7 +219,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Chất liệu <span class="text-danger">*</span></label>
                                                     <input type="material" class="form-control form-control-solid form-control-lg"
-                                                           placeholder="chất liệu"
+                                                           placeholder="Nhập chất liệu"
                                                            value="{{ old('material') }}" >
                                                     @error('material')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -247,7 +233,9 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Công nghệ màn hình <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="tech_screen" value="{{ old('tech_screen') }}" class="form-control form-control-solid form-control-lg"
+                                                        <input name="tech_screen" value="{{ old('tech_screen') }}"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               placeholder="Nhập công nghệ màn hình"
                                                         >
                                                     </div>
                                                     @error('tech_screen')
@@ -260,7 +248,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Kích thước <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="size" placeholder=""
+                                                           name="size" placeholder="Nhập kích thước (ví dụ: )"
                                                            value="{{ old('size') }}" >
                                                     @error('size')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -274,7 +262,8 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>CPU <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="cpu" value="{{ old('cpu') }}" class="form-control form-control-solid form-control-lg">
+                                                        <input name="cpu" value="{{ old('cpu') }}" class="form-control form-control-solid form-control-lg"
+                                                        placeholder="cpu">
                                                     </div>
                                                     @error('cpu')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -286,7 +275,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Ram <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="ram" placeholder=""
+                                                           name="ram" placeholder="ram"
                                                            value="{{ old('ram') }}" >
                                                     @error('ram')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -300,7 +289,8 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Bộ nhớ trong <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="rom" value="{{ old('rom') }}" class="form-control form-control-solid form-control-lg">
+                                                        <input name="rom" value="{{ old('rom') }}" class="form-control form-control-solid form-control-lg"
+                                                        placeholder="bộ nhớ trong">
                                                     </div>
                                                     @error('rom')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -326,7 +316,10 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Camera trước <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="camera_before" value="{{ old('camera_before') }}" class="form-control form-control-solid form-control-lg">
+                                                        <input name="camera_before" value="{{ old('camera_before') }}"
+                                                               class="form-control form-control-solid form-control-lg"
+                                                               placeholder="camera trước"
+                                                        >
                                                     </div>
                                                     @error('camera_before')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -338,7 +331,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>camera sau <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="camera_after" placeholder=""
+                                                           name="camera_after" placeholder="camera sau"
                                                            value="{{ old('camera_after') }}" >
                                                     @error('camera_after')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -351,7 +344,7 @@
                                             <div class="form-group fv-plugins-icon-container">
                                                 <label>Chi tiết <span class="text-danger">*</span></label>
                                                 <textarea name="description" id="description" class="form-control form-control-solid form-control-lg"
-                                                          cols="30" rows="10"></textarea>
+                                                          cols="30" rows="10">{{ old('description') }}</textarea>
                                                 <script>
                                                     CKEDITOR.replace('description');
                                                 </script>
@@ -362,38 +355,56 @@
                                                 <div class="fv-plugins-message-container"></div>
                                             </div>
 
+                                            <!-- ảnh đại diện -->
                                             <div class="form-group fv-plugins-icon-container">
                                                 <label>Chọn ảnh<span class="text-danger">*</span></label><br>
                                                 <input type="file" class="upload-file"
-                                                       onchange="handleImage(this.files)" >
+                                                       onchange="handleImage(this.files, 1)" >
                                                 <div class="text-danger"></div>
                                                 <span class="form-text text-muted d-none"></span>
                                                 <div class="fv-plugins-message-container"></div></div>
-
                                             <input type="hidden" name="image" value="" >
-
-                                            <div id="image" class="img d-none">
-                                                <img src=""
-                                                     width="200px"
-                                                     height="200px"
-                                                     alt=""
-                                                    style="object-fit: cover">
+                                            <div id="image" class="img @if(empty(old('image'))) d-none @endif">
+                                                <img src="{{ old('image') }}" width="200px" height="200px" alt="" style="object-fit: cover">
                                             </div>
-                                            <!--end::Input-->
+                                            <!-- end ảnh đại diện -->
 
+                                            <!-- ảnh đính kèm -->
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Chọn ảnh phụ kiện đính kèm<span class="text-danger">*</span></label><br>
+                                                <input type="file" class="upload-file"
+                                                       onchange="handleImage(this.files, 2)" >
+                                                <div class="text-danger"></div>
+                                                <div class="fv-plugins-message-container"></div></div>
+                                            <input type="hidden" name="attach_image" value="" >
+                                            <div id="attach-image" class="img @if(empty(old('attach_image'))) d-none @endif">
+                                                <img src="{{ old('attach_image') }}"
+                                                     width="200px" height="200px" alt="" style="object-fit: cover">
+                                            </div>
+                                           <!-- end ảnh đính kèm -->
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Phụ kiện đính kèm <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control form-control-solid form-control-lg"
+                                                       name="attach" placeholder="Phụ kiện"
+                                                       value="{{ old('attach') }}">
+                                                @error('attach')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                                <div class="fv-plugins-message-container"></div>
+                                            </div>
                                             <br>
-
                                             <!--begin::Wizard Actions-->
-                                            <div class="d-flex justify-content-center border-top  pt-5">
-                                                <div class="text-center">
-                                                    <button type="reset" class="btn btn-secondary mr-4">
-                                                        Reset
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary">
-                                                        Submit
-                                                    </button>
-                                                </div>
-                                            </div>
+{{--                                            <div class="d-flex justify-content-center border-top  pt-5">--}}
+{{--                                                <div class="text-center">--}}
+{{--                                                    <button type="reset" class="btn btn-secondary mr-4">--}}
+{{--                                                        Reset--}}
+{{--                                                    </button>--}}
+{{--                                                    <button type="submit" class="btn btn-primary">--}}
+{{--                                                        Submit--}}
+{{--                                                    </button>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
 
                                         <!--end::Wizard Actions-->
@@ -415,7 +426,7 @@
 
     <script src="{{ asset('assets/admin/assets/js/jquery.js') }}"></script>
     <script>
-        function handleImage(files) {
+        function handleImage(files, up) {
                 var file_data = files[0];
                 console.log(file_data)
                 //lấy ra kiểu file
@@ -441,12 +452,19 @@
                         success: function (res) {
                             if (res.success == 1) {
                                 let url = '{{ asset('admin/upload/') }}' +'/'+ res.data;
-                                console.log(url)
-                                $('#image').removeClass('d-none')
-                                $('#image').find('img').attr('src', url)
-                                $("input[name='image']").val(res.data)
-                                toastr.success('Upload thành công!');
-
+                                //alert(type)
+                                if (up == 1) {
+                                    $('#image').removeClass('d-none')
+                                    $('#image').find('img').attr('src', url)
+                                    $("input[name='image']").val(res.data)
+                                    toastr.success('Upload thành công!');
+                                }
+                                if (up == 2) {
+                                    $('#attach-image').removeClass('d-none')
+                                    $('#attach-image').find('img').attr('src', url)
+                                    $("input[name='attach_image']").val(res.data)
+                                    toastr.success('Upload thành công!');
+                                }
                             } else {
                                 toastr.error('Upload thất bại!');
                             }

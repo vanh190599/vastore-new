@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Account\CreateRequest;
+use App\Http\Requests\Admin\Product\CreateRequest;
 use App\Library\CGlobal;
 use App\Services\AdminService;
 use App\Services\BrandService;
@@ -81,12 +81,18 @@ class ProductController extends Controller{
 
     public function create(){
         $brands = $this->brandService->get([])->pluck('name', 'id')->toArray();
+        $aryLabel = array(
+            1 => 'ngày',
+            2 => 'tháng',
+            3 => 'năm',
+        );
         return view('admin.product.create', compact(
-            'brands'
+            'brands', 'aryLabel'
         ));
     }
 
-    public function submitCreate(Request $request) {
+    public function submitCreate(CreateRequest $request) {
+        $request->flash();
         $data = $request->only([
             "name",
             'brand',
@@ -108,13 +114,11 @@ class ProductController extends Controller{
             "camera_after",
             "description",
             "image",
-            "status"
+            "status",
+            "attach",
+            "attach_image",
         ]);
-
-        $data['unit_label'] = 1;
-        $data['height'] = 1;
-        $data['image'] = 1;
-
+        $data["release_date"] = strtotime($data["release_date"]);
         $this->productService->create($data);
         dd('ok');
     }

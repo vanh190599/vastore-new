@@ -30,7 +30,9 @@ class product extends Model
         "camera_after" ,
         "description" ,
         "image",
-        "status"
+        "status",
+        "attach",
+        "attach_image",
     ];
 
     protected $dates = ['deleted_at'];

@@ -19,7 +19,7 @@ class CreateTableProductsTable extends Migration
             $table->string('image');
             $table->integer('brand');
             $table->float('price');
-            $table->float('price_discount');
+            $table->float('price_discount')->nullable();
             $table->integer('unit_num');
             $table->string('unit_label');
             $table->string('release_date');
@@ -36,6 +36,8 @@ class CreateTableProductsTable extends Migration
             $table->string('camera_after');
             $table->text('description');
             $table->integer('status')->default(1)->comment('0: ẩn, 1:hiển thị');;
+            $table->string('attach')->nullable()->comment('phụ kiện đi kèm');
+            $table->string('attach_image')->nullable()->comment('ảnh phụ kiện đi kèm');
             $table->timestamps();
         });
     }

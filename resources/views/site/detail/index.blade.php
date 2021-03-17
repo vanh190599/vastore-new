@@ -70,11 +70,16 @@
                 </ul>
             </div>
 
-            <a href="" >
-                <div class="buy-now">
-                    MUA NGAY
-                </div>
-            </a>
+            <form id="MyForm" name="MyForm" action="{{ route('site.cart.addCart') }}" method="post">
+                @csrf
+                <input type="hidden" name="id" value="{{ $product->id }}" id="">
+                <a href="javascript: submit()"  type="">
+                    <div class="buy-now">
+                        MUA NGAY
+                    </div>
+                </a>
+            </form>
+
         </div>
     </div>
     <hr>
@@ -129,6 +134,14 @@
         </div>
     </div>
 </div>
+
+<script type='text/javascript'>
+    function submit()
+    {
+        document.forms["MyForm"].submit();
+    }
+</script>
+
 @endsection
 
 @section('custom_js')

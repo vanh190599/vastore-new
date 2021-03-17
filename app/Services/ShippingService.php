@@ -3,23 +3,22 @@
 
 namespace App\Services;
 
-
-use App\Model\MySql\Brand;
+use App\Model\MySql\shipping;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 
-class BrandService
+class ShippingService
 {
-    private $brand;
+    private $shipping;
 
-    public function __construct(Brand $brand)
+    public function __construct(Shipping $shipping)
     {
-        $this->brand = $brand;
+        $this->shipping = $shipping;
     }
 
     public function search($data)
     {
-        $query = $this->brand;
+        $query = $this->shipping;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -43,7 +42,7 @@ class BrandService
             }
         }
         if (isset($data['sortBy']) && $data['sortBy'] != '') {
-            $query = $query->orderBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
+            $query = $query->shippingBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
         }
         $result = $query->paginate(isset($data['limit']) ? (int)$data['limit'] : 30);
         return $result;
@@ -51,25 +50,24 @@ class BrandService
 
     public function create($data)
     {
-        $brand = $this->brand;
+        $shipping = $this->shipping;
         foreach ($data as $key => $value) {
-            $brand->$key = $value;
+            $shipping->$key = $value;
         }
-        $brand->save();
-        return $brand;
+        $shipping->save();
+        return $shipping;
     }
 
-    public function edit($brand, $data)
+    public function edit($shipping, $data)
     {
         try {
-            DB::beginTransaction();
             foreach ($data as $key => $value) {
-                $brand->$key = $value;
+                $shipping->$key = $value;
             }
-            $brand->save();
+            $shipping->save();
 
             DB::commit();
-            return $brand;
+            return $shipping;
         } catch (Exception  $e) {
             DB::rollBack();
             throw $e;
@@ -78,25 +76,26 @@ class BrandService
 
     public function first($condition)
     {
-        $brand = $this->brand;
+        $shipping = $this->shipping;
         foreach ($condition as $key => $value) {
-            $brand = $brand->where($key, $value);
+            $shipping = $shipping->where($key, $value);
         }
-        $brand = $brand->first();
+        $shipping = $shipping->first();
 
-        return $brand;
+        return $shipping;
     }
 
 
-    public function delete($condition){
+    public function delete($condition)
+    {
         try {
             DB::beginTransaction();
 
-            $brand = $this->brand;
+            $shipping = $this->shipping;
             foreach ($condition as $key => $value) {
-                $brand = $brand->where($key, $value);
+                $shipping = $shipping->where($key, $value);
             }
-            $brand = $brand->delete();
+            $shipping = $shipping->delete();
 
             DB::commit();
             return true;
@@ -108,7 +107,7 @@ class BrandService
 
     public function get($data)
     {
-        $query = $this->brand;
+        $query = $this->shipping;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }

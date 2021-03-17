@@ -10,7 +10,18 @@ Route::middleware(['guest:customers'])->group(function (){
 
 Route::middleware(['auth:customers'])->group(function (){
     Route::post('logout', 'LoginController@logout')->name('logout');
+
+    //cart - shipping
+    Route::get('/cart', 'CartController@index')->name('cart.index');
+    Route::post('/add-cart', 'CartController@addCart')->name('cart.addCart');
+    Route::post('/delete-cart', 'CartController@delete')->name('cart.delete');
+    Route::post('/update-cart', 'CartController@update')->name('cart.update');
+    Route::get('/shipping', 'CartController@shipping')->name('cart.shipping');
+    Route::post('/postShipping', 'CartController@postShipping')->name('cart.postShipping');
+    Route::get('/shipping/create', 'CartController@createShipping')->name('cart.createShipping');
 });
+
+//Route::get('/cart', 'CartController@index')->name('cart');
 
 Route::get('/', 'HomeController@index')->name('home.index');
 Route::get('detail/{slug}-{id}.html', 'ProductController@index')->name('detail.index');

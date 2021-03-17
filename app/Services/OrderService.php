@@ -4,22 +4,22 @@
 namespace App\Services;
 
 
-use App\Model\MySql\Brand;
+use App\Model\MySql\order;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 
-class BrandService
+class orderService
 {
-    private $brand;
+    private $order;
 
-    public function __construct(Brand $brand)
+    public function __construct(Order $order)
     {
-        $this->brand = $brand;
+        $this->order = $order;
     }
 
     public function search($data)
     {
-        $query = $this->brand;
+        $query = $this->order;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -51,25 +51,24 @@ class BrandService
 
     public function create($data)
     {
-        $brand = $this->brand;
+        $order = $this->order;
         foreach ($data as $key => $value) {
-            $brand->$key = $value;
+            $order->$key = $value;
         }
-        $brand->save();
-        return $brand;
+        $order->save();
+        return $order;
     }
 
-    public function edit($brand, $data)
+    public function edit($order, $data)
     {
         try {
-            DB::beginTransaction();
             foreach ($data as $key => $value) {
-                $brand->$key = $value;
+                $order->$key = $value;
             }
-            $brand->save();
+            $order->save();
 
             DB::commit();
-            return $brand;
+            return $order;
         } catch (Exception  $e) {
             DB::rollBack();
             throw $e;
@@ -78,25 +77,26 @@ class BrandService
 
     public function first($condition)
     {
-        $brand = $this->brand;
+        $order = $this->order;
         foreach ($condition as $key => $value) {
-            $brand = $brand->where($key, $value);
+            $order = $order->where($key, $value);
         }
-        $brand = $brand->first();
+        $order = $order->first();
 
-        return $brand;
+        return $order;
     }
 
 
-    public function delete($condition){
+    public function delete($condition)
+    {
         try {
             DB::beginTransaction();
 
-            $brand = $this->brand;
+            $order = $this->order;
             foreach ($condition as $key => $value) {
-                $brand = $brand->where($key, $value);
+                $order = $order->where($key, $value);
             }
-            $brand = $brand->delete();
+            $order = $order->delete();
 
             DB::commit();
             return true;
@@ -108,7 +108,7 @@ class BrandService
 
     public function get($data)
     {
-        $query = $this->brand;
+        $query = $this->order;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }

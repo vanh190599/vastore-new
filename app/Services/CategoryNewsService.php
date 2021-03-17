@@ -4,22 +4,22 @@
 namespace App\Services;
 
 
-use App\Model\MySql\Brand;
+use App\Model\MySql\categoryNew;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 
-class BrandService
+class CategoryNewsService
 {
-    private $brand;
+    private $categoryNew;
 
-    public function __construct(Brand $brand)
+    public function __construct(CategoryNew $categoryNew)
     {
-        $this->brand = $brand;
+        $this->categoryNew = $categoryNew;
     }
 
     public function search($data)
     {
-        $query = $this->brand;
+        $query = $this->categoryNew;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -51,25 +51,24 @@ class BrandService
 
     public function create($data)
     {
-        $brand = $this->brand;
+        $categoryNew = $this->categoryNew;
         foreach ($data as $key => $value) {
-            $brand->$key = $value;
+            $categoryNew->$key = $value;
         }
-        $brand->save();
-        return $brand;
+        $categoryNew->save();
+        return $categoryNew;
     }
 
-    public function edit($brand, $data)
+    public function edit($categoryNew, $data)
     {
         try {
-            DB::beginTransaction();
             foreach ($data as $key => $value) {
-                $brand->$key = $value;
+                $categoryNew->$key = $value;
             }
-            $brand->save();
+            $categoryNew->save();
 
             DB::commit();
-            return $brand;
+            return $categoryNew;
         } catch (Exception  $e) {
             DB::rollBack();
             throw $e;
@@ -78,13 +77,13 @@ class BrandService
 
     public function first($condition)
     {
-        $brand = $this->brand;
+        $categoryNew = $this->categoryNew;
         foreach ($condition as $key => $value) {
-            $brand = $brand->where($key, $value);
+            $categoryNew = $categoryNew->where($key, $value);
         }
-        $brand = $brand->first();
+        $categoryNew = $categoryNew->first();
 
-        return $brand;
+        return $categoryNew;
     }
 
 
@@ -92,11 +91,11 @@ class BrandService
         try {
             DB::beginTransaction();
 
-            $brand = $this->brand;
+            $categoryNew = $this->categoryNew;
             foreach ($condition as $key => $value) {
-                $brand = $brand->where($key, $value);
+                $categoryNew = $categoryNew->where($key, $value);
             }
-            $brand = $brand->delete();
+            $categoryNew = $categoryNew->delete();
 
             DB::commit();
             return true;
@@ -108,7 +107,7 @@ class BrandService
 
     public function get($data)
     {
-        $query = $this->brand;
+        $query = $this->categoryNew;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }

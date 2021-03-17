@@ -37,6 +37,19 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::post('delete', 'BrandController@delete')->name('brand.delete');
     });
 
+    //news
+
+    //category news
+    Route::prefix('category-news')->group(function (){
+        Route::get('search', 'CategoryNewsController@search')->name('categoryNews.search');
+        Route::get('create', 'CategoryNewsController@create')->name('categoryNews.create');
+        Route::post('create', 'CategoryNewsController@submitCreate')->name('categoryNews.create');
+        Route::get('edit', 'CategoryNewsController@edit')->name('categoryNews.edit');
+        Route::post('edit', 'CategoryNewsController@submitEdit')->name('categoryNews.edit');
+        Route::post('delete', 'CategoryNewsController@delete')->name('categoryNews.delete');
+    });
+
+
     Route::post('uploadFile', 'UploadFileController@uploadImage');
 });
 

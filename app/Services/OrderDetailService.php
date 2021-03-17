@@ -4,22 +4,23 @@
 namespace App\Services;
 
 
-use App\Model\MySql\Brand;
+use App\Model\MySql\order;
+use App\Model\MySql\OrderDetail;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 
-class BrandService
+class OrderDetailService
 {
-    private $brand;
+    private $orderDetail;
 
-    public function __construct(Brand $brand)
+    public function __construct(OrderDetail $orderDetail)
     {
-        $this->brand = $brand;
+        $this->orderDetailDetail = $orderDetail;
     }
 
     public function search($data)
     {
-        $query = $this->brand;
+        $query = $this->orderDetail;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -43,7 +44,7 @@ class BrandService
             }
         }
         if (isset($data['sortBy']) && $data['sortBy'] != '') {
-            $query = $query->orderBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
+            $query = $query->orderDetailBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
         }
         $result = $query->paginate(isset($data['limit']) ? (int)$data['limit'] : 30);
         return $result;
@@ -51,25 +52,24 @@ class BrandService
 
     public function create($data)
     {
-        $brand = $this->brand;
+        $orderDetail = $this->orderDetail;
         foreach ($data as $key => $value) {
-            $brand->$key = $value;
+            $orderDetail->$key = $value;
         }
-        $brand->save();
-        return $brand;
+        $orderDetail->save();
+        return $orderDetail;
     }
 
-    public function edit($brand, $data)
+    public function edit($orderDetail, $data)
     {
         try {
-            DB::beginTransaction();
             foreach ($data as $key => $value) {
-                $brand->$key = $value;
+                $orderDetail->$key = $value;
             }
-            $brand->save();
+            $orderDetail->save();
 
             DB::commit();
-            return $brand;
+            return $orderDetail;
         } catch (Exception  $e) {
             DB::rollBack();
             throw $e;
@@ -78,25 +78,26 @@ class BrandService
 
     public function first($condition)
     {
-        $brand = $this->brand;
+        $orderDetail = $this->orderDetail;
         foreach ($condition as $key => $value) {
-            $brand = $brand->where($key, $value);
+            $orderDetail = $orderDetail->where($key, $value);
         }
-        $brand = $brand->first();
+        $orderDetail = $orderDetail->first();
 
-        return $brand;
+        return $orderDetail;
     }
 
 
-    public function delete($condition){
+    public function delete($condition)
+    {
         try {
             DB::beginTransaction();
 
-            $brand = $this->brand;
+            $orderDetail = $this->orderDetail;
             foreach ($condition as $key => $value) {
-                $brand = $brand->where($key, $value);
+                $orderDetail = $orderDetail->where($key, $value);
             }
-            $brand = $brand->delete();
+            $orderDetail = $orderDetail->delete();
 
             DB::commit();
             return true;
@@ -108,7 +109,7 @@ class BrandService
 
     public function get($data)
     {
-        $query = $this->brand;
+        $query = $this->orderDetail;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }

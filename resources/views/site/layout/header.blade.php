@@ -11,13 +11,17 @@
 
                 <div class="col-md-6 col-sm-12" style="margin-top: 10px" >
                     <!-- search -->
-                    <form action="{{ url('tim-kiem-san-pham') }}" method="get">
+                    <form action="{{ route('site.list.index') }}" method="get">
                         <div class="form-group pull-right" style="display: flex">
-                            <select name="category_id" class="form-control" style="width: 190px" >
+                            <select name="brand_id" class="form-control" style="width: 190px" >
                                 <option value="0" >Tất cả danh mục</option>
-                                <option value="">test</option>
+                                @if(!empty($data_brand) )
+                                    @foreach($data_brand as $k => $v)
+                                        <option @if(!is_null(request('brand_id')) && request('brand_id') == $v->id) selected @endif value="{{$v->id}}">{{$v->name}}</option>
+                                    @endforeach
+                                @endif
                             </select>
-                            <input type="text" name="key" value="" class="form-control" placeholder="Tìm kiếm"/>
+                            <input type="text" name="name" value="" class="form-control" placeholder="Tìm kiếm"/>
                             <button  class="btn" style="color: orangered; margin-left: 5px"><span>Tìm kiếm </span><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </form>
@@ -42,15 +46,16 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse" style="margin-top: 8px;">
-                            <li><a href="{{url('trang-chu')}}" class="active">Trang chủ</a></li>
-                            <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
+                            <li><a href="{{ route('site.home.index') }}" class="active">Trang chủ</a></li>
+                            <li class="dropdown"><a href="#">Thương hiệu<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu" style="background: #FE980F">
-                                    <li><a href="{{ url('new-product') }}">Sản phẩm mới nhất</a></li>
-                                    <li><a href="{{ url('top-sale-product') }}">Sản phẩm bán chạy</a></li>
-                                    <li><a href="{{ url('sale-product') }}">Sản phẩm khuyến mãi</a></li>
+                                    @if(!empty($data_brand))
+                                        @foreach($data_brand as $key => $value)
+                                            <li><a href="{{ route('site.list.index', ['brand_id'=>$value->id]) }}">{{ $value->name }}</a></li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </li>
-                            <li><a href="{{url('trang-chu')}}"  class="text">Giới thiệu</a></li>
                             <li><a href="{{url('news')}}"  class="text">Tin tức</a></li>
                             <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
                         </ul>
@@ -85,9 +90,9 @@
 </style>
 
 <div style="position: fixed; right: 20px; top: 20px; z-index: 10" class="gio-hang1">
-    <a href="">
+    <a href="{{ route('site.cart.index') }}">
         <div class="gio-hang-icon"  style="width: 70px; height: 70px; background: #546ce8; display: flex; justify-content:center; align-items: center; border-radius: 35px; position: relative; border: 1px solid white;" >
-            <b style="position: absolute; color: white; padding-bottom: 35px;">0</b>
+            <b style="position: absolute; color: white; padding-bottom: 35px;"> {{ Cart::count() }} </b>
             <span class="glyphicon glyphicon-shopping-cart" style="font-size: 30px; width: 40px; height: 45px; color:white; margin-top: 23px;
 margin-left: 7px;"></span>
         </div>

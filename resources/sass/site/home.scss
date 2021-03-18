@@ -3,6 +3,8 @@
         min-width: 300px;
         min-height: 390px;
         border-radius: 5px;
+        border: 1px solid transparent;
+        margin-top: 20px;
 
         .image {
             margin-top: 15px;
@@ -26,7 +28,7 @@
         }
 
         .info {
-            top: 210px;
+            top: 226px;
             position: absolute;
             left: 23px;
 

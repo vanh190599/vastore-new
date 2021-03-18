@@ -30,4 +30,41 @@ class HomeController extends Controller{
             'products'
         ));
     }
+
+    public function list(Request $request){
+        $conditions = [];
+        if (! empty($request->brand_id)) {
+            array_push($conditions, [
+                'key' => 'brand_id',
+                'value' => $request->brand_id,
+            ]);
+        }
+        if (! empty($request->name)) {
+            array_push($conditions, [
+                'key' => 'name',
+                'value' => $request->name,
+                'operator' => 'name'
+            ]);
+        }
+
+        array_push($conditions, [
+            'key' => 'status',
+            'value' => 1,
+        ]);
+
+
+        $data = [
+            'conditions' => $conditions,
+            'limit' => 50,
+            'sortBy' => 'created_at',
+            'sortOrder' => 'DESC'
+        ];
+
+        //dd($data);
+
+        $products = $this->productService->get($data);
+        return view('site.list.index', compact(
+            'products'
+        ));
+    }
 }

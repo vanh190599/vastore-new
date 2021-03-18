@@ -15,7 +15,7 @@ class OrderDetailService
 
     public function __construct(OrderDetail $orderDetail)
     {
-        $this->orderDetailDetail = $orderDetail;
+        $this->orderDetail = $orderDetail;
     }
 
     public function search($data)
@@ -44,7 +44,7 @@ class OrderDetailService
             }
         }
         if (isset($data['sortBy']) && $data['sortBy'] != '') {
-            $query = $query->orderDetailBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
+            $query = $query->orderBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
         }
         $result = $query->paginate(isset($data['limit']) ? (int)$data['limit'] : 30);
         return $result;

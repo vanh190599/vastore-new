@@ -206,7 +206,7 @@
                                                     </td>
 
                                                     <td class="align-middle">
-                                                        <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
+                                                        <a href="{{ route('admin.product.edit', ['id'=>$value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
                                                            data-container="body"
                                                            data-toggle="popover"
                                                            data-placement="bottom"
@@ -223,6 +223,11 @@
                                                            data-click="openDelete">
                                                             <i class="la la-trash"></i>
                                                         </a>
+                                                        @if($value->status == 1)
+                                                            <a href="" class="btn btn-outline-warning btn-sm">Ẩn</a>
+                                                        @else
+                                                            <a href="" class="btn btn-outline-primary btn-sm">Hiển thị</a>
+                                                        @endif
                                                     </td>
 
                                                 </tr>
@@ -232,6 +237,11 @@
                                     </table>
                                 </div>
                             </div>
+
+                            <div>
+                                {{ $products->links() }}
+                            </div>
+
                             <!--end::Wizard Body-->
                         </div>
                         <!--end::Wizard-->

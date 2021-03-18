@@ -1240,6 +1240,8 @@ body.waitMe_body .waitMe_container.text > div {
   min-width: 300px;
   min-height: 390px;
   border-radius: 5px;
+  border: 1px solid transparent;
+  margin-top: 20px;
 }
 
 #site-home .item-custom .image {
@@ -1265,7 +1267,7 @@ body.waitMe_body .waitMe_container.text > div {
 }
 
 #site-home .item-custom .info {
-  top: 210px;
+  top: 226px;
   position: absolute;
   left: 23px;
 }

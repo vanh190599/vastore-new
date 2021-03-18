@@ -125,7 +125,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Avatar</th>
+{{--                                            <th scope="col">Avatar</th>--}}
                                             <th scope="col">Tên</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">SDT</th>
@@ -138,18 +138,18 @@
                                                 @foreach($admins as $key => $value)
                                                     <tr>
                                                         <td class="align-middle"> {{ $value->id }} </td>
-                                                        <td><img src="{{ asset('admin/upload/admin-account') }}/{{$value->avatar}}" width="50px" height="50px" alt="" style="object-fit: cover"></td>
+{{--                                                        <td><img src="{{ asset('admin/upload/admin-account') }}/{{$value->avatar}}" width="50px" height="50px" alt="" style="object-fit: cover"></td>--}}
                                                         <td class="align-middle">{{ $value->name }}</td>
                                                         <td class="align-middle">{{ $value->email }}</td>
                                                         <td class="align-middle">{{ $value->phone }}</td>
                                                         <td class="align-middle">
-                                                            @if($value->is_active == $CGlobal::STATUS_ACTIVE)
+                                                            @if($value->status == $CGlobal::STATUS_ACTIVE)
                                                                 <span class="label label-success label-pill label-inline mr-2">
-                                                                    {{ $aryStatus[$value->is_active] }}
+                                                                    {{ $aryStatus[$value->status] }}
                                                                 </span>
-                                                            @elseif($value->is_active == $CGlobal::STATUS_BLOCK)
+                                                            @elseif($value->status == $CGlobal::STATUS_BLOCK)
                                                                 <span class="label label-danger label-pill label-inline mr-2">
-                                                                    {{ $aryStatus[$value->is_active] }}
+                                                                    {{ $aryStatus[$value->status] }}
                                                                 </span>
                                                             @endif
                                                         </td>
@@ -176,7 +176,7 @@
                                                             </a>
                                                             @endif
 
-                                                            <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
+                                                            <a href="{{ route('admin.account.edit', ['id'=>$value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
                                                                data-container="body"
                                                                data-toggle="popover"
                                                                data-placement="bottom"

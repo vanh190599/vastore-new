@@ -38,7 +38,7 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse" style="margin-top: 8px;">
-                            <li><a href="{{url('trang-chu')}}" class="active">Trang chủ</a></li>
+                            <li><a href="{{url('trang-chu')}}" class="active">Trang chủ1</a></li>
                             <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu" style="background: #FE980F">
                                     <li><a href="{{ url('new-product') }}">Sản phẩm mới nhất</a></li>

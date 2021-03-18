@@ -59,7 +59,8 @@
                                 @if(!empty($data_brand))
                                     @foreach($data_brand as $k => $v)
                                         <li class="">
-                                            <a class="list-group-item text-dark" style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px" href="">
+                                            <a class="list-group-item text-dark" style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px"
+                                               href="{{ route('site.list.index', ['brand_id'=>$v->id]) }}">
                                                 {{ $v->name }}</a>
                                         </li>
                                     @endforeach
@@ -68,7 +69,7 @@
                         </div>
                     </div><!--/products-->
 
-                    <div class="brands_products"><!--products-->
+                   {{-- <div class="brands_products"><!--products-->
                         <h2 style="color: orangered">Danh mục</h2>
                         <div class="">
                             <ul class="list-group" style="border-bottom: 2px solid #dddddd">
@@ -88,7 +89,7 @@
                                 <li class=""><a class="list-group-item text-dark"  style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px  " href="">Ưu đãi, khuyến mãi</a></li>
                             </ul>
                         </div>
-                    </div><!--/products-->
+                    </div><!--/products-->--}}
                 </div><!--/products-->
 
                 <iframe width="100%" height="auto" src="https://www.youtube.com/embed/aQCdueuaiwE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -56,34 +56,32 @@ class CategoryNewsController extends Controller{
 
     public function submitCreate(BrandRequest $request){
         $data = $request->only('name', 'description');
-
         $brand = $this->categoryNewsService->create($data);
-
-        return redirect()->route('admin.brand.search')->with('success_message', $brand->name.' Đã được tạo');
+        return redirect()->route('admin.categoryNews.search')->with('success_message', 'Tạo thành công');
     }
 
     public function edit(Request $request){
-        $brand = $this->categoryNewsService->first(['id' => $request->id]);
+        $categoryNews = $this->categoryNewsService->first(['id' => $request->id]);
 
         if (empty($brand)) {
-            return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
+            return redirect()->route('admin.categoryNews.search')->with('error_message', 'Danh mục không tồn tại');
         }
 
-        return view('admin.brand.edit', compact('brand'));
+        return view('admin.categoryNews.edit', compact('$categoryNews'));
     }
 
-    public function submitEdit(BrandRequest $request){
-        $brand = $this->categoryNewsService->first(['id' => $request->id]);
+    public function submitEdit(Request $request){
+        $categoryNews = $this->categoryNewsService->first(['id' => $request->id]);
 
         if (empty($brand)) {
-            return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
+            return redirect()->route('admin.$categoryNews.search')->with('error_message', 'Danh mục không tồn tại');
         }
 
         $data = $request->only('name', 'description');
 
-        $this->categoryNewsService->edit($brand, $data);
+        $this->categoryNewsService->edit($categoryNews, $data);
 
-        return redirect()->route('admin.brand.search')->with('success_message', 'Sửa thương hiệu thành công');
+        return redirect()->route('admin.$categoryNews.search')->with('success_message', 'Sửa thành công');
     }
 
     public function delete(Request $request){

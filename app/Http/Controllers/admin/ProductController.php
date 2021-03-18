@@ -123,4 +123,11 @@ class ProductController extends Controller{
         $this->productService->create($data);
         return redirect()->route('admin.product.search');
     }
+
+    public function edit(Request $request){
+        $product = $this->productService->first(['id'=>$request->id]);
+        $brands = $this->brandService->get([])->pluck('name', 'id')->toArray();
+        $aryLabel = CGlobal::$aryLable;
+        return view('admin.product.edit', compact('product', 'brands', 'aryLabel' ));
+    }
 }

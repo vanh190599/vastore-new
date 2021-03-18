@@ -60,7 +60,7 @@ class AdminController extends Controller{
         ];
 
         $aryStatus = CGlobal::$aryStatusActive;
-//        dd($aryStatus);
+        //dd($aryStatus);
 
         $admins = $this->adminService->search($data);
         return view('admin.account.search')
@@ -87,7 +87,8 @@ class AdminController extends Controller{
         $request->flash();
         $data = $request->only('name', 'email', 'phone', 'avatar');
         $data['password'] = Hash::make('123456');
-        $data['is_active'] = CGlobal::STATUS_ACTIVE;
+        $data['status'] = CGlobal::STATUS_ACTIVE;
+        $data['type'] = 1;
 
         $admin = $this->adminService->create($data);
         return redirect()->route('admin.account.search')->with('success_message', 'Thêm quản trị viên thành công!');
@@ -117,5 +118,27 @@ class AdminController extends Controller{
         }
 
         return response(['success' => 1, 'data' => $admin]);
+    }
+
+    public function edit(Request $request){
+        $aryStatus = CGlobal::$aryStatusActive;
+        $admin = $this->adminService->first(['id'=>$request->id]);
+        if (empty($admin)) {
+            return response(['success' => 0, 'message' => 'Không tồn tại tài khoản này']);
+        }
+        return view('admin.account.edit', compact('admin', 'aryStatus'));
+    }
+
+    public function submitEdit(Request $request){
+        $data = $request->only('name', 'email', 'phone', 'status');
+
+        $admin = $this->adminService->first(['id'=>$request->id]);
+        if (empty($admin)) {
+            return response(['success' => 0, 'message' => 'Không tồn tại tài khoản này']);
+        }
+
+        $this->adminService->edit($admin, $data);
+
+        return redirect()->route('admin.account.search')->with('success_message', 'Sửa thành công');
     }
 }

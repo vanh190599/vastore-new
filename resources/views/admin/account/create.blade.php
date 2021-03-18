@@ -69,19 +69,19 @@
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">
                                             <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin cho tài khoản</h3>
                                             <!--begin::Input-->
-                                            <div class="form-group fv-plugins-icon-container">
-                                                <label>Ảnh đại diện<span class="text-danger">*</span></label><br>
-                                                <input type="file" class="upload-file"
-                                                       onchange="handleImage(this.files)" required >
-                                                <div class="text-danger"></div>
-                                                <span class="form-text text-muted d-none">Hãy nhập đầy đủ họ và tên</span>
-                                                <div class="fv-plugins-message-container"></div></div>
-                                            <!--end::Input-->
+{{--                                            <div class="form-group fv-plugins-icon-container">--}}
+{{--                                                <label>Ảnh đại diện<span class="text-danger">*</span></label><br>--}}
+{{--                                                <input type="file" class="upload-file"--}}
+{{--                                                       onchange="handleImage(this.files)" required >--}}
+{{--                                                <div class="text-danger"></div>--}}
+{{--                                                <span class="form-text text-muted d-none">Hãy nhập đầy đủ họ và tên</span>--}}
+{{--                                                <div class="fv-plugins-message-container"></div></div>--}}
+{{--                                            <!--end::Input-->--}}
 
-                                            <div class="img-avatar mb-3 d-none">
-                                                <img class="avatar-uploaded" alt="" width="100px" height="100px" style="object-fit: cover">
-                                                <input type="hidden" name="avatar" value="{{ old('avatar') }}">
-                                            </div>
+{{--                                            <div class="img-avatar mb-3 d-none">--}}
+{{--                                                <img class="avatar-uploaded" alt="" width="100px" height="100px" style="object-fit: cover">--}}
+{{--                                                <input type="hidden" name="avatar" value="{{ old('avatar') }}">--}}
+{{--                                            </div>--}}
 
                                             <!--begin::Input-->
                                             <div class="form-group fv-plugins-icon-container">

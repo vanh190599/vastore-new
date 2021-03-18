@@ -17,7 +17,7 @@
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
                         <i class="flaticon-paper-plane text-primary mr-4"></i>
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">Thương hiệu</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">Danh mục tin tức</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -64,7 +64,7 @@
                                     @csrf
                                     <!--begin::Wizard Step 1-->
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">
-                                            <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin thương hiệu</h3>
+                                            <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin danh mục</h3>
 
                                             <!--begin::Input-->
                                             <div class="form-group fv-plugins-icon-container">
@@ -76,7 +76,6 @@
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <div class="text-danger"></div>
-                                                <span class="form-text text-muted d-none">Hãy nhập đầy đủ họ và tên</span>
                                                 <div class="fv-plugins-message-container"></div></div>
                                             <!--begin::Input-->
                                             <div class="form-group">
@@ -85,7 +84,6 @@
                                                 @error('description')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
-                                                <span class="form-text text-muted d-none">Hãy nhập email cá nhân</span>
                                             </div>
                                             <!--end::Input-->
                                             <!--begin::Wizard Actions-->

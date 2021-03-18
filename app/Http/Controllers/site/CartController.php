@@ -39,11 +39,6 @@ class CartController extends Controller {
 
     public function index(Request $request){
         $data = Cart::content();
-
-        //Cart::remove('468399581342505c47f4615b81bedaa9');
-        //dd(Cart::subtotal());
-        //dd($data);
-
         return view('site.cart.index', compact('data', 'aryImg'));
     }
 
@@ -112,7 +107,7 @@ class CartController extends Controller {
                        'product_name' => $value->model->name,
                        'product_image' => $value->model->image,
                        'brand_name' => isset($brands[$value->model->brand_id]) ? $brands[$value->model->brand_id] : '',
-                       'price' => isset($brands[$value->model->brand_id]) ? $brands[$value->model->brand_id] : '',
+                       'price' => $value->model->discount > 0 ? $value->model->discount : $value->model->price ,
                        'qty' => $value->qty,
                        'total' => $value->qty * $value->price,
                    ]);
@@ -122,11 +117,16 @@ class CartController extends Controller {
 
            Cart::destroy();
 
+
            DB::commit();
-           return redirect()->route('site.home.index');
+           return redirect()->route('site.cart.finish');
        } catch (Exception $e) {
            DB::rollBack();
            throw $e;
        }
+   }
+
+   public function finish(){
+        return view('site.cart.finish');
    }
 }

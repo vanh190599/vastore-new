@@ -14,7 +14,9 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::get('search', 'AdminController@search')->name('account.search');
         Route::get('create', 'AdminController@create')->name('account.create');
         Route::post('create', 'AdminController@submitCreate')->name('account.create');
-        Route::post('delete', 'AdminController@delete')->name('account.delete');
+
+        Route::get('edit', 'AdminController@edit')->name('account.edit');
+        Route::post('edit', 'AdminController@submitEdit')->name('account.submitEdit');
 
         Route::get('get-admin-by-id', 'AdminController@getAdminByID')->name('account.getAdminByID');
         Route::post('change-status', 'AdminController@changeStatus')->name('account.changeStatus');
@@ -25,6 +27,9 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::get('search', 'ProductController@search')->name('product.search');
         Route::get('create', 'ProductController@create')->name('product.create');
         Route::post('create', 'ProductController@submitCreate')->name('product.create');
+
+        Route::get('edit', 'ProductController@edit')->name('product.edit');
+        Route::post('edit', 'ProductController@submitEdit')->name('product.submitEdit');
     });
 
     //brand
@@ -49,6 +54,21 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::post('delete', 'CategoryNewsController@delete')->name('categoryNews.delete');
     });
 
+    //order
+    Route::prefix('order')->group(function (){
+        Route::get('/search', 'OrderController@search')->name('order.search');
+        Route::get('/detail', 'OrderController@detail')->name('order.detail');
+    });
+
+    //user
+    Route::prefix('customer')->group(function (){
+        Route::get('search', 'CustomerController@search')->name('customer.search');
+        Route::get('create', 'CustomerController@create')->name('customer.create');
+        Route::post('create', 'CustomerController@submitCreate')->name('customer.create');
+        Route::get('edit', 'CustomerController@edit')->name('customer.edit');
+        Route::post('edit', 'CustomerController@submitEdit')->name('customer.edit');
+        Route::post('delete', 'CustomerController@delete')->name('customer.delete');
+    });
 
     Route::post('uploadFile', 'UploadFileController@uploadImage');
 });

@@ -18,4 +18,12 @@ class Order extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function details(){
+        return $this->hasMany(OrderDetail::class, 'order_id', 'id');
+    }
+
+    public function shipping(){
+        return $this->belongsTo(Shipping::class, 'shipping_id', 'id');
+    }
 }

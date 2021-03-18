@@ -3,23 +3,22 @@
 
 namespace App\Services;
 
-
-use App\Model\MySql\Brand;
+use App\Model\MySql\customer;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
 
 class CustomerService
 {
-    private $brand;
+    private $customer;
 
-    public function __construct(Brand $brand)
+    public function __construct(Customer $customer)
     {
-        $this->brand = $brand;
+        $this->customer = $customer;
     }
 
     public function search($data)
     {
-        $query = $this->brand;
+        $query = $this->customer;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }
@@ -51,24 +50,24 @@ class CustomerService
 
     public function create($data)
     {
-        $brand = $this->brand;
+        $customer = $this->customer;
         foreach ($data as $key => $value) {
-            $brand->$key = $value;
+            $customer->$key = $value;
         }
-        $brand->save();
-        return $brand;
+        $customer->save();
+        return $customer;
     }
 
-    public function edit($brand, $data)
+    public function edit($customer, $data)
     {
         try {
             foreach ($data as $key => $value) {
-                $brand->$key = $value;
+                $customer->$key = $value;
             }
-            $brand->save();
+            $customer->save();
 
             DB::commit();
-            return $brand;
+            return $customer;
         } catch (Exception  $e) {
             DB::rollBack();
             throw $e;
@@ -77,13 +76,13 @@ class CustomerService
 
     public function first($condition)
     {
-        $brand = $this->brand;
+        $customer = $this->customer;
         foreach ($condition as $key => $value) {
-            $brand = $brand->where($key, $value);
+            $customer = $customer->where($key, $value);
         }
-        $brand = $brand->first();
+        $customer = $customer->first();
 
-        return $brand;
+        return $customer;
     }
 
 
@@ -91,11 +90,11 @@ class CustomerService
         try {
             DB::beginTransaction();
 
-            $brand = $this->brand;
+            $customer = $this->customer;
             foreach ($condition as $key => $value) {
-                $brand = $brand->where($key, $value);
+                $customer = $customer->where($key, $value);
             }
-            $brand = $brand->delete();
+            $customer = $customer->delete();
 
             DB::commit();
             return true;
@@ -107,7 +106,7 @@ class CustomerService
 
     public function get($data)
     {
-        $query = $this->brand;
+        $query = $this->customer;
         if (!empty($data['select'])) {
             $query = $query->select($data['select']);
         }

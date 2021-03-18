@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 @section('title')
-    Danh sách thương hiệu
+    Danh mục tin tức
 @endsection
 @push('scripts')
     {{--    <script src="{{ asset('admin/js/page/admin_account.js') }}"></script>--}}
@@ -19,7 +19,7 @@
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
                         <i class="flaticon-paper-plane text-primary mr-4"></i>
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">Thương hiệu</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">Tin tức</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -54,7 +54,7 @@
                             <!--begin::Wizard Nav-->
                             <div class="wizard-nav border-bottom">
                                 <div class="wizard-steps p-8 p-lg-10">
-                                    <form action="{{ route('admin.brand.search') }}" method="get">
+                                    <form action="{{ route('admin.categoryNews.search') }}" method="get">
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group fv-plugins-icon-container">
@@ -104,17 +104,17 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Tên thương hiệu</th>
+                                            <th scope="col">Tên danh mục</th>
                                             <th scope="col">Mô tả</th>
                                             <th scope="col">Hoạt động</th>
                                             <th scope="col">Hành động</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(! empty($brands))
-                                            @foreach($brands as $key => $value)
+                                        @if(! empty($categoryNews))
+                                            @foreach($categoryNews as $key => $value)
                                                 <tr>
-                                                    <td class="align-middle">{{ $key + $brands->firstItem() }}</td>
+                                                    <td class="align-middle">{{ $key + $categoryNews->firstItem() }}</td>
                                                     <td class="align-middle">{{ $value->name }}</td>
                                                     <td class="align-middle">{{ $value->description }}</td>
                                                     <td class="align-middle">
@@ -124,7 +124,7 @@
                                                         </label>
                                                     </td>
                                                     <td class="align-middle">
-                                                        <a href="{{ route('admin.brand.edit', ['id' => $value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
+                                                        <a href="{{ route('admin.categoryNews.edit', ['id' => $value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
                                                            data-container="body" data-toggle="popover" data-placement="bottom"
                                                            data-content="Sửa" data-original-title="" title="">
                                                             <i class="la la-edit"></i>

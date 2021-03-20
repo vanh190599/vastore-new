@@ -22,17 +22,41 @@ class HomeController extends Controller{
 
     public function index(Request $request)
     {
+        //MOI
         $data['conditions'][] = ['key'=>'status', 'value'=>CGlobal::STATUS_SHOW];
-        $products = $this->productService->get($data);
+        $data['limit'] = 9;
+        $data['sortBy'] = 'id';
+        $data['sortOrder'] = 'desc';
+        $products = $this->productService->search($data);
         $products->load('brand');
-        $aryStatus = CGlobal::$aryStatusActive;
+
+        //KHUYEN MAI
+        $discounts = array();
+        if (sizeof($products) > 0) {
+            foreach ($products as $k => $v) {
+                if ($v->price_discount > 0) {
+                    $discounts[] = $v;
+                }
+            }
+        }
+
+        //BAN CHAY
+        $data_top_sale = array();
+        $data_top_sale['conditions'][] = ['key'=>'status', 'value'=>CGlobal::STATUS_SHOW];
+        $data_top_sale['conditions'][] = ['key'=>'sold',  'value'=>0, 'operator' => '>'];
+        $data_top_sale['sortBy'] = 'sold';
+        $data_top_sale['sortOrder'] = 'DESC';
+        $data_top_sale['limit'] = 9;
+        $top_sale = $this->productService->search($data_top_sale)->take(8);
+
         return view('site.home.index', compact(
-            'products'
+            'products', 'discounts', 'top_sale'
         ));
     }
 
     public function list(Request $request){
         $conditions = [];
+
         if (! empty($request->brand_id)) {
             array_push($conditions, [
                 'key' => 'brand_id',
@@ -52,17 +76,14 @@ class HomeController extends Controller{
             'value' => 1,
         ]);
 
-
         $data = [
             'conditions' => $conditions,
             'limit' => 50,
-            'sortBy' => 'created_at',
+            'sortBy' => 'id',
             'sortOrder' => 'DESC'
         ];
 
-        //dd($data);
-
-        $products = $this->productService->get($data);
+        $products = $this->productService->search($data);
         return view('site.list.index', compact(
             'products'
         ));

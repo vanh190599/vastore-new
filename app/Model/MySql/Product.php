@@ -33,6 +33,8 @@ class product extends Model
         "status",
         "attach",
         "attach_image",
+        "qty",
+        "sold",
     ];
 
     protected $dates = ['deleted_at'];

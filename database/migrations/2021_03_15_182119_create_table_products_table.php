@@ -38,6 +38,8 @@ class CreateTableProductsTable extends Migration
             $table->integer('status')->default(1)->comment('0: ẩn, 1:hiển thị');;
             $table->string('attach')->nullable()->comment('phụ kiện đi kèm');
             $table->string('attach_image')->nullable()->comment('ảnh phụ kiện đi kèm');
+            $table->integer('qty');
+            $table->integer('qty_sold');
             $table->timestamps();
         });
     }

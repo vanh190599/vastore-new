@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div id="site-home">
-        @if(! empty($products))
+        @if(!empty($products) && count($products) > 0)
             @foreach($products as $key => $value)
                 <div class="col-lg-4 col-md-6 col-sm-6 ">
                     <a href="{{ route('site.detail.index', [Str::slug($value->name), $value->id])}}" data-toggle="tooltip" title="{{ $value->name }}">

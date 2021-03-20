@@ -127,7 +127,7 @@
 {{--                                            <th scope="col">Giá</th>--}}
                                             <th scope="col">Số lượng</th>
                                             <th scope="col">Tổng tiền</th>
-                                            <th scope="col">Hành động</th>
+                                            <th scope="col">Nhận hàng</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -142,8 +142,16 @@
                                                     <td class="align-middle">{{ $value->brand_name }}</td>
 {{--                                                    <td class="align-middle">{{ $value->price }}</td>--}}
                                                     <td class="align-middle">{{ $value->qty }}</td>
+
                                                     <td class="align-middle">{{ number_format($value->total) }} đ</td>
-                                                    <td class="align-middle">--</td>
+                                                    <td class="align-middle">
+                                                        <label class="switch switch-brand ">
+                                                            <input class="change-status" data-id="{{ $value->id }}"
+                                                                   data-status="{{$value->status}}"
+                                                                   type="checkbox" @if($value->status == 1) checked @endif  >
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         @endif
@@ -165,5 +173,59 @@
 @endsection
 
 @section('scripts')
-
+    <script>
+        $(document).ready(function (){
+            $('.change-status').click(function (){
+                init.showLoader('#kt_content')
+                let id = $(this).data('id')
+                let status = $(this).data('status')
+                console.log(status)
+                let mess = '';
+                if (status == 1) {
+                    mess = 'Chưa nhận?';
+                } else {
+                    mess = 'Xác nhận đã nhận hàng?';
+                }
+                Swal.fire({
+                    title: mess,
+                    icon: "question",
+                    buttonsStyling: false,
+                    confirmButtonText: "<i class='la la-lock'></i> Xác nhận!",
+                    showCancelButton: true,
+                    cancelButtonText: "<i class='la la-window-close'></i> Hủy",
+                    reverseButtons: true,
+                    customClass: {
+                        confirmButton: "btn btn-danger",
+                        cancelButton: "btn btn-default"
+                    }
+                }).then(function(result) {
+                    if (result.value) {
+                        confirmChangeStatus(id,status)
+                    } else {
+                        init.hideLoader('#kt_content')
+                    }
+                });
+            })
+        })
+        function confirmChangeStatus(id, status){
+            $.ajax({
+                url: BASE_URL + '/admin/order/changeStatus',
+                data: {id, status},
+                type: 'post',
+                success: function (res) {
+                    if (res.success == 1) {
+                        toastr.success(res.message);
+                        setTimeout(function(){
+                            location.reload();
+                        }, 1000);
+                    } else {
+                        toastr.error(res.message);
+                        setTimeout(function(){
+                             location.reload();
+                         }, 1000);
+                    }
+                }
+            });
+        }
+    </script>
 @endsection

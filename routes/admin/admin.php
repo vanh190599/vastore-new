@@ -58,6 +58,7 @@ Route::middleware(['auth:admin'])->group(function (){
     Route::prefix('order')->group(function (){
         Route::get('/search', 'OrderController@search')->name('order.search');
         Route::get('/detail', 'OrderController@detail')->name('order.detail');
+        Route::post('/changeStatus', 'OrderController@changeStatus')->name('order.changeStatus');
     });
 
     //user

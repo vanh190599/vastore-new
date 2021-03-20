@@ -66,7 +66,7 @@ class ProductController extends Controller{
 
         $data = [
             'conditions' => $conditions,
-            'limit' => 50,
+            'limit' => 10,
             'sortBy' => 'created_at',
             'sortOrder' => 'DESC'
         ];
@@ -116,6 +116,8 @@ class ProductController extends Controller{
             "status",
             "attach",
             "attach_image",
+            "qty",
+            "sold",
         ]);
         $data["release_date"] = strtotime($data["release_date"]);
         $data["status"] = 1;

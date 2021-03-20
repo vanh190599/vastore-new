@@ -393,6 +393,19 @@
                                                 @enderror
                                                 <div class="fv-plugins-message-container"></div>
                                             </div>
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Số lượng <span class="text-danger">*</span></label>
+                                                <input type="number" min="1" class="form-control form-control-solid form-control-lg"
+                                                       name="qty" placeholder="Phụ kiện"
+                                                       value="{{ old('qty') }}" required>
+                                              {{--  @error('qty')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror--}}
+                                                <div class="fv-plugins-message-container"></div>
+                                            </div>
+
+
                                             <br>
                                             <!--begin::Wizard Actions-->
 {{--                                            <div class="d-flex justify-content-center border-top  pt-5">--}}

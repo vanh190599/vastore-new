@@ -9,19 +9,29 @@ use App\Library\CGlobal;
 use App\Services\BrandService;
 use App\Services\OrderDetailService;
 use App\Services\orderService;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Exception;
 
 class OrderController extends Controller {
 
     private $brandService;
     private $orderService;
     private $orderDetailService;
+    private $productService;
 
-    public function __construct(orderService $orderService, BrandService $brandService, OrderDetailService $orderDetailService)
+    public function __construct(
+        orderService $orderService,
+        BrandService $brandService,
+        OrderDetailService $orderDetailService,
+        ProductService $productService
+    )
     {
         $this->brandService = $brandService;
         $this->orderService = $orderService;
         $this->orderDetailService = $orderDetailService;
+        $this->productService = $productService;
     }
 
     public function search(Request $request)
@@ -109,12 +119,11 @@ class OrderController extends Controller {
     public function detail(Request $request)
     {
         $conditions = [];
-        if (! empty($request->id)) {
-            array_push($conditions, [
-                'key' => 'id',
-                'value' => $request->id,
-            ]);
-        }
+
+        array_push($conditions, [
+            'key' => 'order_id',
+            'value' => $request->order_id,
+        ]);
 
         if (! empty($request->user_name_c)) {
             array_push($conditions, [
@@ -136,6 +145,33 @@ class OrderController extends Controller {
         return view('admin.order.detail',
             compact('details')
         );
+    }
 
+    public function changeStatus(Request $request){
+        try {
+            DB::beginTransaction();
+
+            $orderDetail = $this->orderDetailService->first(['id'=>$request->id]);
+            $status = $request->status == 0 ? 1 : 0;
+            $mess = $request->status == 0 ? 'Đã nhận' : 'Chưa nhận';
+            $orderDetail = $this->orderDetailService->edit($orderDetail, ['status'=>$status]);
+
+            //update so luong
+            $product = $this->productService->first(['id'=>$orderDetail->product_id]);
+            $update_qty = $orderDetail->status == 1 ? (int) $product->qty - (int) $orderDetail->qty : (int) $product->qty + (int) $orderDetail->qty;
+            $update_sold = $orderDetail->status == 1 ? (int) $product->sold + (int) $orderDetail->qty : (int) $product->sold - (int) $orderDetail->qty;
+
+            if($update_qty < 0 || $update_sold < 0) {
+                return response(['success'=>false, 'message'=>'Có lỗi xảy ra!']);
+            }
+
+            $this->productService->edit($product, ['qty'=>(int) $update_qty, 'sold'=>$update_sold]);
+
+            DB::commit();
+            return response(['success'=>true, 'message'=>$mess]);
+        } catch (Exception $e) {
+            DB::rollBack();
+            throw $e;
+        }
     }
 }

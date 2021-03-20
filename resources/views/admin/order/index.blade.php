@@ -8,7 +8,6 @@
 @inject('CGlobal', 'App\Library\CGlobal' )
 
 @section('content')
-
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
         <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -148,8 +147,10 @@
                                                     <td>{{ $value->total }} đ</td>
 
                                                     <td class="align-middle">
-                                                        <label class="switch switch-brand">
-                                                            <input type="checkbox" checked >
+                                                        <label class="switch switch-brand ">
+                                                            <input class="change-status" data-id="{{ $value->id }}"
+                                                                   data-status="{{$value->status}}"
+                                                                   type="checkbox" @if($value->status == 1) checked @endif  >
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </td>

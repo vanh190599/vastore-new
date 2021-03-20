@@ -66,6 +66,11 @@ class CartController extends Controller {
     public function update(Request $request) {
         $product = $this->productService->first(['id' => $request->id]);
         $data = $request->all();
+        if ($data['qty_update'] > $product->qty ) {
+            return back()->with('error', 'Số lượng sản phẩm'.$product->name.' trong kho không đủ (Hiện có: '.$product->qty.')');
+        }
+
+
         $rowID = $data['rowID'];
         $qty_update = $data['qty_update'] >= 0 ? $data['qty_update'] : 1;
         $cart = Cart::get($rowID);

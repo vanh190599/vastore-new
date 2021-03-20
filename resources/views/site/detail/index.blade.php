@@ -34,6 +34,18 @@
                     <a href="#">{{ $product->attach }}</a>
                 </span>
             </p>
+            <p style="font-size: 16px; margin-top: 7px">
+                <span>Trạng thái:</span>
+                <span>
+                   {{ $product->qty > 0 ? 'Còn hàng' : 'Hết hàng' }}
+                </span>
+            </p>
+            <p style="font-size: 16px; margin-top: 7px">
+                <span>Kho hàng:</span>
+                <span>
+                   {{ $product->qty > 0 ? $product->qty : 'Hết hàng' }}
+                </span>
+            </p>
 
             <div class="uu-dai">
                 <ul>
@@ -72,12 +84,20 @@
 
             <form id="MyForm" name="MyForm" action="{{ route('site.cart.addCart') }}" method="post">
                 @csrf
-                <input type="hidden" name="id" value="{{ $product->id }}" id="">
-                <a href="javascript: submit()"  type="">
-                    <div class="buy-now">
-                        MUA NGAY
-                    </div>
-                </a>
+                @if($product->qty > 0)
+                    <input type="hidden" name="id" value="{{ $product->id }}" id="">
+                    <a href="javascript: submit()"  type="">
+                        <div class="buy-now">
+                            MUA NGAY
+                        </div>
+                    </a>
+                @else
+                    <a type="">
+                        <div class="buy-now" style="cursor: not-allowed">
+                            SẢN PHẨM KHÔNG CÓ SẴN
+                        </div>
+                    </a>
+                @endif
             </form>
 
         </div>

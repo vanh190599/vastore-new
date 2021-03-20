@@ -157,6 +157,7 @@
                                             <th scope="col" style="max-width: 110px">Bảo hành</th>
                                             <th scope="col" style="max-width: 110px">Phụ kiện đính kèm</th>
                                             <th scope="col" style="max-width: 110px">Ảnh phụ kiện</th>
+                                            <th scope="col" style="max-width: 70px">Số lượng</th>
                                             <th scope="col">Hiển thị</th>
                                             <th scope="col">Hành động</th>
                                         </tr>
@@ -191,6 +192,11 @@
 
                                                     <td class="align-middle">
                                                         <img src="{{ asset('admin/upload/') }}/{{$value->attach_image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                    </td>
+
+                                                    <td class="align-middle">
+                                                        <span class="d-block">{{ $value->qty }}</span>
+                                                        <span class="d-block text-muted">bán: {{ $value->sold }}</span>
                                                     </td>
 
                                                     <td class="align-middle">

@@ -20,6 +20,7 @@ class CreateTableOrdersTable extends Migration
             $table->string('user_name_c');
             $table->integer('user_id_c');
             $table->string('date_c');
+            $table->string('status');
             $table->timestamps();
         });
     }

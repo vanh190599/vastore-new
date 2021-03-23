@@ -42,7 +42,7 @@
                     <form action="{{ route('site.cart.update') }}" method="post">
                         @csrf
                         <div style="display: flex" >
-                            <input type="number" min="1" max="10" class="form-control" name="qty_update" value="{{ $value->qty }}" style="width: 80px;"> &nbsp;
+                            <input type="number" min="1"  class="form-control" name="qty_update" value="{{ $value->qty }}" style="width: 80px;"> &nbsp;
                             <button class="btn btn-default">Cập nhật</button>
                             <input type="hidden" name="rowID" value="{{$key}}">
                             <input type="hidden" name="id" value="{{$value->id}}">

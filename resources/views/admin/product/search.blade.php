@@ -175,7 +175,7 @@
                                                     <td class="align-middle">{{ $value->name }}</td>
                                                     <td class="align-middle">{{ $value->brand->name }}</td>
                                                     <td class="align-middle {{ $value->price_discount > 0 ? 'text-muted' : ''}}">
-                                                        {{ number_format($value->price) }} đ
+                                                        {{ $value->price }} đ
                                                     </td>
 
                                                     <td class="align-middle ">

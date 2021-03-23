@@ -72,9 +72,12 @@ Route::middleware(['auth:admin'])->group(function (){
     });
 
     Route::post('uploadFile', 'UploadFileController@uploadImage');
+    Route::get('export/order/{id}', 'ExportController@exportOrder')->name('export.order');
 });
 
 Route::get('test', 'DashboardController@test');
 Route::get('twd', 'DashboardController@twd');
+
+
 
 

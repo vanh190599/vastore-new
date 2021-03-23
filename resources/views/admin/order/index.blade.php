@@ -125,8 +125,8 @@
                                             <th scope="col">Người đặt hàng</th>
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">Tổng tiền</th>
-                                            <th scope="col">Trạng thái</th>
                                             <th scope="col">Xem chi tiết</th>
+                                            <th scope="col">Xuất hóa đơn</th>
                                             <th scope="col">Hành động</th>
                                         </tr>
                                         </thead>
@@ -147,16 +147,14 @@
                                                     <td>{{ $value->total }} đ</td>
 
                                                     <td class="align-middle">
-                                                        <label class="switch switch-brand ">
-                                                            <input class="change-status" data-id="{{ $value->id }}"
-                                                                   data-status="{{$value->status}}"
-                                                                   type="checkbox" @if($value->status == 1) checked @endif  >
-                                                            <span class="slider round"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td class="align-middle">
                                                         <a href="{{ route('admin.order.detail', ['order_id'=>$value->id]) }}" class="btn btn-sm btn-outline-primary">Chi tiết</a>
                                                     </td>
+
+                                                    <td class="align-middle">
+                                                        <a href="javascript:void(0)" class="btn btn-sm btn-outline-primary">Xem</a>
+                                                        <a href="{{ route('admin.export.order', [$value->id]) }}" class="btn btn-sm btn-outline-warning">Xuất hóa đơn</a>
+                                                    </td>
+
                                                     <td class="align-middle">
                                                         <a href="{{ route('admin.brand.edit', ['id' => $value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
                                                            data-container="body" data-toggle="popover" data-placement="bottom"

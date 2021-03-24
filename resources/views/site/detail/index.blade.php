@@ -9,7 +9,7 @@
 <div id="site-detail">
     <div class="row">
         <div class="col-lg-5">
-            <img src="{{ asset('admin/upload/') }}/{{$product->image}}" alt="" height="450px" style="object-fit: cover">
+            <img src="{{$product->image}}" alt="" height="450px" style="object-fit: cover">
         </div>
         <div class="col-lg-7">
             <p class="name">{{ $product->name }}</p>

@@ -11,12 +11,12 @@
 
                 <div class="col-md-6 col-sm-12" style="margin-top: 10px" >
                     <!-- search -->
-                        <form action="{{ url('tim-kiem-san-pham') }}" method="get">
-                            <div class="form-group pull-right" style="display: flex">
-                                <input type="text" name="key" value="" class="form-control" placeholder="Tìm kiếm"/>
-                                <button  class="btn" style="color: orangered; margin-left: 5px"><span>Tìm kiếm </span><span class="glyphicon glyphicon-search"></span></button>
-                            </div>
-                        </form>
+                    <form action="{{ url('tim-kiem-san-pham') }}" method="get">
+                        <div class="form-group pull-right" style="display: flex">
+                        <input type="text" name="key" value="" class="form-control" placeholder="Tìm kiếm"/>
+                        <button  class="btn" style="color: orangered; margin-left: 5px"><span>Tìm kiếm </span><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                    </form>
                     <!-- search -->
                 </div>
 
@@ -40,6 +40,13 @@
                         <ul class="nav navbar-nav collapse navbar-collapse" style="margin-top: 8px;">
                             <li><a href="{{url('trang-chu')}}" class="active">Trang chủ1</a></li>
                             <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu" style="background: #FE980F">
+                                    <li><a href="{{ url('new-product') }}">Sản phẩm mới nhất</a></li>
+                                    <li><a href="{{ url('top-sale-product') }}">Sản phẩm bán chạy</a></li>
+                                    <li><a href="{{ url('sale-product') }}">Sản phẩm khuyến mãi</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#">Tin t<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu" style="background: #FE980F">
                                     <li><a href="{{ url('new-product') }}">Sản phẩm mới nhất</a></li>
                                     <li><a href="{{ url('top-sale-product') }}">Sản phẩm bán chạy</a></li>

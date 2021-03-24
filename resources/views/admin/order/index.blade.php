@@ -127,7 +127,7 @@
                                             <th scope="col">Tổng tiền</th>
                                             <th scope="col">Xem chi tiết</th>
                                             <th scope="col">Xuất hóa đơn</th>
-                                            <th scope="col">Hành động</th>
+{{--                                            <th scope="col">Hành động</th>--}}
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -155,20 +155,20 @@
                                                         <a href="{{ route('admin.export.order', [$value->id]) }}" class="btn btn-sm btn-outline-warning">Xuất hóa đơn</a>
                                                     </td>
 
-                                                    <td class="align-middle">
-                                                        <a href="{{ route('admin.brand.edit', ['id' => $value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
-                                                           data-container="body" data-toggle="popover" data-placement="bottom"
-                                                           data-content="Sửa" data-original-title="" title="">
-                                                            <i class="la la-edit"></i>
-                                                        </a>
+{{--                                                    <td class="align-middle">--}}
+{{--                                                        <a href="{{ route('admin.brand.edit', ['id' => $value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"--}}
+{{--                                                           data-container="body" data-toggle="popover" data-placement="bottom"--}}
+{{--                                                           data-content="Sửa" data-original-title="" title="">--}}
+{{--                                                            <i class="la la-edit"></i>--}}
+{{--                                                        </a>--}}
 
-                                                        <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
-                                                           data-container="body" data-toggle="popover" data-placement="bottom"
-                                                           data-content="Xóa" data-id="2" onclick="openDelete({{ $value->id }}, {{ $value->name }})"
-                                                           data-original-title="" title="">
-                                                            <i class="la la-trash"></i>
-                                                        </a>
-                                                    </td>
+{{--                                                        <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"--}}
+{{--                                                           data-container="body" data-toggle="popover" data-placement="bottom"--}}
+{{--                                                           data-content="Xóa" data-id="2" onclick="openDelete({{ $value->id }}, {{ $value->name }})"--}}
+{{--                                                           data-original-title="" title="">--}}
+{{--                                                            <i class="la la-trash"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                    </td>--}}
                                                 </tr>
                                             @endforeach
                                         @endif

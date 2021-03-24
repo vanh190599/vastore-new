@@ -17,6 +17,7 @@ class CreateTableCategoryNewsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

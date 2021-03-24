@@ -17,11 +17,13 @@ class CreateTableNewsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
+            $table->string('category_news_id');
             $table->text('description');
             $table->text('content');
             $table->string('user_name_c');
             $table->string('user_id_c');
             $table->string('date_c');
+            $table->string('status');
             $table->timestamps();
         });
     }

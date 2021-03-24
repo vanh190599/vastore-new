@@ -38,15 +38,14 @@ class CategoryNewsController extends Controller{
 
         $aryStatus = CGlobal::$aryStatusActive;
 
-        $brands = $this->categoryNewsService->search($data);
+        $categoryNews = $this->categoryNewsService->search($data);
 
-        return view('admin.brand.search',
+        return view('admin.category_news.search',
             compact(
-                'brands',
+                'categoryNews',
                 'aryStatus'
             )
         );
-
     }
 
     public function create(){
@@ -56,39 +55,40 @@ class CategoryNewsController extends Controller{
 
     public function submitCreate(BrandRequest $request){
         $data = $request->only('name', 'description');
+        $data['status'] = 1;
         $brand = $this->categoryNewsService->create($data);
         return redirect()->route('admin.categoryNews.search')->with('success_message', 'Tạo thành công');
     }
 
     public function edit(Request $request){
+        $aryStatus = CGlobal::$aryStatusShow;
         $categoryNews = $this->categoryNewsService->first(['id' => $request->id]);
-
-        if (empty($brand)) {
+        if (empty($categoryNews)) {
             return redirect()->route('admin.categoryNews.search')->with('error_message', 'Danh mục không tồn tại');
         }
 
-        return view('admin.categoryNews.edit', compact('$categoryNews'));
+        return view('admin.category_news.edit', compact('aryStatus'))->with('cate', $categoryNews);
     }
 
     public function submitEdit(Request $request){
         $categoryNews = $this->categoryNewsService->first(['id' => $request->id]);
 
-        if (empty($brand)) {
+        if (empty($categoryNews)) {
             return redirect()->route('admin.$categoryNews.search')->with('error_message', 'Danh mục không tồn tại');
         }
 
-        $data = $request->only('name', 'description');
+        $data = $request->only('name', 'description', 'status');
 
         $this->categoryNewsService->edit($categoryNews, $data);
 
-        return redirect()->route('admin.$categoryNews.search')->with('success_message', 'Sửa thành công');
+        return redirect()->route('admin.categoryNews.search')->with('success_message', 'Sửa thành công');
     }
 
     public function delete(Request $request){
-        $admin = $this->categoryNewsService->first(['id' => $request->id]);
+        $cate = $this->categoryNewsService->first(['id' => $request->id]);
 
-        if (empty($admin)) {
-            return response(['success'=>0, 'message'=>'Thương hiệu không tồn tại']);
+        if (empty($cate)) {
+            return response(['success'=>0, 'message'=>'Danh mục không tồn tại']);
         }
 
         $this->categoryNewsService->delete(['id' =>  $request->id]);

@@ -12,6 +12,7 @@ class CategoryNew extends Model
     protected $fillable = [
         'name',
         'description',
+        'status'
     ];
 
     protected $dates = ['deleted_at'];

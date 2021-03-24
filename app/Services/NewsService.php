@@ -1,100 +1,137 @@
 <?php
 
-namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Brand\BrandRequest;
-use App\Library\CGlobal;
-use App\Services\BrandService;
-use Illuminate\Http\Request;
+namespace App\Services;
 
+use App\Model\MySql\news;
+use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Exception;
 
-class BrandController extends Controller{
+class NewsService
+{
+    private $news;
 
-    private $brandService;
-
-    public function __construct(BrandService $brandService)
+    public function __construct(News $news)
     {
-        $this->brandService = $brandService;
+        $this->news = $news;
     }
 
-    public function search(Request $request)
+    public function search($data)
     {
-        $conditions = [];
-        if (! empty($request->name)) {
-            array_push($conditions, [
-                'key' => 'name',
-                'value' => $request->name,
-                'operator' => 'like'
-            ]);
+        $query = $this->news;
+        if (!empty($data['select'])) {
+            $query = $query->select($data['select']);
+        }
+        if (!empty($data['conditions'])) {
+            $conditions = $data['conditions'];
+            foreach ($conditions as $condition) {
+                $operation = isset($condition['operator']) ? $condition['operator'] : '';
+                switch ($operation) {
+                    case 'like':
+                        $query = $query->where($condition['key'], 'like', '%' . $condition['value'] . '%');
+                        break;
+                    case 'in':
+                        $query = $query->whereIn($condition['key'], $condition['value']);
+                        break;
+                    case '':
+                        $query = $query->where($condition['key'], $condition['value']);
+                        break;
+                    default:
+                        $query = $query->where($condition['key'], $operation, $condition['value']);
+                }
+            }
+        }
+        if (isset($data['sortBy']) && $data['sortBy'] != '') {
+            $query = $query->orderBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
+        }
+        $result = $query->paginate(isset($data['limit']) ? (int)$data['limit'] : 30);
+        return $result;
+    }
+
+    public function create($data)
+    {
+        $news = $this->news;
+        foreach ($data as $key => $value) {
+            $news->$key = $value;
+        }
+        $news->save();
+        return $news;
+    }
+
+    public function edit($news, $data)
+    {
+        try {
+            foreach ($data as $key => $value) {
+                $news->$key = $value;
+            }
+            $news->save();
+
+            DB::commit();
+            return $news;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
+    public function first($condition)
+    {
+        $news = $this->news;
+        foreach ($condition as $key => $value) {
+            $news = $news->where($key, $value);
+        }
+        $news = $news->first();
+
+        return $news;
+    }
+
+
+    public function delete($condition){
+        try {
+            DB::beginTransaction();
+
+            $news = $this->news;
+            foreach ($condition as $key => $value) {
+                $news = $news->where($key, $value);
+            }
+            $news = $news->delete();
+
+            DB::commit();
+            return true;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
+    public function get($data)
+    {
+        $query = $this->news;
+        if (!empty($data['select'])) {
+            $query = $query->select($data['select']);
+        }
+        if (!empty($data['conditions'])) {
+            $conditions = $data['conditions'];
+            foreach ($conditions as $condition) {
+                $operation = isset($condition['operator']) ? $condition['operator'] : '';
+                switch ($operation) {
+                    case 'like':
+                        $query = $query->where($condition['key'], 'like', '%' . $condition['value'] . '%');
+                        break;
+                    case 'in':
+                        $query = $query->whereIn($condition['key'], $condition['value']);
+                        break;
+                    case '':
+                        $query = $query->where($condition['key'], $condition['value']);
+                        break;
+                    default:
+                        $query = $query->where($condition['key'], $operation, $condition['value']);
+                }
+            }
         }
 
-        $data = [
-            'conditions' => $conditions,
-            'limit' => 50,
-            'sortBy' => 'created_at',
-            'sortOrder' => 'DESC'
-        ];
+        $result = $query->get();
 
-        $aryStatus = CGlobal::$aryStatusActive;
-
-        $brands = $this->brandService->search($data);
-
-        return view('admin.brand.search',
-            compact(
-                'brands',
-                'aryStatus'
-            )
-        );
-
-    }
-
-    public function create(){
-        $aryStatus = CGlobal::$aryStatusActive;
-        return view('admin.brand.create', compact($aryStatus));
-    }
-
-    public function submitCreate(BrandRequest $request){
-        $data = $request->only('name', 'description');
-
-        $brand = $this->brandService->create($data);
-
-        return redirect()->route('admin.brand.search')->with('success_message', $brand->name.' Đã được tạo');
-    }
-
-    public function edit(Request $request){
-        $brand = $this->brandService->first(['id' => $request->id]);
-
-        if (empty($brand)) {
-            return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
-        }
-
-        return view('admin.brand.edit', compact('brand'));
-    }
-
-    public function submitEdit(BrandRequest $request){
-        $brand = $this->brandService->first(['id' => $request->id]);
-
-        if (empty($brand)) {
-            return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
-        }
-
-        $data = $request->only('name', 'description');
-
-        $this->brandService->edit($brand, $data);
-
-        return redirect()->route('admin.brand.search')->with('success_message', 'Sửa thương hiệu thành công');
-    }
-
-    public function delete(Request $request){
-        $admin = $this->brandService->first(['id' => $request->id]);
-
-        if (empty($admin)) {
-            return response(['success'=>0, 'message'=>'Thương hiệu không tồn tại']);
-        }
-
-        $this->brandService->delete(['id' =>  $request->id]);
-
-        return response(['success'=>1, 'message'=>'Xóa thành công']);
+        return $result;
     }
 }

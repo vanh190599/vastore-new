@@ -60,7 +60,7 @@
                             <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                                 <div class="col-xl-12 col-xxl-7">
                                     <!--begin::Wizard Form-->
-                                    <form action="{{ route('admin.brand.create') }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
+                                    <form action="{{ route('admin.categoryNews.create') }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
                                     @csrf
                                     <!--begin::Wizard Step 1-->
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">

@@ -132,4 +132,41 @@ class ProductController extends Controller{
         $aryLabel = CGlobal::$aryLable;
         return view('admin.product.edit', compact('product', 'brands', 'aryLabel' ));
     }
+
+    public function submitEdit(Request $request){
+        $request->flash();
+        $data = $request->only([
+            "name",
+            'brand_id',
+            "price",
+            "price_discount",
+            "unit_num",
+            "unit_label",
+            "release_date",
+            "height",
+            "width",
+            "depth",
+            "tech_screen",
+            "size",
+            "cpu",
+            "ram",
+            "rom",
+            "battery_capacity",
+            "camera_before",
+            "camera_after",
+            "description",
+            "image",
+            "status",
+            "attach",
+            "attach_image",
+            "qty",
+            "sold",
+        ]);
+        //dd($data);
+        $data["release_date"] = strtotime($data["release_date"]);
+
+        $product = $this->productService->first(['id'=>$request->id]);
+        $this->productService->edit($product, $data);
+        return redirect()->route('admin.product.search');
+    }
 }

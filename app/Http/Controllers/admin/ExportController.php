@@ -15,11 +15,13 @@ class ExportController extends Controller
         $order->load('details', 'shipping');
         return view('exports.order', compact('order'));
         */
+
         session()->put('order_export_id', $id);
         $order = Order::find($id);
         $order->load('shipping');
         $name = isset($order->shipping->receive) ? $order->shipping->receive : '';
         $file_name = 'Hóa đơn của '.$name.'_'.$order->id;
+
         return Excel::download(new Export(), $file_name.'.xlsx');
     }
 }

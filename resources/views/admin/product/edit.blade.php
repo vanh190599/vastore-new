@@ -71,7 +71,7 @@
                             <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                                 <div class="col-xl-12 col-xxl-11">
                                     <!--begin::Wizard Form-->
-                                    <form action="{{ route('admin.product.create') }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
+                                    <form action="{{ route('admin.product.edit', ['id'=>$product->id]) }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
                                     @csrf
                                     <!--begin::Wizard Step 1-->
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">
@@ -81,7 +81,7 @@
 
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="name" placeholder="Nhập tên sản phẩm"
-                                                       value="{{ old('name', $product->name) }}">
+                                                       value="{{ old('name', isset($product->name) ? $product->name : ''  ) }}">
                                                 @error('name')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -218,7 +218,7 @@
 
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Chất liệu <span class="text-danger">*</span></label>
-                                                    <input type="material" class="form-control form-control-solid form-control-lg"
+                                                    <input type="text" class="form-control form-control-solid form-control-lg"
                                                            placeholder="Nhập chất liệu"
                                                            value="{{ old('material', $product->material) }}" >
                                                     @error('material')
@@ -364,47 +364,42 @@
                                                 <span class="form-text text-muted d-none"></span>
                                                 <div class="fv-plugins-message-container"></div></div>
                                             <input type="hidden" name="image" value="" >
-                                            <div id="image" class="img @if(empty(old('image'))) d-none @endif">
+                                            <div id="image" class="img">
                                                 <img src="{{ old('image') }}" width="200px" height="200px" alt="" style="object-fit: cover">
                                             </div>
                                             <!-- end ảnh đại diện -->
 
                                             <!-- ảnh đính kèm -->
-{{--                                            <div class="form-group fv-plugins-icon-container">--}}
-{{--                                                <label>Chọn ảnh phụ kiện đính kèm<span class="text-danger">*</span></label><br>--}}
-{{--                                                <input type="file" class="upload-file"--}}
-{{--                                                       onchange="handleImage(this.files, 2)" >--}}
-{{--                                                <div class="text-danger"></div>--}}
-{{--                                                <div class="fv-plugins-message-container"></div></div>--}}
-{{--                                            <input type="hidden" name="attach_image" value="{{ old('attach_image', $product->attach_image) }}" >--}}
-{{--                                            <div id="attach-image" class="img">--}}
-{{--                                                <img src="{{ old('attach_image', $product->attach_image) }}"--}}
-{{--                                                     width="200px" height="200px" alt="" style="object-fit: cover">--}}
-{{--                                            </div>--}}
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Chọn ảnh phụ kiện đính kèm<span class="text-danger">*</span></label><br>
+                                                <input type="file" class="upload-file"
+                                                       onchange="handleImage(this.files, 2)" >
+                                                <div class="text-danger"></div>
+                                                <div class="fv-plugins-message-container"></div></div>
+                                            <input type="hidden" name="attach_image" value="" >
+                                            <div id="attach-image" class="img">
+                                                <img src="{{ old('attach_image') }}" width="200px" height="200px" alt="" style="object-fit: cover">
+                                            </div>
                                             <!-- end ảnh đính kèm -->
 
-{{--                                            <div class="form-group fv-plugins-icon-container">--}}
-{{--                                                <label>Phụ kiện đính kèm <span class="text-danger">*</span></label>--}}
-{{--                                                <input type="text" class="form-control form-control-solid form-control-lg"--}}
-{{--                                                       name="attach" placeholder="Phụ kiện"--}}
-{{--                                                       value="{{ old('attach') }}">--}}
-{{--                                                @error('attach')--}}
-{{--                                                <div class="text-danger">{{ $message }}</div>--}}
-{{--                                                @enderror--}}
-{{--                                                <div class="fv-plugins-message-container"></div>--}}
-{{--                                            </div>--}}
-                                            <br>
-                                            <!--begin::Wizard Actions-->
-                                            {{--                                            <div class="d-flex justify-content-center border-top  pt-5">--}}
-                                            {{--                                                <div class="text-center">--}}
-                                            {{--                                                    <button type="reset" class="btn btn-secondary mr-4">--}}
-                                            {{--                                                        Reset--}}
-                                            {{--                                                    </button>--}}
-                                            {{--                                                    <button type="submit" class="btn btn-primary">--}}
-                                            {{--                                                        Submit--}}
-                                            {{--                                                    </button>--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            </div>--}}
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Phụ kiện đính kèm <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control form-control-solid form-control-lg"
+                                                       name="attach" placeholder="Phụ kiện"
+                                                       value="{{ old('attach', $product->attach) }}">
+                                                @error('attach')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                                <div class="fv-plugins-message-container"></div>
+                                            </div>
+
+                                            <div class="form-group fv-plugins-icon-container">
+                                                <label>Số lượng <span class="text-danger">*</span></label>
+                                                <input type="number" min="1" class="form-control form-control-solid form-control-lg"
+                                                       name="qty" placeholder="Phụ kiện"
+                                                       value="{{ old('qty', $product->qty) }}">
+                                                <div class="fv-plugins-message-container"></div>
+                                            </div>
                                         </div>
 
                                         <!--end::Wizard Actions-->
@@ -451,18 +446,18 @@
                     type: 'post',
                     success: function (res) {
                         if (res.success == 1) {
-                            let url = '{{ asset('admin/upload/') }}' +'/'+ res.data;
+                            let url = BASE_URL + '/admin/upload/'+ res.data;
                             //alert(type)
                             if (up == 1) {
                                 $('#image').removeClass('d-none')
                                 $('#image').find('img').attr('src', url)
-                                $("input[name='image']").val(res.data)
+                                $("input[name='image']").val(url)
                                 toastr.success('Upload thành công!');
                             }
                             if (up == 2) {
                                 $('#attach-image').removeClass('d-none')
                                 $('#attach-image').find('img').attr('src', url)
-                                $("input[name='attach_image']").val(res.data)
+                                $("input[name='attach_image']").val(url)
                                 toastr.success('Upload thành công!');
                             }
                         } else {

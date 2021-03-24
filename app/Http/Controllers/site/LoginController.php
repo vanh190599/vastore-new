@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\site;
 
 use App\Http\Controllers\Controller;
+use App\Services\CustomerService;
 use Illuminate\Http\Request;
 use App\Http\Requests\Site\Register\RegisterRequest;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
 {
-    public function __construct()
+    private $customerService;
+    public function __construct(CustomerService $customerService)
     {
+        $this->customerService = $customerService;
     }
 
     public function login(){
@@ -37,6 +41,10 @@ class LoginController extends Controller
     }
 
     public function postRegister(RegisterRequest $request){
-        dd($request->all());
+        $data = $request->only('name', 'email', 'password');
+        $data['password'] = Hash::make($data['password']);
+        $this->customerService->create($data);
+
+        return redirect()->route('site.login')->with('success', 'Đăng kí thành công');
     }
 }

@@ -170,10 +170,10 @@
                                                         {{ $key + $products->firstItem() }}
                                                     </td>
                                                     <td>
-                                                        <img src="{{ asset('admin/upload/') }}/{{$value->image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                        <img src="{{$value->image}}" width="100px" height="100px" class="image-product" alt="" style="">
                                                     </td>
                                                     <td class="align-middle">{{ $value->name }}</td>
-                                                    <td class="align-middle">{{ $value->brand->name }}</td>
+                                                    <td class="align-middle">{{ isset($value->brand->name) ? $value->brand->name : '' }}</td>
                                                     <td class="align-middle {{ $value->price_discount > 0 ? 'text-muted' : ''}}">
                                                         {{ $value->price }} đ
                                                     </td>
@@ -191,7 +191,7 @@
                                                     </td>
 
                                                     <td class="align-middle">
-                                                        <img src="{{ asset('admin/upload/') }}/{{$value->attach_image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                        <img src="{{$value->attach_image}}" width="100px" height="100px" class="image-product" alt="" style="">
                                                     </td>
 
                                                     <td class="align-middle">

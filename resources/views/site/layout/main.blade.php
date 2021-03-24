@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" href="{{ asset('lib/carousel/carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/carousel/them.css') }}">
+
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />--}}
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" />--}}
 </head><!--/head-->
@@ -57,6 +58,26 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
+                    @yield('cate')
+
+{{--                    <div class="brands_products"><!--products-->--}}
+{{--                        <h2 style="color: orangered">Tin tức</h2>--}}
+{{--                        <div class="">--}}
+{{--                            <ul class="list-group" style="border-bottom: 2px solid #dddddd">--}}
+{{--                                @if(!empty($cate_news))--}}
+{{--                                    @foreach($cate_news as $k => $v)--}}
+{{--                                        <li class="">--}}
+{{--                                            <a class="list-group-item text-dark" style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px"--}}
+{{--                                               href="{{ route('site.news.index', ['id'=>$v->id]) }}">--}}
+{{--                                                {{ $v->name }}</a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
+{{--                                @endif--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div><!--/products-->--}}
+
+
                     <div class="brands_products"><!--products-->
                         <h2 style="color: orangered">Thương hiệu</h2>
                         <div class="">
@@ -150,8 +171,8 @@
 <script src="eshoper/js/main.js"></script>
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"></script>--}}
-
 <script src="{{ asset('lib/carousel/carousel.js') }}"></script>
+
 
 @yield('custom_js')
 

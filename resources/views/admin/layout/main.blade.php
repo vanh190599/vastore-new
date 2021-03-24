@@ -31,6 +31,7 @@
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="{{ asset('assets/admin/assets/media/logos/favicon.ico') }} " />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -974,6 +975,8 @@
 <!--end::Page Scripts-->
 <script src="{{ asset('js/init.js') }}"></script>
 {{--<script src="{{ asset('js/.js') }}"></script>--}}
+
+
 
 @stack('scripts')
 @yield('scripts')

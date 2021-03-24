@@ -81,7 +81,7 @@
 
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="name" placeholder="Nhập tên sản phẩm"
-                                                       value="{{ old('name') }}">
+                                                       value="{{ old('name') }}" required>
                                                 @error('name')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -105,7 +105,7 @@
                                                 <label>Giá <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="price" placeholder="Nhập giá"
-                                                       value="{{ old('price') }}">
+                                                       value="{{ old('price') }}" required>
                                                 @error('price')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -117,7 +117,7 @@
                                                 <label>Giá sau khi giảm <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="price_discount" placeholder="Giá sau khi giảm"
-                                                       value="{{ old('price_discount') }}">
+                                                       value="{{ old('price_discount') }}" required>
                                                 @error('price_discount')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -130,7 +130,7 @@
                                                 <div class="d-flex">
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
                                                            name="unit_num" placeholder=""
-                                                           value="{{ old('unit_num') }}" style="width: 250px">
+                                                           value="{{ old('unit_num') }}" style="width: 250px" required>
 
                                                     <div style="width: 10px"></div>
                                                     <select name="unit_label" id="" class="form-control form-control-solid form-control-lg" style="width: 150px">
@@ -153,7 +153,7 @@
                                                     <label>Ngày ra mắt <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
                                                         <input name="release_date" data-provide="datepicker"
-                                                               class="form-control form-control-solid form-control-lg">
+                                                               class="form-control form-control-solid form-control-lg" required>
                                                     </div>
                                                     @error('release_date')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -166,7 +166,7 @@
                                                     <label>Xuất xứ <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
                                                            name="origin" placeholder="Xuất xứ"
-                                                           value="{{ old('origin') }}" >
+                                                           value="{{ old('origin') }}" required>
                                                     @error('origin')
                                                     <div class="text-danger">{{ $message }}</div>
                                                     @enderror
@@ -181,7 +181,7 @@
                                                     <div class="d-flex">
                                                         <input name="height" class="form-control
                                                         form-control-solid form-control-lg" placeholder="Nhập chiều cao"
-                                                        value="{{ old('height') }}" >
+                                                        value="{{ old('height') }}" required>
                                                     </div>
                                                     @error('width')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -194,7 +194,7 @@
                                                     <label>Chiều rộng <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
                                                            name="width" placeholder="Nhập chiều rộng"
-                                                           value="{{ old('width') }}" >
+                                                           value="{{ old('width') }}" required>
                                                     @error('width')
                                                     <div class="text-danger">{{ $message }}</div>
                                                     @enderror
@@ -208,7 +208,7 @@
                                                     <label>Độ dày <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
                                                            name="depth" placeholder="Nhập độ dày"
-                                                           value="{{ old('depth') }}" >
+                                                           value="{{ old('depth') }}" required >
                                                     @error('depth')
                                                     <div class="text-danger">{{ $message }}</div>
                                                     @enderror
@@ -218,9 +218,9 @@
 
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Chất liệu <span class="text-danger">*</span></label>
-                                                    <input type="material" class="form-control form-control-solid form-control-lg"
+                                                    <input type="text" class="form-control form-control-solid form-control-lg"
                                                            placeholder="Nhập chất liệu"
-                                                           value="{{ old('material') }}" >
+                                                           value="{{ old('material') }}" required>
                                                     @error('material')
                                                     <div class="text-danger">{{ $message }}</div>
                                                     @enderror
@@ -235,7 +235,7 @@
                                                     <div class="d-flex">
                                                         <input name="tech_screen" value="{{ old('tech_screen') }}"
                                                                class="form-control form-control-solid form-control-lg"
-                                                               placeholder="Nhập công nghệ màn hình"
+                                                               placeholder="Nhập công nghệ màn hình" required
                                                         >
                                                     </div>
                                                     @error('tech_screen')
@@ -248,7 +248,7 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Kích thước <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
-                                                           name="size" placeholder="Nhập kích thước (ví dụ: )"
+                                                           name="size" placeholder="" required
                                                            value="{{ old('size') }}" >
                                                     @error('size')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -262,8 +262,8 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>CPU <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="cpu" value="{{ old('cpu') }}" class="form-control form-control-solid form-control-lg"
-                                                        placeholder="cpu">
+                                                        <input type="text" name="cpu" value="{{ old('cpu') }}" class="form-control form-control-solid form-control-lg"
+                                                        placeholder="cpu" required>
                                                     </div>
                                                     @error('cpu')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -276,7 +276,7 @@
                                                     <label>Ram <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
                                                            name="ram" placeholder="ram"
-                                                           value="{{ old('ram') }}" >
+                                                           value="{{ old('ram') }}" required>
                                                     @error('ram')
                                                     <div class="text-danger">{{ $message }}</div>
                                                     @enderror
@@ -289,8 +289,8 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Bộ nhớ trong <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="rom" value="{{ old('rom') }}" class="form-control form-control-solid form-control-lg"
-                                                        placeholder="bộ nhớ trong">
+                                                        <input type="text" name="rom" value="{{ old('rom') }}" class="form-control form-control-solid form-control-lg"
+                                                        placeholder="bộ nhớ trong" required>
                                                     </div>
                                                     @error('rom')
                                                     <div class="text-danger">{{ $message }}</div>
@@ -303,7 +303,7 @@
                                                     <label>Dung lượng pin <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control form-control-solid form-control-lg"
                                                            name="battery_capacity" placeholder=""
-                                                           value="{{ old('battery_capacity') }}" >
+                                                           value="{{ old('battery_capacity') }}" required>
                                                     @error('battery_capacity')
                                                     <div class="text-danger">{{ $message }}</div>
                                                     @enderror
@@ -316,9 +316,9 @@
                                                 <div class="form-group fv-plugins-icon-container" style="width: 48%">
                                                     <label>Camera trước <span class="text-danger">*</span></label>
                                                     <div class="d-flex">
-                                                        <input name="camera_before" value="{{ old('camera_before') }}"
+                                                        <input type="text" name="camera_before" value="{{ old('camera_before') }}"
                                                                class="form-control form-control-solid form-control-lg"
-                                                               placeholder="camera trước"
+                                                               placeholder="camera trước" required
                                                         >
                                                     </div>
                                                     @error('camera_before')
@@ -344,7 +344,7 @@
                                             <div class="form-group fv-plugins-icon-container">
                                                 <label>Chi tiết <span class="text-danger">*</span></label>
                                                 <textarea name="description" id="description" class="form-control form-control-solid form-control-lg"
-                                                          cols="30" rows="10">{{ old('description') }}</textarea>
+                                                          cols="30" rows="10" required>{{ old('description') }}</textarea>
                                                 <script>
                                                     CKEDITOR.replace('description');
                                                 </script>
@@ -464,18 +464,18 @@
                         type: 'post',
                         success: function (res) {
                             if (res.success == 1) {
-                                let url = '{{ asset('admin/upload/') }}' +'/'+ res.data;
+                                let url = BASE_URL + '/admin/upload/'+ res.data;
                                 //alert(type)
                                 if (up == 1) {
                                     $('#image').removeClass('d-none')
                                     $('#image').find('img').attr('src', url)
-                                    $("input[name='image']").val(res.data)
+                                    $("input[name='image']").val(url)
                                     toastr.success('Upload thành công!');
                                 }
                                 if (up == 2) {
                                     $('#attach-image').removeClass('d-none')
                                     $('#attach-image').find('img').attr('src', url)
-                                    $("input[name='attach_image']").val(res.data)
+                                    $("input[name='attach_image']").val(url)
                                     toastr.success('Upload thành công!');
                                 }
                             } else {

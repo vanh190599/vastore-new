@@ -79,7 +79,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4 d-flex align-items-center justify-content-end">
-                                                <a href="{{ route('admin.brand.create') }}" class="btn btn-lg btn-success mr-4">
+                                                <a href="{{ route('admin.categoryNews.create') }}" class="btn btn-lg btn-success mr-4">
                                                     <i class="la la-plus-square"></i>
                                                     Create
                                                 </a>
@@ -119,7 +119,7 @@
                                                     <td class="align-middle">{{ $value->description }}</td>
                                                     <td class="align-middle">
                                                         <label class="switch switch-brand">
-                                                            <input type="checkbox" @if($value->status == $CGlobal::STATUS_SHOW) checked @endif>
+                                                            <input type="checkbox" disabled class="change-status" @if($value->status == $CGlobal::STATUS_SHOW) checked @endif>
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </td>
@@ -132,7 +132,7 @@
 
                                                         <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
                                                            data-container="body" data-toggle="popover" data-placement="bottom"
-                                                           data-content="Xóa" data-id="2" onclick="openDelete({{ $value->id }}, {{ $value->name }})"
+                                                           data-content="Xóa" data-id="2" onclick="openDelete({{ $value->id }}, '{{ $value->name }}')"
                                                            data-original-title="" title="">
                                                             <i class="la la-trash"></i>
                                                         </a>
@@ -160,10 +160,10 @@
 @section('scripts')
     <script>
 
-        function openDelete(id, email){
+        function openDelete(id, name){
             Swal.fire({
-                title: 'Bạn có muốn xóa thương hiệu',
-                text: email,
+                title: 'Bạn có muốn xóa danh mục',
+                text: name,
                 icon: "question",
                 buttonsStyling: false,
                 confirmButtonText: "<i class='la la-lock'></i> Đồng ý!",
@@ -182,8 +182,8 @@
             });
         }
 
-        function confirmDelete(id) {
-            let url = BASE_URL + '/admin/brand/delete'
+       function confirmDelete(id) {
+            let url = BASE_URL + '/admin/category_news/delete'
             let data = { id }
             $.post(url, data, function(res){
                 if (res.success == 1) {

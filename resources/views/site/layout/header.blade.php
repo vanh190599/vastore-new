@@ -56,6 +56,17 @@
                                     @endif
                                 </ul>
                             </li>
+
+                            <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu" style="background: #FE980F">
+                                    @if(!empty($cate_news))
+                                        @foreach($cate_news as $key => $value)
+                                            <li><a href="{{ route('site.news.index', ['id'=>$value->id]) }}">{{ $value->name }}</a></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </li>
+
                             <li><a href="{{url('news')}}"  class="text">Tin tức</a></li>
                             <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
                         </ul>

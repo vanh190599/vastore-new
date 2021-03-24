@@ -60,18 +60,18 @@
                             <div class="row justify-content-center my-10 px-8 my-lg-15 px-lg-10">
                                 <div class="col-xl-12 col-xxl-7">
                                     <!--begin::Wizard Form-->
-                                    <form action="{{ route('admin.brand.edit', ['id' => $brand->id]) }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
+                                    <form action="{{ route('admin.categoryNews.edit', ['id' => $cate->id]) }}" class="form fv-plugins-bootstrap fv-plugins-framework" method="POST"  id="kt_form">
                                     @csrf
                                     <!--begin::Wizard Step 1-->
                                         <div class="pb-0" data-wizard-type="step-content" data-wizard-state="current">
-                                            <h3 class="mb-10 font-weight-bold text-dark">Nhập thông tin thương hiệu</h3>
+                                            <h3 class="mb-10 font-weight-bold text-dark">Sửa thông tin danh mục tin tức</h3>
 
                                             <!--begin::Input-->
                                             <div class="form-group fv-plugins-icon-container">
                                                 <label>Tên<span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control form-control-solid form-control-lg"
                                                        name="name" placeholder="Nhập tên thương hiệu"
-                                                       value="{{ old('name', $brand->name) }}">
+                                                       value="{{ old('name', $cate->name) }}">
                                                 @error('name')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -81,14 +81,25 @@
                                             <!--begin::Input-->
                                             <div class="form-group">
                                                 <label>Mô tả <span class="text-danger">*</span></label>
-                                                <textarea name="description" value="{{ old('description', $brand->description) }}"
+                                                <textarea name="description" value="{{ old('description', $cate->description) }}"
                                                           id="" class="form-control form-control-solid" cols="30" rows="10"
-                                                          placeholder="Mô tả">{{$brand->description}}</textarea>
+                                                          placeholder="Mô tả">{{$cate->description}}</textarea>
                                                 @error('description')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                                 <span class="form-text text-muted d-none">Hãy nhập email cá nhân</span>
                                             </div>
+
+                                            <div class="form-group">
+                                                <select name="status" class="form-control" id="">
+                                                    @if(!empty($aryStatus))
+                                                        @foreach($aryStatus as $key => $value)
+                                                            <option value="{{ $key }}" @if(old('status', $cate->status) == $key)) selected @endif>{{ $value }}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
+
                                             <!--end::Input-->
                                             <!--begin::Wizard Actions-->
                                             <div class="d-flex justify-content-center border-top  pt-5">
@@ -122,5 +133,12 @@
 @endsection
 
 @push('scripts')
+    <script>
 
+
+
+
+
+
+    </script>
 @endpush

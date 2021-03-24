@@ -5,17 +5,19 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Brand\BrandRequest;
 use App\Library\CGlobal;
-use App\Services\newsService;
+use App\Services\CategoryNewsService;
+use App\Services\NewsService;
 use Illuminate\Http\Request;
-
 
 class NewsController extends Controller{
 
     private $newsService;
+    private $categoryNewsService;
 
-    public function __construct(NewsService $newsService)
+    public function __construct(NewsService $newsService, CategoryNewsService $categoryNewsService)
     {
         $this->newsService = $newsService;
+        $this->categoryNewsService = $categoryNewsService;
     }
 
     public function search(Request $request)
@@ -38,59 +40,64 @@ class NewsController extends Controller{
 
         $aryStatus = CGlobal::$aryStatusActive;
 
-        $brands = $this->newsService->search($data);
+        $news = $this->newsService->search($data);
+        $news->load('cate');
 
-        return view('admin.brand.search',
+        return view('admin.news.search',
             compact(
-                'brands',
+                'news',
                 'aryStatus'
             )
         );
-
     }
 
     public function create(){
+        $cate = $this->categoryNewsService->get([]);
         $aryStatus = CGlobal::$aryStatusActive;
-        return view('admin.brand.create', compact($aryStatus));
+        return view('admin.news.create', compact('aryStatus', 'cate'));
     }
 
-    public function submitCreate(BrandRequest $request){
-        $data = $request->only('name', 'description');
+    public function submitCreate(Request $request){
+        $user = auth('admin')->user();
+        $data = $request->only('title', 'description', 'content', 'image', 'category_news_id');
+        $data['user_name_c'] = $user->name;
+        $data['user_id_c'] = $user->id;
+        $data['date_c'] = time();
 
-        $brand = $this->newsService->create($data);
-
-        return redirect()->route('admin.brand.search')->with('success_message', $brand->name.' Đã được tạo');
+        $news = $this->newsService->create($data);
+        return redirect()->route('admin.news.search')->with('success_message', 'Tạo thành công');
     }
 
     public function edit(Request $request){
-        $brand = $this->newsService->first(['id' => $request->id]);
-
-        if (empty($brand)) {
-            return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
+        $cate = $this->categoryNewsService->get([]);
+        $aryStatus = CGlobal::$aryStatusShow;
+        $news = $this->newsService->first(['id' => $request->id]);
+        if (empty($news)) {
+            return redirect()->route('admin.news.search')->with('error_message', 'Danh mục không tồn tại');
         }
 
-        return view('admin.brand.edit', compact('brand'));
+        return view('admin.news.edit', compact('aryStatus', 'cate'))->with('news', $news);
     }
 
-    public function submitEdit(BrandRequest $request){
-        $brand = $this->newsService->first(['id' => $request->id]);
+    public function submitEdit(Request $request){
+        $news = $this->newsService->first(['id' => $request->id]);
 
-        if (empty($brand)) {
-            return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
+        if (empty($news)) {
+            return redirect()->route('admin.news.search')->with('error_message', 'Danh mục không tồn tại');
         }
 
-        $data = $request->only('name', 'description');
+        $data = $request->only('title', 'description', 'content', 'image', 'status', 'category_news_id');
 
-        $this->newsService->edit($brand, $data);
+        $this->newsService->edit($news, $data);
 
-        return redirect()->route('admin.brand.search')->with('success_message', 'Sửa thương hiệu thành công');
+        return redirect()->route('admin.news.search')->with('success_message', 'Sửa thành công');
     }
 
     public function delete(Request $request){
-        $admin = $this->newsService->first(['id' => $request->id]);
+        $cate = $this->newsService->first(['id' => $request->id]);
 
-        if (empty($admin)) {
-            return response(['success'=>0, 'message'=>'Thương hiệu không tồn tại']);
+        if (empty($cate)) {
+            return response(['success'=>0, 'message'=>'Danh mục không tồn tại']);
         }
 
         $this->newsService->delete(['id' =>  $request->id]);

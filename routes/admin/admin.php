@@ -71,6 +71,16 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::post('delete', 'CustomerController@delete')->name('customer.delete');
     });
 
+    //news
+    Route::prefix('news')->group(function (){
+        Route::get('search', 'NewsController@search')->name('news.search');
+        Route::get('create', 'NewsController@create')->name('news.create');
+        Route::post('create', 'NewsController@submitCreate')->name('news.create');
+        Route::get('edit', 'NewsController@edit')->name('news.edit');
+        Route::post('edit', 'NewsController@submitEdit')->name('news.edit');
+        Route::post('delete', 'NewsController@delete')->name('news.delete');
+    });
+
     Route::post('uploadFile', 'UploadFileController@uploadImage');
     Route::get('export/order/{id}', 'ExportController@exportOrder')->name('export.order');
 });

@@ -67,7 +67,6 @@
                                 </ul>
                             </li>
 
-                            <li><a href="{{url('news')}}"  class="text">Tin tức</a></li>
                             <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
                         </ul>
                     </div>

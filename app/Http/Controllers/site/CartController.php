@@ -115,13 +115,13 @@ class CartController extends Controller {
                        'price' => $value->model->discount > 0 ? $value->model->discount : $value->model->price ,
                        'qty' => $value->qty,
                        'total' => $value->qty * $value->price,
+                       'date' => time(),
                    ]);
                }
            }
            OrderDetail::insert($data_orderDetails);
 
            Cart::destroy();
-
 
            DB::commit();
            return redirect()->route('site.cart.finish');

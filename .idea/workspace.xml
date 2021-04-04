@@ -24,37 +24,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b82677ca-9fb4-4761-8ed2-f49fe0ac5a2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/CategoryNewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/CategoryNewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ExportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ExportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Admin/Product/CreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Admin/Product/CreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/MySql/CategoryNew.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/MySql/CategoryNew.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Model/MySql/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/MySql/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/NewsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/NewsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_061810_create_table_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_061810_create_table_news_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_062113_create_table_category_news_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_062113_create_table_category_news_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category_new/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category_news/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category_new/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category_news/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category_new/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category_news/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/MySql/OrderDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/MySql/OrderDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/OrderDetailService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/OrderDetailService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_144530_create_table_order_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_144530_create_table_order_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/detail/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/detail/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/home/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/layout/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/layout/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/news/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/news/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/news/news_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/news/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/news/news_detail.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/site/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site/site.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +172,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project-vote" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OpenServer/domains/ticket" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -238,7 +216,9 @@
       <workItem from="1616259910867" duration="13602000" />
       <workItem from="1616300832323" duration="78000" />
       <workItem from="1616513568454" duration="5317000" />
-      <workItem from="1616597539625" duration="15501000" />
+      <workItem from="1616597539625" duration="16183000" />
+      <workItem from="1616685103544" duration="658000" />
+      <workItem from="1617549438316" duration="5603000" />
     </task>
     <servers />
   </component>
@@ -266,10 +246,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1616516461825" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1616046692099">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1617550867257">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1616046692099" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1617550867257" />
     <state x="794" y="448" key="NewPhpFileDialog" timestamp="1616606449038">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -278,19 +258,19 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="719" y="245" key="RollbackChangesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1616602851665" />
-    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1616609666012">
+    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1617552602684">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1616609666011" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1616603789015">
+    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617552602684" />
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1617553677838">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1616603789015" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1616612566158">
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617553677838" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1617552633868">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="583" y="155" width="672" height="477" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1616300846105" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1616612566158" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1617552633868" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

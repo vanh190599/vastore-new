@@ -23,6 +23,7 @@ class CreateTableOrderDetailsTable extends Migration
             $table->string('price');
             $table->integer('qty');
             $table->string('total');
+            $table->integer('date');
             $table->timestamps();
         });
     }

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\OrderDetailService;
 use Illuminate\Http\Request;
 
 
 class DashboardController extends Controller
 {
-    public function __construct()
+    private $orderDetailService;
+    public function __construct(OrderDetailService $orderDetailService)
     {
+        $this->orderDetailService = $orderDetailService;
     }
 
     public function index(){
@@ -22,5 +25,10 @@ class DashboardController extends Controller
 
     public function twd(){
         return view('twd.index');
+    }
+
+    public function chart(Request $request){
+        $data = $this->orderDetailService->chart();
+        return response(['success' => 1, 'data' => $data]);
     }
 }

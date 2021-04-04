@@ -2,12 +2,11 @@
 
 
 namespace App\Services;
-
-
 use App\Model\MySql\order;
 use App\Model\MySql\OrderDetail;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
+use Carbon\Carbon;
 
 class OrderDetailService
 {
@@ -136,5 +135,40 @@ class OrderDetailService
         $result = $query->get();
 
         return $result;
+    }
+
+
+    /**
+     * @return array [key: data(int) ; value:category (date d-m-Y)]
+     */
+    public function chart(){
+        $detail = $this->orderDetail;
+        $start =  strtotime(Carbon::now()->startOfMonth());
+        $end   = strtotime(Carbon::now()->endOfMonth());
+        $numberDayOfCurrentMonth = date('t');
+
+        $period = [];
+        $time = $start;
+        for ($i = 0; $i <= $numberDayOfCurrentMonth; $i++ ) {
+            $period[] = $time;
+            $time = $time + 86400;
+        }
+
+        $result = [];
+        $cate = [];
+        foreach ($period as $key => $value) {
+            if ($key < $numberDayOfCurrentMonth) {
+                $qty = $detail->whereBetween('date', [$period[$key], $period[$key+1] - 1])->sum('qty');
+                $result[] = (int) $qty;
+                $cate[]   = date('d-m-Y' ,$value);
+            }
+        }
+
+        $data = [];
+        $data['data'] = $result;
+        $data['cate'] = $cate;
+        //dd($data);
+
+        return $data;
     }
 }

@@ -8,6 +8,8 @@ Route::middleware(['guest:admin'])->group(function (){
 Route::middleware(['auth:admin'])->group(function (){
     Route::post('logout', 'LoginController@logout')->name('logout');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
+    Route::get('dashboard/chart', 'DashboardController@chart')->name('dashboard.index');
+
 
     //admin-account
     Route::prefix('admin-account')->group(function (){
@@ -80,6 +82,8 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::post('edit', 'NewsController@submitEdit')->name('news.edit');
         Route::post('delete', 'NewsController@delete')->name('news.delete');
     });
+
+    //chart
 
     Route::post('uploadFile', 'UploadFileController@uploadImage');
     Route::get('export/order/{id}', 'ExportController@exportOrder')->name('export.order');

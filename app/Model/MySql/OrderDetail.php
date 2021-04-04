@@ -17,7 +17,8 @@ class OrderDetail extends Model
         'brand_name',
         'price',
         'qty',
-        'total'
+        'total',
+        'date',
     ];
 
     protected $dates = ['deleted_at'];

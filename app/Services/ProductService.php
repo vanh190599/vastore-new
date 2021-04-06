@@ -3,7 +3,7 @@
 
 namespace App\Services;
 
-use App\Model\MySql\product;
+use App\Model\MySql\Product;
 
 class ProductService
 {
@@ -11,7 +11,7 @@ class ProductService
 //    const STATUS_BLOCK = -1; // khóa
     private $product;
 
-    public function __construct(product $product)
+    public function __construct(Product $product)
     {
         $this->product = $product;
     }

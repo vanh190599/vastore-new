@@ -39,6 +39,7 @@ class CreateTableProductsTable extends Migration
             $table->string('attach')->nullable()->comment('phụ kiện đi kèm');
             $table->string('attach_image')->nullable()->comment('ảnh phụ kiện đi kèm');
             $table->integer('qty');
+            $table->integer('sold');
             $table->integer('qty_sold');
             $table->timestamps();
         });

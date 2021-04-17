@@ -10,7 +10,7 @@
                     <a href="{{ route('site.detail.index', [Str::slug($value->name), $value->id])}}" data-toggle="tooltip" title="{{ $value->name }}">
                         <div class="item-custom">
                             <div class="image">
-                                <img class="image-product" src="{{ asset('admin/upload/') }}/{{$value->image}}" alt="{{ $value->name }}"
+                                <img class="image-product" src="{{$value->image}}" alt="{{ $value->name }}"
                                      title="{{ $value->name }}"
                                      height="214">
                             </div>

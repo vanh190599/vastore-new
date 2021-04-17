@@ -2,22 +2,30 @@
 
 namespace App\Http\Controllers\site;
 
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Account\CreateRequest;
 use App\Library\CGlobal;
-use App\Services\AdminService;
+use App\Services\orderService;
 use App\Services\ProductService;
+use App\Services\ShippingService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
 
 class HomeController extends Controller{
 
     private $productService;
+    private $orderController;
+    private $shippingService;
 
-    public function __construct(ProductService $productService)
+    public function __construct(
+        ProductService  $productService,
+        orderService $orderService,
+        ShippingService $shippingService
+    )
     {
-        $this->productService = $productService;
+        $this->productService  = $productService;
+        $this->orderService    = $orderService;
+        $this->shippingService = $shippingService;
     }
 
     public function index(Request $request)
@@ -87,5 +95,41 @@ class HomeController extends Controller{
         return view('site.list.index', compact(
             'products'
         ));
+    }
+
+    public function lookUp(){
+        return view('site.look_up.index');
+    }
+
+    public function submitLookUp(Request $request){
+        $phone = $request->phone;
+        $data = [];
+        $data['conditions'][] = ['key' => 'phone', 'value'=>$phone];
+        $shippings = $this->shippingService->get($data);
+        $shipping_ids = $shippings->pluck('id');
+        $shipping_names = $shippings->pluck('receive', 'id');
+
+        $data = [];
+        $data['conditions'][] = ['key' => 'shipping_id' , 'value' => $shipping_ids, 'operator' => 'in'];
+        $orders = $this->orderService->get($data);
+        //$orders->load('details');
+        $orders->load(["details" => function ($q) {
+            $q->where('status', 1);
+        }]);
+
+
+        $products = [];
+        if (sizeof($orders) > 0) {
+            foreach ($orders as $key => $order) {
+                if (sizeof($order->details) > 0) {
+                    foreach ($order->details as $key2 => $value) {
+                        $value['receive'] = isset($shipping_names[$order->shipping_id]) ? $shipping_names[$order->shipping_id] : '';
+                        $products[] = $value;
+                    }
+                }
+            }
+        }
+
+        return view('site.look_up.index', compact('products', 'shipping_names'));
     }
 }

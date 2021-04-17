@@ -141,7 +141,7 @@ class OrderDetailService
     /**
      * @return array [key: data(int) ; value:category (date d-m-Y)]
      */
-    public function chart(){
+    public function chartByDay(){
         $detail = $this->orderDetail;
         $start =  strtotime(Carbon::now()->startOfMonth());
         $end   = strtotime(Carbon::now()->endOfMonth());
@@ -167,7 +167,39 @@ class OrderDetailService
         $data = [];
         $data['data'] = $result;
         $data['cate'] = $cate;
-        //dd($data);
+
+        return $data;
+    }
+
+    public function chartByMonth(){
+        $detail = $this->orderDetail;
+        $start = "1-1-2021";
+        $start = strtotime($start);
+        $start = Carbon::parse($start);
+
+        $period = [];
+        $time = $start;
+        $test = [];
+        for ($i = 0; $i <= 12; $i++ ) {
+            $period[] = strtotime($time);
+            $test[] = date('d-m-Y', strtotime($time));
+            $time = $time->addMonth(1);
+        }
+        //dd($test);
+
+        $result = [];
+        $cate = [];
+        foreach ($period as $key => $value) {
+            if ($key < 12) {
+                $qty = $detail->whereBetween('date', [$period[$key], $period[$key+1] - 1])->sum('qty');
+                $result[] = (int) $qty;
+                $cate[]   = date('d-m-Y' ,$value);
+            }
+        }
+
+        $data = [];
+        $data['data'] = $result;
+        $data['cate'] = $cate;
 
         return $data;
     }

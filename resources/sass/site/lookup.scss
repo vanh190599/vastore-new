@@ -1,0 +1,25 @@
+#look-up{
+    form {
+        .box-look-up {
+            display: flex;
+            button {
+                background: #FE980F !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 40px;
+                border-radius: 0 !important;
+                span {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .label {
+        width: fit-content;
+        padding: 5px 10px;
+        color: white;
+        border-radius: 10px;
+    }
+}

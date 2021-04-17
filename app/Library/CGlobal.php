@@ -1,5 +1,6 @@
 <?php
 namespace App\Library;
+use Carbon;
 
 class CGlobal
 {
@@ -38,5 +39,23 @@ class CGlobal
             $time = $unit_num.' '.CGlobal::$aryLable[$unit_label];
         }
         return $time;
+    }
+
+    public static function expiredTime($unit_num, $unit_label){
+        $expired_time = 0;
+        switch ($unit_label){
+            case 1: //DAY
+                $expired_time = time() + $unit_num*86.400;
+                break;
+            case 2: //MONTH
+                $expired_time = Carbon\Carbon::parse(time())->addMonths($unit_num);
+                $expired_time = strtotime($expired_time);
+                break;
+            case 3: //YEAR
+                $expired_time = Carbon\Carbon::parse(time())->addYears($unit_num);
+                $expired_time = strtotime($expired_time);
+                break;
+        }
+        return $expired_time;
     }
 }

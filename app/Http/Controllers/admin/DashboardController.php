@@ -28,7 +28,18 @@ class DashboardController extends Controller
     }
 
     public function chart(Request $request){
-        $data = $this->orderDetailService->chart();
+        $type = $request->type;
+        $data = [];
+        switch ($type) {
+            case "day":
+                $data = $this->orderDetailService->chartByDay();
+                break;
+            case "month":
+                $data = $this->orderDetailService->chartByMonth();
+                break;
+            default:
+                break;
+        }
         return response(['success' => 1, 'data' => $data]);
     }
 }

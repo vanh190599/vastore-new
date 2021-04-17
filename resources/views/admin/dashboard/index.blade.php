@@ -46,7 +46,6 @@
                                             </div>
                                         </div>
 
-
                                         <div class="col-lg-3 d-flex align-items-center ">
                                             <button type="submit" class="btn btn-lg btn-primary btn-primary--icon">
                                                 Thống kê
@@ -55,11 +54,14 @@
                                     </div>
 
 
-
                                 </div>
 
                                 <div>
-                                    <div id="chart"></div>
+                                    <div id="chartByDay"></div>
+                                </div>
+
+                                <div>
+                                    <div id="chartByMonth"></div>
                                 </div>
 
                             </div>
@@ -74,34 +76,49 @@
         </div>
         <!--end::Entry-->
     </div>
-
-
 @endsection
 
 @push('scripts')
     <script>
         $(document).ready(function (){
-            chart();
+            chartByDay()
+            chartByMonth()
 
-            function chart(){
+            function chartByDay(){
+                let type = "day"
                 $.ajax({
                     url: BASE_URL + '/admin/dashboard/chart',
                     method: 'get',
-                    data: {},
+                    data: { type },
                     success: function (res) {
                         if (res.success === 1) {
                             let data = res.data.data
                             let cate = res.data.cate
-
-                            console.log(data)
-                            console.log(cate)
-
-                            renderChart(data, cate)
-
+                            let title = "Tổng số lượng đã bán theo ngày"
+                            renderChart(data, cate, title, 'chartByDay')
                         } else {
-                            // setTimeout(function () {
-                            //     location.reload();
-                            // }, 1000);
+                            //
+                        }
+                    },
+                    error: function (res) {
+
+                    },
+                });
+            }
+            function chartByMonth(){
+                let type = "month"
+                $.ajax({
+                    url: BASE_URL + '/admin/dashboard/chart',
+                    method: 'get',
+                    data: { type },
+                    success: function (res) {
+                        if (res.success === 1) {
+                            let data = res.data.data
+                            let cate = res.data.cate
+                            let title = 'Tổng số lượng sản phẩm đã bán theo tháng'
+                            renderChart(data, cate, title, 'chartByMonth')
+                        } else {
+                            //
                         }
                     },
                     error: function (res) {
@@ -111,10 +128,8 @@
             }
         })
 
-
-        function renderChart(data, cate) {
+        function renderChart(data, cate, title, type) {
             var max = Math.max(...data) > 0 ? Math.max(...data) + 3 : 0
-
             var options = {
                 series: [{
                     name: "Tổng số lượng",
@@ -131,10 +146,12 @@
                     enabled: false
                 },
                 stroke: {
-                    curve: 'straight'
+                    curve: 'straight',
+                    width: 1,
+                    curve: 'smooth',
                 },
                 title: {
-                    text: 'Tổng số lượng sản phẩm đã bán trong tháng này',
+                    text: title,
                     align: 'left'
                 },
                 grid: {
@@ -151,8 +168,9 @@
                 }
             };
 
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            var chart = new ApexCharts(document.querySelector("#"+type), options);
             chart.render();
         }
     </script>
+
 @endpush

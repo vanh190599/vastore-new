@@ -35,7 +35,7 @@
             @foreach($data as $key => $value)
             <tr>
                 <td>{{ $stt++ }}</td>
-                <td><img src="{{ asset('admin/upload/') }}/{{$value->model->image}}" alt="" width="100px" height="100px" style="object-fit: cover"></td>
+                <td><img src="{{$value->model->image}}" alt="" width="100px" height="100px" style="object-fit: cover"></td>
                 <td>{{ $value->name }}</td>
                 <td>{{ number_format($value->price) }} đ </td>
                 <td>

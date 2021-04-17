@@ -8,8 +8,7 @@ Route::middleware(['guest:admin'])->group(function (){
 Route::middleware(['auth:admin'])->group(function (){
     Route::post('logout', 'LoginController@logout')->name('logout');
     Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
-    Route::get('dashboard/chart', 'DashboardController@chart')->name('dashboard.index');
-
+    Route::get('dashboard/chart', 'DashboardController@chart')->name('dashboard.chart');
 
     //admin-account
     Route::prefix('admin-account')->group(function (){

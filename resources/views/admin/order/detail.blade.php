@@ -136,7 +136,7 @@
                                                 <tr>
                                                     <td class="align-middle">{{ $key + $details->firstItem() }}</td>
                                                     <td class="align-middle">
-                                                        <img src="{{ asset('admin/upload/') }}/{{ $value->product_image }}" alt="" style="width: 150px; height: 150px; object-fit: cover">
+                                                        <img src="{{ $value->product_image }}" alt="" style="width: 150px; height: 150px; object-fit: cover">
                                                     </td>
                                                     <td class="align-middle">{{ $value->product_name }}</td>
                                                     <td class="align-middle">{{ $value->brand_name }}</td>

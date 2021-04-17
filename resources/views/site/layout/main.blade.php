@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="{{ asset('lib/carousel/carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/carousel/them.css') }}">
 
+    @yield('custom_css')
+
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />--}}
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" />--}}
 </head><!--/head-->
@@ -48,6 +50,8 @@
     }
 
 </style>
+
+
 
 @include('site.layout.header')
 

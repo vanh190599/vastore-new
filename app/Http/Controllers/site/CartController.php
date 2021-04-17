@@ -115,6 +115,7 @@ class CartController extends Controller {
                        'price' => $value->model->discount > 0 ? $value->model->discount : $value->model->price ,
                        'qty' => $value->qty,
                        'total' => $value->qty * $value->price,
+                       'expired_time' => (int) CGlobal::expiredTime($value->model->unit_num, $value->model->unit_label),
                        'date' => time(),
                    ]);
                }

@@ -9,7 +9,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-sm-12" style="margin-top: 10px" >
+                <div class="col-md-6 col-sm-12" style="margin-top: 10px"
                     <!-- search -->
                     <form action="{{ route('site.list.index') }}" method="get">
                         <div class="form-group pull-right" style="display: flex">
@@ -35,7 +35,7 @@
     <div class="header-bottom" style="padding: 10px"><!--header-bottom-->
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
@@ -68,11 +68,15 @@
                             </li>
 
                             <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
+
+                            @if(Auth::guard('customers')->check())
+                                <li><a href="{{ route('site.lookUp') }}"  class="text">Tra cứu sản phẩm</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="pull-right">
                         @if(Auth::guard('customers')->check())
                             <div style="display: flex; align-items: center">
@@ -83,10 +87,11 @@
                                 </form>
                             </div>
                         @else
-                            <a href="{{ route('site.login') }}" class="btn btn-default">Đăng nhập</a>
+                            <a id="btn-login" href="{{ route('site.login') }}" class="btn btn-default">Đăng nhập</a>
                         @endif
                     </div>
                 </div>
+
             </div>
         </div>
     </div><!--/header-bottom-->

@@ -20,6 +20,9 @@ Route::middleware(['auth:customers'])->group(function (){
     Route::post('/postShipping', 'CartController@postShipping')->name('cart.postShipping');
     Route::get('/shipping/create', 'CartController@createShipping')->name('cart.createShipping');
     Route::get('/shipping/finish', 'CartController@finish')->name('cart.finish');
+
+    Route::get('/look-up', 'HomeController@lookUp')->name('lookUp');
+    Route::get('/submit-look-up', 'HomeController@submitLookUp')->name('submitLookUp');
 });
 
 //Route::get('/cart', 'CartController@index')->name('cart');

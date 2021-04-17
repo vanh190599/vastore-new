@@ -11,12 +11,9 @@
         }
     </style>
 
-
-        <h2 style="color: orangered; text-align: center">
-            Đặt hàng thành công, Cảm ơn bạn đã tin mua sản phẩm của chúng tôi,<br> vui lòng kiểm tra Email của bạn!
-        </h2>
-
-
+    <h2 style="color: orangered; text-align: center">
+        Đặt hàng thành công, Cảm ơn bạn đã tin mua sản phẩm của chúng tôi,<br> vui lòng kiểm tra Email của bạn!
+    </h2>
 @endsection
 
 @section('custom_js')

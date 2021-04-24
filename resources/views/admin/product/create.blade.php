@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 @section('title')
-    Danh sách quản trị viên
+    Thêm sản phẩm
 @endsection
 @push('scripts')
     <script src="{{ asset('admin/js/page/admin_account.js') }}"></script>
@@ -42,7 +42,7 @@
                     <button type="reset" class="btn btn-secondary mr-4">
                         Reset
                     </button>
-                    <button form="kt_form" type="submit" class="btn btn-primary">
+                    <button form="kt_form" type="submit" class="btn btn-primary btn-submit">
                         Submit
                     </button>
 
@@ -99,6 +99,28 @@
                                                         @endforeach
                                                     @endif
                                                 </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Màu <span class="text-danger"></span></label><br>
+                                                <input type="hidden" name="colors">
+                                                <a href="javascript:void(0)" class="add-color btn btn-primary"><i class="flaticon-plus"></i>Thêm màu</a>
+                                                <div class="mt-1" id="colors">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col" width="50px">#</th>
+                                                            <th scope="col">Màu</th>
+                                                            <th scope="col">Ảnh</th>
+                                                            <th scope="col" width="60px">action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
                                             </div>
 
                                             <div class="form-group fv-plugins-icon-container">
@@ -357,7 +379,7 @@
 
                                             <!-- ảnh đại diện -->
                                             <div class="form-group fv-plugins-icon-container">
-                                                <label>Chọn ảnh<span class="text-danger">*</span></label><br>
+                                                <label>Chọn ảnh đại diện<span class="text-danger">*</span></label><br>
                                                 <input type="file" class="upload-file"
                                                        onchange="handleImage(this.files, 1)" >
                                                 <div class="text-danger"></div>
@@ -494,5 +516,91 @@
 @section('custom_js')
     <script>
         $('.datepicker').datepicker();
+
+        $('.add-color').click(function (){
+            let html = `
+               <tr class="color-item">
+                    <th class="align-middle" scope="row">1</th>
+                    <td class="align-middle">
+                        <input type="text" class="form-control" name="color">
+                    </td>
+                    <td class="align-middle">
+                        <img class="image" src="" width="90px" height="90px" alt="" style="object-fit: cover">
+                        <input class="add-image" type="file" ><br>
+                        <input class="mt-1" type="text" name="link_img" value="link ảnh..." disabled style="width: 100%">
+                    </td>
+                    <td class="align-middle"><a href="javascript:void(0)" class="btn btn-danger remove-color">Xóa</a></td>
+                </tr>
+            `
+            $('#colors').find('tbody').append(html)
+        })
+
+        $(document).ready(function (){
+            $(this).delegate('.remove-color', 'click', function (){
+                $(this).closest('.color-item').remove()
+            })
+
+            $(this).delegate(".add-image", "change", function(e){
+                let img = $(this).closest('.color-item').find('img')
+                let link_img = $(this).closest('.color-item').find("input[name='link_img']")
+
+                var file_data = e.target.files[0];
+                console.log(file_data)
+                //lấy ra kiểu file
+                var type = file_data.type;
+                //set tên cho label
+                var name = file_data.name;
+                //Xét kiểu file được upload
+                var match = ["image/png", "image/jpg", "image/jpeg"];
+                //kiểm tra kiểu file
+                if (type == match[0] || type == match[1] || type == match[2] || type == match[3] || type == match[4]) {
+                    //khởi tạo đối tượng form data
+                    var form_data = new FormData();
+                    //thêm files vào trong form data
+                    form_data.append('file', file_data);
+                    //sử dụng ajax post
+                    $.ajax({
+                        url: BASE_URL + '/admin/uploadFile',
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success: function (res) {
+                            if (res.success == 1) {
+                                let url = BASE_URL + '/admin/upload/'+ res.data;
+                                img.attr('src', url)
+                                link_img.val(url)
+                                toastr.success('Upload thành công!');
+                            } else {
+                                toastr.error('Upload thất bại!');
+                            }
+                        }
+                    });
+                } else {
+                    toastr.error('Sai định dạng file!');
+                    return false;
+                }
+            })
+
+            $('.btn-submit').click(function (){
+                let color_item = $('#colors').find('.color-item')
+                if (color_item.length > 0) {
+                    let data = []
+                    $.each(color_item, function (key, value) {
+                        let name  = $(value).find('input[name="color"]').val()
+                        let image = $(value).find('input[name="link_img"]').val()
+                        if (name === "" || image === "" ) {
+                            toastr.error('Vui lòng nhập đủ thông tin màu!');
+                            return false;
+                        }
+                        data.push({name, image})
+                        $('input[name="colors"]').val(JSON.stringify(data))
+                    })
+                }
+
+                return true;
+            })
+        })
     </script>
 @endsection

@@ -184,5 +184,15 @@
         }
     }
 
+}
 
+#box-filter {
+    padding: 10px;
+    display: flex;
+    .text-1 {
+        color: #288ad6;
+        input {
+            margin-right: 5px;
+        }
+    }
 }

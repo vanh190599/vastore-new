@@ -41,9 +41,16 @@ class ProductService
                 }
             }
         }
+
+        //filter by price
+        if (isset($data['filter']) && sizeof($data['filter']) > 0) {
+            $query = $query->whereBetween('price', $data['filter']);
+        }
+
         if (isset($data['sortBy']) && $data['sortBy'] != '') {
             $query = $query->orderBy($data['sortBy'], isset($data['sortOrder']) ? $data['sortOrder'] : 'DESC');
         }
+
         $result = $query->paginate(isset($data['limit']) ? (int)$data['limit'] : 30);
         return $result;
     }

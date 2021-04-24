@@ -91,6 +91,15 @@ class HomeController extends Controller{
             'sortOrder' => 'DESC'
         ];
 
+        if (! empty($request->filter)) {
+            if ($request->filter) {
+                $arr = explode('-', $request->filter);
+                $start = (int) $arr[0];
+                $end = (int) end($arr);
+            };
+            $data['filter'] = ['start' => $start, 'end' => $end];
+        }
+
         $products = $this->productService->search($data);
         return view('site.list.index', compact(
             'products'

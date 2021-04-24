@@ -58,9 +58,12 @@
 @yield('slide')
 
 <div style="width: 100%; margin-top: 30px">
-    <div class="container-fluid" s style="margin: auto">
+    <div class="container-fluid" style="margin: auto">
+{{--        @yield('filter')--}}
+
         <div class="row">
             <div class="col-sm-3">
+
                 <div class="left-sidebar">
                     @yield('cate')
 

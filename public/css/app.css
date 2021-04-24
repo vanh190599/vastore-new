@@ -1429,6 +1429,19 @@ body.waitMe_body .waitMe_container.text > div {
   width: 100%;
 }
 
+#box-filter {
+  padding: 10px;
+  display: flex;
+}
+
+#box-filter .text-1 {
+  color: #288ad6;
+}
+
+#box-filter .text-1 input {
+  margin-right: 5px;
+}
+
 #login h4 {
   font-size: 24px;
   font-weight: 600;

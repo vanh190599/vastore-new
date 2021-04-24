@@ -17,6 +17,7 @@ class CreateTableProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
+            $table->text('colors')->nullable();;
             $table->integer('brand_id');
             $table->integer('price');
             $table->integer('price_discount')->nullable();

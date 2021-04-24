@@ -27,6 +27,16 @@ class ProductController extends Controller{
         };
 
         $product = $this->productService->first(['id' => $id]);
+
+        if (!empty($product->colors)) {
+            $colors = json_decode($product->colors, true);
+            array_push($colors, [
+                'name' => 'mặc định',
+                'image' => isset($product->image) ? $product->image : ''
+            ]);
+            $product->colors =  json_encode($colors);
+        }
+
         if (empty($product)) abort(404);
 
         return view('site.detail.index', compact('product'));

@@ -3,10 +3,6 @@
     <title>Trang chủ</title>
 @endsection
 @section('content')
-    <style>
-
-    </style>
-
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
@@ -75,7 +71,11 @@
 @endsection
 
 @section('custom_css')
-
+    <style>
+        .session form {
+            border: 1px solid #dddddd;
+        }
+    </style>
 @endsection
 
 @section('custom_js')

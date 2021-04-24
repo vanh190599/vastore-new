@@ -69,9 +69,9 @@
 
                             <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
 
-                            @if(Auth::guard('customers')->check())
+{{--                            @if(Auth::guard('customers')->check())--}}
                                 <li><a href="{{ route('site.lookUp') }}"  class="text">Tra cứu sản phẩm</a></li>
-                            @endif
+{{--                            @endif--}}
                         </ul>
                     </div>
                 </div>

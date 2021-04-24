@@ -976,10 +976,9 @@
 <script src="{{ asset('js/init.js') }}"></script>
 {{--<script src="{{ asset('js/.js') }}"></script>--}}
 
-
-
 @stack('scripts')
 @yield('scripts')
+@yield('custom_js')
 
 </body>
 <!--end::Body-->

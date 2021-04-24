@@ -94,6 +94,7 @@ class ProductController extends Controller{
         $request->flash();
         $data = $request->only([
             "name",
+            "colors",
             'brand_id',
             "price",
             "price_discount",

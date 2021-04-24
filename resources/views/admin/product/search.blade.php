@@ -172,7 +172,17 @@
                                                     <td>
                                                         <img src="{{$value->image}}" width="100px" height="100px" class="image-product" alt="" style="">
                                                     </td>
-                                                    <td class="align-middle">{{ $value->name }}</td>
+                                                    <td class="align-middle">
+                                                        <div>{{ $value->name }}</div>
+                                                        <div class="text-muted">
+                                                            @if(!empty($value->colors))
+                                                                Gồm màu:
+                                                                @foreach(json_decode($value->colors) as $k => $v)
+                                                                  {{ $k!=0 ? '-' : '' }} {{ $v->name }}
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
+                                                    </td>
                                                     <td class="align-middle">{{ isset($value->brand->name) ? $value->brand->name : '' }}</td>
                                                     <td class="align-middle {{ $value->price_discount > 0 ? 'text-muted' : ''}}">
                                                         {{ $value->price }} đ
@@ -190,8 +200,12 @@
                                                         {{ $value->attach }}
                                                     </td>
 
-                                                    <td class="align-middle">
-                                                        <img src="{{$value->attach_image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                    <td class="align-middle text-center">
+                                                        @if(!empty($value->attach_image))
+                                                            <img src="{{$value->attach_image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                        @else
+                                                            -
+                                                        @endif
                                                     </td>
 
                                                     <td class="align-middle">

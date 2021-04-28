@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 @section('title')
-    Danh sách quản trị viên
+   Chỉnh sửa sản phẩm
 @endsection
 @push('scripts')
     <script src="{{ asset('admin/js/page/admin_account.js') }}"></script>
@@ -17,7 +17,7 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <i class="flaticon-paper-plane text-primary mr-4"></i>
+                        <i Chọn ảnhclass="flaticon-paper-plane text-primary mr-4"></i>
                         <h5 class="text-dark font-weight-bold my-1 mr-5">Sản phẩm</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
@@ -42,7 +42,7 @@
                     <button type="reset" class="btn btn-secondary mr-4">
                         Reset
                     </button>
-                    <button form="kt_form" type="submit" class="btn btn-primary">
+                    <button form="kt_form" type="submit" class="btn btn-primary btn-submit">
                         Submit
                     </button>
 
@@ -99,6 +99,63 @@
                                                         @endforeach
                                                     @endif
                                                 </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <label>Chọn ảnh<span class="text-danger">*</span></label><br>
+                                                        <input type="file" class="upload-file" onchange="handleImage(this.files, 1)" >
+
+                                                        <input type="hidden" name="image" value="{{ old('image', $product->image) }}" >
+                                                        <div id="image" class="img mt-4">
+                                                            <img class="img-thumbnail" src="{{ old('image', $product->image) }}" width="200px" height="200px" alt="" style="object-fit: cover">
+                                                        </div>
+                                                    </div>
+
+                                                    <div style="margin-left: 50px">
+                                                        <label>Chọn ảnh phụ kiện đính kèm<span class="text-danger">*</span></label><br>
+                                                        <input type="file" class="upload-file" onchange="handleImage(this.files, 2)" >
+                                                        <input type="hidden" name="attach_image" value="{{ old('attach_image', $product->attach_image) }}">
+                                                        <div id="attach-image" class="img mt-4">
+                                                            <img class="img-thumbnail" src="{{ !empty($product->attach_image) ? old('attach_image', $product->attach_image) : asset('images/default.jpg') }}" width="200px" height="200px" alt="" style="width: 200px; height: 200px; object-fit: cover">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Màu <span class="text-danger"></span></label><br>
+                                                <input type="hidden" name="colors">
+                                                <a href="javascript:void(0)" class="add-color btn btn-primary"><i class="flaticon-plus"></i>Thêm màu</a>
+                                                <div class="mt-1" id="colors">
+                                                    <table class="table table-bordered" style="background: #f3f6f9;">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">Màu</th>
+                                                            <th scope="col">Ảnh</th>
+                                                            <th scope="col" width="60px">action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @if(! empty($product->colors))
+                                                            @foreach(json_decode($product->colors) as $key => $value)
+                                                                <tr class="color-item">
+                                                                    <td class="align-middle">
+                                                                        <input type="text" value="{{ $value->name }}" class="form-control" name="color">
+                                                                    </td>
+                                                                    <td class="align-middle">
+                                                                        <img class="image img-thumbnail" src="{{ !empty($value->image) ? $value->image : '' }}" width="90px" height="90px" alt="" style="object-fit: cover">
+                                                                        <input class="add-image" type="file" ><br>
+                                                                        <input  class="mt-1" type="text" name="link_img" value="{{ isset($value->image) ? $value->image : '' }}" disabled style="width: 100%">
+                                                                    </td>
+                                                                    <td class="align-middle"><a href="javascript:void(0)" class="btn btn-danger remove-color">Xóa</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                        @endif
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
 
                                             <div class="form-group fv-plugins-icon-container">
@@ -356,30 +413,36 @@
                                             </div>
 
                                             <!-- ảnh đại diện -->
-                                            <div class="form-group fv-plugins-icon-container">
+                                          {{--  <div class="form-group fv-plugins-icon-container">
                                                 <label>Chọn ảnh<span class="text-danger">*</span></label><br>
                                                 <input type="file" class="upload-file"
                                                        onchange="handleImage(this.files, 1)" >
                                                 <div class="text-danger"></div>
                                                 <span class="form-text text-muted d-none"></span>
-                                                <div class="fv-plugins-message-container"></div></div>
-                                            <input type="hidden" name="image" value="" >
-                                            <div id="image" class="img">
-                                                <img src="{{ old('image') }}" width="200px" height="200px" alt="" style="object-fit: cover">
+                                                <div class="fv-plugins-message-container"></div>
                                             </div>
+
+                                            <input type="hidden" name="image" value="{{ old('image', $product->image) }}" >
+                                            <div id="image" class="img">
+                                                <img src="{{ old('image', $product->image) }}" width="200px" height="200px" alt="" style="object-fit: cover">
+                                            </div>--}}
+                                            <br>
                                             <!-- end ảnh đại diện -->
 
                                             <!-- ảnh đính kèm -->
-                                            <div class="form-group fv-plugins-icon-container">
+                                            {{--<div class="form-group fv-plugins-icon-container">
                                                 <label>Chọn ảnh phụ kiện đính kèm<span class="text-danger">*</span></label><br>
                                                 <input type="file" class="upload-file"
                                                        onchange="handleImage(this.files, 2)" >
                                                 <div class="text-danger"></div>
                                                 <div class="fv-plugins-message-container"></div></div>
-                                            <input type="hidden" name="attach_image" value="" >
-                                            <div id="attach-image" class="img">
-                                                <img src="{{ old('attach_image') }}" width="200px" height="200px" alt="" style="object-fit: cover">
-                                            </div>
+                                                <input type="hidden" name="attach_image" value="{{ old('attach_image', $product->attach_image) }}">
+                                                <div id="attach-image" class="img">
+                                                    <img src="{{ !empty($product->attach_image) ? old('attach_image', $product->attach_image) : asset('images/default.jpg') }}" width="200px" height="200px" alt="" style="object-fit: cover">
+                                                </div>
+                                            <br>--}}
+
+
                                             <!-- end ảnh đính kèm -->
 
                                             <div class="form-group fv-plugins-icon-container">
@@ -470,6 +533,94 @@
                 return false;
             }
         }
+    </script>
+
+    <script>
+        $('.add-color').click(function (){
+            let html = `
+               <tr class="color-item">
+<!--                    <th class="align-middle" scope="row">1</th>-->
+                    <td class="align-middle">
+                        <input type="text" class="form-control" name="color">
+                    </td>
+                    <td class="align-middle">
+                        <img class="image" src="`+ BASE_URL +`/images/default2.png" width="90px" height="90px" alt="" style="object-fit: cover">
+                        <input class="add-image" type="file" ><br>
+                        <input class="mt-1" type="text" name="link_img" value="link ảnh..." disabled style="width: 100%">
+                    </td>
+                    <td class="align-middle"><a href="javascript:void(0)" class="btn btn-danger remove-color">Xóa</a></td>
+                </tr>
+            `
+            $('#colors').find('tbody').append(html)
+        })
+
+        $(document).ready(function (){
+            $(this).delegate('.remove-color', 'click', function (){
+                $(this).closest('.color-item').remove()
+            })
+
+            $(this).delegate(".add-image", "change", function(e){
+                let img = $(this).closest('.color-item').find('img')
+                let link_img = $(this).closest('.color-item').find("input[name='link_img']")
+
+                var file_data = e.target.files[0];
+                console.log(file_data)
+                //lấy ra kiểu file
+                var type = file_data.type;
+                //set tên cho label
+                var name = file_data.name;
+                //Xét kiểu file được upload
+                var match = ["image/png", "image/jpg", "image/jpeg"];
+                //kiểm tra kiểu file
+                if (type == match[0] || type == match[1] || type == match[2] || type == match[3] || type == match[4]) {
+                    //khởi tạo đối tượng form data
+                    var form_data = new FormData();
+                    //thêm files vào trong form data
+                    form_data.append('file', file_data);
+                    //sử dụng ajax post
+                    $.ajax({
+                        url: BASE_URL + '/admin/uploadFile',
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success: function (res) {
+                            if (res.success == 1) {
+                                let url = BASE_URL + '/admin/upload/'+ res.data;
+                                img.attr('src', url)
+                                link_img.val(url)
+                                toastr.success('Upload thành công!');
+                            } else {
+                                toastr.error('Upload thất bại!');
+                            }
+                        }
+                    });
+                } else {
+                    toastr.error('Sai định dạng file!');
+                    return false;
+                }
+            })
+
+            $('.btn-submit').click(function (){
+                let color_item = $('#colors').find('.color-item')
+                if (color_item.length > 0) {
+                    let data = []
+                    $.each(color_item, function (key, value) {
+                        let name  = $(value).find('input[name="color"]').val()
+                        let image = $(value).find('input[name="link_img"]').val()
+                        if (name === "" || image === "" ) {
+                            toastr.error('Vui lòng nhập đủ thông tin màu!');
+                            return false;
+                        }
+                        data.push({name, image})
+                        $('input[name="colors"]').val(JSON.stringify(data))
+                    })
+                }
+
+                return true;
+            })
+        })
     </script>
 @endsection
 

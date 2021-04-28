@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\Exception;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 session_start();
 class CartController extends Controller {
@@ -88,6 +90,14 @@ class CartController extends Controller {
        try {
            DB::beginTransaction();
 
+           $gmail = $request->email;
+           $checkMail = $this->checkExist($gmail);
+           //dd($checkMail);
+
+           if ($checkMail['input01']['Valid'] == "true") {
+               return  back()->with('error', 'email không tồn tại');
+           }
+
            $user = auth('customers')->user();
            $brands = $this->brandService->get([])->pluck('name', 'id');
            $data = $request->only('address', 'receive', 'email', 'phone');
@@ -134,5 +144,13 @@ class CartController extends Controller {
 
    public function finish(){
         return view('site.cart.finish');
+   }
+
+   public function checkExist($gmail){
+       $response = Http::post('https://accounts.google.com/InputValidator?resource=signup&service=mail', ['input01' => [
+           'Input' => 'GmailAddress', 'GmailAddress' => Str::before($gmail, '@gmail.com'), 'FirstName' => '', 'LastName' => ''
+       ], 'Locale' => 'en'])->json();
+
+       return $response;
    }
 }

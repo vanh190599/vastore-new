@@ -14,12 +14,12 @@
 
             <form id="filter" action="{{ route('site.list.index', ['brand_id' => request('brand_id')]) }}" style="width: 100%;">
                 <div style="width: 70%; justify-content: space-between; display: flex">
-                    <div class="text-1"><input id="ft1" type="radio" name="filter" value="0-2000000"> <label for="ft1">Dưới 2 triệu</label> </div>
-                    <div class="text-1"><input id="ft2" type="radio" name="filter" value="2000000-4000000"> <label for="ft2">2-4 triệu</label></div>
-                    <div class="text-1"><input id="ft3" type="radio" name="filter" value="4000000-7000000"> <label for="ft3">4-7 triệu</label></div>
-                    <div class="text-1"><input id="ft4" type="radio" name="filter" value="7000000-13000000"> <label for="ft4">7-13 triệu</label></div>
-                    <div class="text-1"><input id="ft5" type="radio" name="filter" value="13000000-20000000"> <label for="ft5">13-20 triệu</label></div>
-                    <div class="text-1"><input id="ft6" type="radio" name="filter" value="20000000-1000000000"> <label for="ft6">trên 20 triệu</label></div>
+                    <div class="text-1"><input id="ft1" {{ request('filter') == '0-2000000' ? 'checked' : '' }} type="radio" name="filter" value="0-2000000"> <label for="ft1">Dưới 2 triệu</label> </div>
+                    <div class="text-1"><input id="ft2" {{ request('filter') == '2000000-4000000' ? 'checked' : '' }} type="radio" name="filter" value="2000000-4000000"> <label for="ft2">2-4 triệu</label></div>
+                    <div class="text-1"><input id="ft3" {{ request('filter') == '4000000-7000000' ? 'checked' : '' }} type="radio" name="filter" value="4000000-7000000"> <label for="ft3">4-7 triệu</label></div>
+                    <div class="text-1"><input id="ft4" {{ request('filter') == '7000000-13000000' ? 'checked' : '' }} type="radio" name="filter" value="7000000-13000000"> <label for="ft4">7-13 triệu</label></div>
+                    <div class="text-1"><input id="ft5" {{ request('filter') == '13000000-20000000' ? 'checked' : '' }} type="radio" name="filter" value="13000000-20000000"> <label for="ft5">13-20 triệu</label></div>
+                    <div class="text-1"><input id="ft6" {{ request('filter') == '20000000-1000000000' ? 'checked' : '' }} type="radio" name="filter" value="20000000-1000000000"> <label for="ft6">trên 20 triệu</label></div>
                 </div>
             </form>
 

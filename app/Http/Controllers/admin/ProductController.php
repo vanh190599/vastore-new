@@ -39,28 +39,25 @@ class ProductController extends Controller{
                 'operator' => 'like'
             ]);
         }
+
         if (! empty($request->id)) {
             array_push($conditions, [
                 'key' => 'id',
                 'value' => $request->id,
             ]);
         }
-        if (! empty($request->email)) {
+
+        if (! empty($request->brand)) {
             array_push($conditions, [
-                'key' => 'email',
-                'value' => $request->email,
+                'key' => 'brand_id',
+                'value' => $request->brand,
             ]);
         }
+
         if (! empty($request->is_active)) {
             array_push($conditions, [
                 'key' => 'is_active',
                 'value' => (int)$request->is_active,
-            ]);
-        }
-        if (! empty($request->phone)) {
-            array_push($conditions, [
-                'key' => 'phone',
-                'value' => (int)$request->phone,
             ]);
         }
 
@@ -131,6 +128,7 @@ class ProductController extends Controller{
         $product = $this->productService->first(['id'=>$request->id]);
         $brands = $this->brandService->get([])->pluck('name', 'id')->toArray();
         $aryLabel = CGlobal::$aryLable;
+        //dd($product);
         return view('admin.product.edit', compact('product', 'brands', 'aryLabel' ));
     }
 
@@ -162,9 +160,10 @@ class ProductController extends Controller{
             "attach_image",
             "qty",
             "sold",
+            "colors",
         ]);
-        //dd($data);
         $data["release_date"] = strtotime($data["release_date"]);
+        //dd($data['colors']);
 
         $product = $this->productService->first(['id'=>$request->id]);
         $this->productService->edit($product, $data);

@@ -83,7 +83,14 @@
                                             <div class="col-lg-3">
                                                 <div class="form-group fv-plugins-icon-container">
                                                     <label>Hãng</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="email" placeholder="Hãng" value="{{ request('email') }}">
+                                                    <select name="brand" id="" class="form-control form-control-solid form-control-lg">
+                                                        <option value="">Tất cả</option>
+                                                        @if(isset($data_brand) && sizeof($data_brand) > 0)
+                                                            @foreach($data_brand as $key => $value)
+                                                                <option value="{{ $value->id }}" {{ $value->id == request('brand') ?  'selected' : '' }}>{{ $value->name }}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
                                                     <div class="fv-plugins-message-container"></div>
                                                 </div>
                                             </div>
@@ -170,7 +177,11 @@
                                                         {{ $key + $products->firstItem() }}
                                                     </td>
                                                     <td>
+                                                        @if(!empty($value->image))
                                                         <img src="{{$value->image}}" width="100px" height="100px" class="image-product" alt="" style="">
+                                                        @else
+                                                            -
+                                                        @endif
                                                     </td>
                                                     <td class="align-middle">
                                                         <div>{{ $value->name }}</div>

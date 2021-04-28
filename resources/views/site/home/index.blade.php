@@ -347,7 +347,7 @@
 @section('custom_js')
     <script>
         $(document).ready(function (){
-            $('[data-toggle="tooltip"]').tooltip();
+            // $('[data-toggle="tooltip"]').tooltip();
             $(".owl-carousel").owlCarousel();
         })
     </script>

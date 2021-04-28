@@ -12,11 +12,11 @@
             <div class="one-time">
                 @if(!empty($product->colors))
                     @foreach(json_decode($product->colors) as $k => $v)
-                        <img src="{{$v->image}}" alt="" height="450px" style="object-fit: cover">
+                        <img src="{{$v->image}}" alt="" height="450px" style="object-fit: cover; height: 418px">
                     @endforeach
-                        <img src="{{$product->image}}" alt="" height="450px" style="object-fit: cover">
+                        <img src="{{$product->image}}" alt="" height="450px" style="object-fit: cover; height: 418px">
                 @else
-                    <img src="{{$product->image}}" alt="" height="450px" style="object-fit: cover">
+                    <img src="{{$product->image}}" alt="" height="450px" style="object-fit: cover; height: 418px">
                 @endif
             </div>
         </div>
@@ -24,8 +24,8 @@
             <p class="name">{{ $product->name }}</p>
             @if($product->price_discount > 0)
                 <div>
-                    <span class="price">{{ number_format($product->price) }} đ</span>
-                    <span class="price-discount"> <strike>{{ number_format($product->price_discount) }} đ</strike> </span>
+                    <span class="price">{{ number_format($product->price_discount) }} đ</span>
+                    <span class="price-discount"> <strike>{{ number_format($product->price) }} đ</strike> </span>
                 </div>
             @else
                 <span class="price">{{ number_format($product->price) }}</span>
@@ -260,7 +260,7 @@
 
     <script>
         $(document).ready(function (){
-            $('[data-toggle="tooltip"]').tooltip();
+            //$('[data-toggle="tooltip"]').tooltip();
             $('.open-modal-image').on('click', function (){
                 let src = $(this).data('url')
                 $('#modalImage').find('img').attr('src', src)
@@ -280,20 +280,15 @@
             if (li.length > 0) {
                 let colors = @json($product->colors);
                 colors = JSON.parse(colors)
-                console.log(colors)
                 let a = @json($product->image);
                 $.each(li, function (key, value) {
-                    $(value).find('button').html(
-                        `
-                         <img src="`+colors[key]['image']+`" alt="" width="90px" height="90px">
-                        `
-                    )
+                    $(value).find('button').html(`
+                         <img src="`+colors[key]['image']+`" alt="" width="90px" height="90px" style="object-fit: cover">
+                    `)
 
-                    $(value).append(
-                        `
+                    $(value).append(`
                         <div style="width: 90px; text-align: center; position: absolute; bottom: -99px;">`+colors[key]['name']+`</div>
-                        `
-                    )
+                    `)
                 })
             }
         })

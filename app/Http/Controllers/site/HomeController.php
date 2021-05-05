@@ -10,7 +10,7 @@ use App\Services\ProductService;
 use App\Services\ShippingService;
 use Illuminate\Http\Request;
 
-
+session_start();
 class HomeController extends Controller{
 
     private $productService;
@@ -100,9 +100,11 @@ class HomeController extends Controller{
             $data['filter'] = ['start' => $start, 'end' => $end];
         }
 
+        $brand_id = isset($request->brand_id) ? $request->brand_id : '';
         $products = $this->productService->search($data);
+
         return view('site.list.index', compact(
-            'products'
+            'products', 'brand_id'
         ));
     }
 
@@ -125,7 +127,6 @@ class HomeController extends Controller{
         $orders->load(["details" => function ($q) {
             $q->where('status', 1);
         }]);
-
 
         $products = [];
         if (sizeof($orders) > 0) {

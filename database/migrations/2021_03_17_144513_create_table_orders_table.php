@@ -21,6 +21,7 @@ class CreateTableOrdersTable extends Migration
             $table->integer('user_id_c');
             $table->string('date_c');
             $table->string('status');
+            $table->string('type_payment');
             $table->timestamps();
         });
     }

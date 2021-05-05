@@ -67,9 +67,11 @@
             </tr>
         </tbody>
     </table>
-    <div class="text-center">
-        <a href="{{ route('site.cart.shipping') }}" class="btn btn-lg btn-danger">ĐẶT HÀNG</a>
-    </div>
+    @if(! empty($data))
+        <div class="text-center">
+            <a href="{{ route('site.cart.shipping') }}" class="btn btn-lg btn-danger">ĐẶT HÀNG</a>
+        </div>
+    @endif
 @endsection
 
 @section('custom_js')

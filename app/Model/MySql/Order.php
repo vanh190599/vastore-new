@@ -16,6 +16,7 @@ class Order extends Model
         'user_id_c',
         'date_c',
         'status',
+        'type_payment',
     ];
 
     protected $dates = ['deleted_at'];

@@ -21,6 +21,7 @@
                     <div class="text-1"><input id="ft5" {{ request('filter') == '13000000-20000000' ? 'checked' : '' }} type="radio" name="filter" value="13000000-20000000"> <label for="ft5">13-20 triệu</label></div>
                     <div class="text-1"><input id="ft6" {{ request('filter') == '20000000-1000000000' ? 'checked' : '' }} type="radio" name="filter" value="20000000-1000000000"> <label for="ft6">trên 20 triệu</label></div>
                 </div>
+                <input type="hidden" name="brand_id" value="{{ $brand_id }}">
             </form>
 
         </div>

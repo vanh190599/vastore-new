@@ -125,6 +125,8 @@
                                             <th scope="col">Người đặt hàng</th>
                                             <th scope="col">Sản phẩm</th>
                                             <th scope="col">Tổng tiền</th>
+{{--                                            <th scope="col">time</th>--}}
+                                            <th scope="col">method</th>
                                             <th scope="col">Xem chi tiết</th>
                                             <th scope="col">Xuất hóa đơn</th>
 {{--                                            <th scope="col">Hành động</th>--}}
@@ -144,7 +146,19 @@
                                                             @endforeach
                                                         @endif
                                                     </td>
+
                                                     <td>{{ $value->total }} đ</td>
+
+{{--                                                    <td>{{ date( 'h:i:s d-m-Y',$value->date_c) }}</td>--}}
+
+                                                    <td>
+                                                        @if($value->type_payment == 1) Tiền mặt
+                                                        @elseif($value->type_payment == 2)
+                                                            Chuyển khoản
+                                                        @else
+                                                            -
+                                                        @endif
+                                                    </td>
 
                                                     <td class="align-middle">
                                                         <a href="{{ route('admin.order.detail', ['order_id'=>$value->id]) }}" class="btn btn-sm btn-outline-primary">Chi tiết</a>

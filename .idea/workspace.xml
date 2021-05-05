@@ -24,14 +24,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b82677ca-9fb4-4761-8ed2-f49fe0ac5a2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/MySql/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/MySql/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_144513_create_table_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_144513_create_table_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/cart/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/cart/shipping.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/cart/shipping.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/detail/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/detail/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/home/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/list/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/list/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/site/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/site/site.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +176,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chudinh" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -239,7 +241,12 @@
       <workItem from="1619449707223" duration="239000" />
       <workItem from="1619450359486" duration="16000" />
       <workItem from="1619452143875" duration="16000" />
-      <workItem from="1619630674434" duration="6407000" />
+      <workItem from="1619630674434" duration="6437000" />
+      <workItem from="1620145656608" duration="29000" />
+      <workItem from="1620147872149" duration="312000" />
+      <workItem from="1620229075544" duration="5746000" />
+      <workItem from="1620235144177" duration="409000" />
+      <workItem from="1620235601379" duration="3365000" />
     </task>
     <servers />
   </component>
@@ -267,11 +274,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1616516461825" />
-    <state x="2106" y="280" key="FileChooserDialogImpl" timestamp="1619447576649">
-      <screen x="1366" y="0" width="1920" height="1050" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1620235675936">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="2106" y="280" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1619447576649" />
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1619278221552" />
+    <state x="2106" y="280" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1920.1050@1366.0.1920.1050" timestamp="1620145686403" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1620235675936" />
     <state width="1877" height="541" key="GridCell.Tab.0.bottom" timestamp="1619295739059">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -288,10 +295,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="541" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1619295739059" />
-    <state x="794" y="448" key="NewPhpFileDialog" timestamp="1618691093201">
+    <state x="794" y="448" key="NewPhpFileDialog" timestamp="1620236964253">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1618691093201" />
+    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1620236964253" />
     <state x="719" y="245" key="RollbackChangesDialog" timestamp="1618687390227">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -300,19 +307,19 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1618715566689" />
-    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1619292920898">
+    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1620236780988">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1619292920898" />
-    <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1619293677617">
+    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1620236780988" />
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1620236218019">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1619293677617" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1619634392924">
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1620236218019" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1620238895242">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="583" y="155" width="672" height="477" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1619321655661" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1619634392924" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1620238895242" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,6 +348,15 @@
           <url>file://$PROJECT_DIR$/resources/views/admin/product/edit.blade.php</url>
           <line>103</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php-line-method">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/site/CartController.php</url>
+          <line>280</line>
+          <properties>
+            <option name="className" value="\App\Http\Controllers\site\CartController" />
+            <option name="methodName" value="pushShipping" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

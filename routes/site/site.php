@@ -20,16 +20,19 @@ Route::middleware(['auth:customers'])->group(function (){
     Route::post('/delete-cart', 'CartController@delete')->name('cart.delete');
     Route::post('/update-cart', 'CartController@update')->name('cart.update');
     Route::get('/shipping', 'CartController@shipping')->name('cart.shipping');
-    Route::post('/postShipping', 'CartController@postShipping')->name('cart.postShipping');
+    Route::get('/postShipping', 'CartController@postShipping')->name('cart.postShipping');
     Route::get('/shipping/create', 'CartController@createShipping')->name('cart.createShipping');
     Route::get('/shipping/finish', 'CartController@finish')->name('cart.finish');
+    Route::get('/push-shipping', 'CartController@pushShipping')->name('cart.pushShipping');
+    Route::get('/method-payment', 'CartController@methodPayment')->name('cart.methodPayment');
 
-
-
+    //payment online
+    Route::get('payment-vnpay', 'CartController@linkToVNPay')->name('linkToVNPay');
+    Route::get('payment/callback', 'CartController@paymentCallback')->name('paymentCallback');
 });
 
-//Route::get('/cart', 'CartController@index')->name('cart');
 
+//Route::get('/cart', 'CartController@index')->name('cart');
 Route::get('/', 'HomeController@index')->name('home.index');
 Route::get('/list', 'HomeController@list')->name('list.index');
 Route::get('detail/{slug}-{id}.html', 'ProductController@index')->name('detail.index');

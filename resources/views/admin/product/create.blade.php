@@ -517,7 +517,7 @@
     <script>
         $('.datepicker').datepicker();
 
-        $('.add-color').click(function (){
+        $('.add-color').click(function (){Điền thông tin nhận hàng
             let html = `
                <tr class="color-item">
                     <th class="align-middle" scope="row">1</th>

@@ -104,9 +104,10 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">Ảnh</th>
                                             <th scope="col">Tên thương hiệu</th>
                                             <th scope="col">Mô tả</th>
-                                            <th scope="col">Hoạt động</th>
+{{--                                            <th scope="col">Hoạt động</th>--}}
                                             <th scope="col">Hành động</th>
                                         </tr>
                                         </thead>
@@ -115,14 +116,21 @@
                                             @foreach($brands as $key => $value)
                                                 <tr>
                                                     <td class="align-middle">{{ $key + $brands->firstItem() }}</td>
+                                                    <td class="align-middle">
+                                                        @if(!empty($value->image))
+                                                            <img src="{{ $value->image }}" alt="" style="height: 30px; object-fit: cover; border: 1px solid #dddddd">
+                                                        @else
+                                                            -
+                                                        @endif
+                                                    </td>
                                                     <td class="align-middle">{{ $value->name }}</td>
                                                     <td class="align-middle">{{ $value->description }}</td>
-                                                    <td class="align-middle">
-                                                        <label class="switch switch-brand">
-                                                            <input type="checkbox" checked @if($value->status == $CGlobal::STATUS_SHOW) checked @endif>
-                                                            <span class="slider round"></span>
-                                                        </label>
-                                                    </td>
+{{--                                                    <td class="align-middle">--}}
+{{--                                                        <label class="switch switch-brand">--}}
+{{--                                                            <input type="checkbox" checked @if($value->status == $CGlobal::STATUS_SHOW) checked @endif>--}}
+{{--                                                            <span class="slider round"></span>--}}
+{{--                                                        </label>--}}
+{{--                                                    </td>--}}
                                                     <td class="align-middle">
                                                         <a href="{{ route('admin.brand.edit', ['id' => $value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
                                                            data-container="body" data-toggle="popover" data-placement="bottom"

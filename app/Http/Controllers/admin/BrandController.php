@@ -55,7 +55,7 @@ class BrandController extends Controller{
     }
 
     public function submitCreate(BrandRequest $request){
-        $data = $request->only('name', 'description');
+        $data = $request->only('name', 'description', 'image', 'status');
 
         $brand = $this->brandService->create($data);
 
@@ -79,7 +79,7 @@ class BrandController extends Controller{
             return redirect()->route('admin.brand.search')->with('error_message', 'Thương hiệu không tồn tại');
         }
 
-        $data = $request->only('name', 'description');
+        $data = $request->only('name', 'description', 'image', 'status');
 
         $this->brandService->edit($brand, $data);
 

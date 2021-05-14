@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\CreateRequest;
 use App\Library\CGlobal;
+use App\Model\MySql\ProductLog;
 use App\Services\AdminService;
 use App\Services\BrandService;
 use App\Services\ProductService;
@@ -13,20 +14,21 @@ use Illuminate\Support\Facades\Hash;
 
 class ProductController extends Controller{
     private $adminService;
-
     private $brandService;
-
     private $productService;
+    private $log;
 
     public function __construct(
         AdminService $adminService,
         BrandService $brandService,
-        ProductService $productService
+        ProductService $productService,
+        ProductLog $log
     )
     {
         $this->adminService = $adminService;
         $this->brandService = $brandService;
         $this->productService = $productService;
+        $this->log = $log;
     }
 
     public function search(Request $request)
@@ -89,38 +91,10 @@ class ProductController extends Controller{
 
     public function submitCreate(Request $request) {
         $request->flash();
-        $data = $request->only([
-            "name",
-            "colors",
-            'brand_id',
-            "price",
-            "price_discount",
-            "unit_num",
-            "unit_label",
-            "release_date",
-            "height",
-            "width",
-            "depth",
-            "tech_screen",
-            "size",
-            "cpu",
-            "ram",
-            "rom",
-            "battery_capacity",
-            "camera_before",
-            "camera_after",
-            "description",
-            "image",
-            "status",
-            "attach",
-            "attach_image",
-            "qty",
-            "sold",
-        ]);
-        $data["release_date"] = strtotime($data["release_date"]);
-        $data["status"] = 1;
+        $data = $request->all();
 
-        $this->productService->create($data);
+        $this->productService->createProduct($data);
+
         return redirect()->route('admin.product.search');
     }
 
@@ -128,7 +102,6 @@ class ProductController extends Controller{
         $product = $this->productService->first(['id'=>$request->id]);
         $brands = $this->brandService->get([])->pluck('name', 'id')->toArray();
         $aryLabel = CGlobal::$aryLable;
-        //dd($product);
         return view('admin.product.edit', compact('product', 'brands', 'aryLabel' ));
     }
 
@@ -163,10 +136,15 @@ class ProductController extends Controller{
             "colors",
         ]);
         $data["release_date"] = strtotime($data["release_date"]);
-        //dd($data['colors']);
 
         $product = $this->productService->first(['id'=>$request->id]);
         $this->productService->edit($product, $data);
         return redirect()->route('admin.product.search');
+    }
+
+    public function log(Request $request){
+        $log = $this->log->where('product_id', $request->id)->orderBy('id', 'desc')->paginate(10);
+
+        return view('admin.product.log', compact('log'));
     }
 }

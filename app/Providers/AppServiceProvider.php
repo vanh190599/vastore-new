@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $data_brand = Brand::all();
+        $data_brand = Brand::where('status', 1)->get();
         View::share('data_brand', $data_brand);
 
         $cate_news = CategoryNew::all();

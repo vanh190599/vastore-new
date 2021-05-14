@@ -4,16 +4,28 @@
 namespace App\Services;
 
 use App\Model\MySql\product;
+use App\Model\MySql\ProductLog;
+use DB;
+use Exception;
 
 class ProductService
 {
-//    const STATUS_ACTIVE = 1; // hoạt động
-//    const STATUS_BLOCK = -1; // khóa
-    private $product;
+    const DB_INSERT = 1;
+    const DB_UPDATE = 2;
+    const DB_DELETE = 3;
+    public static $aryActionDB = [
+        self::DB_INSERT => "Thêm",
+        self::DB_UPDATE => "Sửa",
+        self::DB_DELETE => "Xóa",
+    ];
 
-    public function __construct(product $product)
+    private $product;
+    private $log;
+
+    public function __construct(Product $product, ProductLog $log)
     {
         $this->product = $product;
+        $this->log = $log;
     }
 
     public function search($data)
@@ -117,5 +129,67 @@ class ProductService
         }
         $result = $query->get();
         return $result;
+    }
+
+    public function createProduct($params){
+        DB::beginTransaction();
+        try {
+            $user = auth('admin')->user();
+
+            $data["name"] = $params["name"];
+            $data["colors"] = $params["colors"];
+            $data["brand_id"] = (int) $params["brand_id"];
+            $data["price"] = $params["price"];
+            $data["price_discount"] = $params["price_discount"];
+            $data["unit_num"] = (int) $params["unit_num"];
+            $data["unit_label"] = (int) $params["unit_label"];
+            $data["release_date"] = $params["release_date"];
+            $data["height"] = $params["height"];
+            $data["width"] = $params["width"];
+            $data["depth"] = $params["depth"];
+            $data["tech_screen"] = $params["tech_screen"];
+            $data["size"] = $params["size"];
+            $data["cpu"] = $params["cpu"];
+            $data["ram"] = $params["ram"];
+            $data["rom"] = $params["rom"];
+            $data["battery_capacity"] = $params["battery_capacity"];
+            $data["camera_before"] = $params["camera_before"];
+            $data["camera_after"] = $params["camera_after"];
+            $data["description"] = $params["description"];
+            $data["image"] = $params["image"];
+            $data["status"] = 1;
+            $data["attach"] = $params["attach"];
+            $data["attach_image"] = $params["attach_image"];
+            $data["qty"] = (int) $params["qty"];
+            $data["sold"] = 0;
+            $data["release_date"] = strtotime($data["release_date"]);
+
+            $product = $this->create($data);
+
+            if ($product) {
+                $this->createLog($product->id, "Thêm sản phẩm", ProductService::DB_INSERT, [], $product->toArray(), $user);
+            }
+
+            DB::commit();
+            return $product;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
+    public function createLog($product_id, $name, $action, $before, $after, $user) {
+        $log = $this->log;
+
+        $log->product_id = $product_id;
+        $log->name = $name;
+        $log->action = $action;
+        $log->content_before = json_encode($before);
+        $log->content_after = json_encode($after);
+        $log->date_c = time();
+        $log->user_id_c = isset($user['id']) ? $user['id'] : "";
+        $log->user_name_c = isset($user['name']) ? $user['name'] : "";
+
+        $log->save();
     }
 }

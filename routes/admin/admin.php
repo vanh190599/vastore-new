@@ -31,6 +31,7 @@ Route::middleware(['auth:admin'])->group(function (){
 
         Route::get('edit', 'ProductController@edit')->name('product.edit');
         Route::post('edit', 'ProductController@submitEdit')->name('product.submitEdit');
+        Route::get('log', 'ProductController@log')->name('product.log');
     });
 
     //brand

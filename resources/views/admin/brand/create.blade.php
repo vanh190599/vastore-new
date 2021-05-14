@@ -79,6 +79,8 @@
                                                 <span class="form-text text-muted d-none">Hãy nhập đầy đủ họ và tên</span>
                                                 <div class="fv-plugins-message-container"></div></div>
                                             <!--begin::Input-->
+
+
                                             <div class="form-group">
                                                 <label>Mô tả <span class="text-danger">*</span></label>
                                                 <textarea name="description" id="" class="form-control form-control-solid" cols="30" rows="10" placeholder="Mô tả"></textarea>
@@ -87,6 +89,25 @@
                                                 @enderror
                                                 <span class="form-text text-muted d-none">Hãy nhập email cá nhân</span>
                                             </div>
+
+                                            <div class="form-group">
+                                                <label>Tải ảnh <span class="text-danger">*</span></label><br>
+                                                <input type="file" id="file" >
+                                                <input type="hidden" name="image">
+                                                <br>
+                                                <br>
+                                                <img id="image" src="" alt="" style="object-fit: cover; height: 30px; display: none">
+                                                <span class="form-text text-muted d-none">Hãy nhập email cá nhân</span>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Trạng thái <span class="text-danger">*</span></label><br>
+                                                <select id="" class="form-control form-control-solid" name="status">
+                                                    <option value="1">Hiển thị</option>
+                                                    <option value="-1">Ẩn</option>
+                                                </select>
+                                            </div>
+
                                             <!--end::Input-->
                                             <!--begin::Wizard Actions-->
                                             <div class="d-flex justify-content-center border-top  pt-5">
@@ -122,7 +143,45 @@
 @push('scripts')
     <script>
         $(document).ready(function (){
-            // alert(1)
+            $('#file').on("change", function(e){
+                var file_data = e.target.files[0];
+                console.log(file_data)
+                //lấy ra kiểu file
+                var type = file_data.type;
+                //set tên cho label
+                var name = file_data.name;
+                //Xét kiểu file được upload
+                var match = ["image/png", "image/jpg", "image/jpeg"];
+                //kiểm tra kiểu file
+                if (type == match[0] || type == match[1] || type == match[2] || type == match[3] || type == match[4]) {
+                    //khởi tạo đối tượng form data
+                    var form_data = new FormData();
+                    //thêm files vào trong form data
+                    form_data.append('file', file_data);
+                    //sử dụng ajax post
+                    $.ajax({
+                        url: BASE_URL + '/admin/uploadFile',
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success: function (res) {
+                            if (res.success == 1) {
+                                let url = BASE_URL + '/admin/upload/'+ res.data;
+                                $('#image').attr('src', url).show()
+                                $('input[name="image"]').val(url)
+                                toastr.success('Upload thành công!');
+                            } else {
+                                toastr.error('Upload thất bại!');
+                            }
+                        }
+                    });
+                } else {
+                    toastr.error('Sai định dạng file!');
+                    return false;
+                }
+            })
         })
     </script>
 

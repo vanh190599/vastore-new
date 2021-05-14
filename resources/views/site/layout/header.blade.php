@@ -9,7 +9,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-sm-12" style="margin-top: 10px"
+                <div class="col-md-6 col-sm-12" style="margin-top: 10px">
                     <!-- search -->
                     <form action="{{ route('site.list.index') }}" method="get">
                         <div class="form-group pull-right" style="display: flex">
@@ -32,23 +32,21 @@
         </div>
     </div><!--/header-middle-->
 
-    <div class="header-bottom" style="padding: 10px"><!--header-bottom-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="mainmenu pull-left">
-                        <ul class="nav navbar-nav collapse navbar-collapse" style="margin-top: 8px;">
-                            <li><a href="{{ route('site.home.index') }}" class="active">Trang chủ</a></li>
-                            <li class="dropdown"><a href="#">Thương hiệu<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu" style="background: #FE980F">
+    <div class="header-bottom-2" >
+        <div class="container-fluid" style="margin: auto">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div style="display: flex; align-items: center; justify-content: space-between">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="{{ route('site.home.index') }}">Trang chủ</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Thương hiệu
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
                                     @if(!empty($data_brand))
                                         @foreach($data_brand as $key => $value)
                                             <li><a href="{{ route('site.list.index', ['brand_id'=>$value->id]) }}">{{ $value->name }}</a></li>
@@ -57,8 +55,10 @@
                                 </ul>
                             </li>
 
-                            <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu" style="background: #FE980F">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tin tức
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
                                     @if(!empty($cate_news))
                                         @foreach($cate_news as $key => $value)
                                             <li><a href="{{ route('site.news.index', ['id'=>$value->id]) }}">{{ $value->name }}</a></li>
@@ -67,40 +67,42 @@
                                 </ul>
                             </li>
 
-                            <li><a href="{{url('trang-chu')}}"  class="text">Liên hệ</a></li>
+                            <li><a href="#">Liên hệ</a></li>
 
-{{--                            @if(Auth::guard('customers')->check())--}}
-                                <li><a href="{{ route('site.lookUp') }}"  class="text">Tra cứu sản phẩm</a></li>
-{{--                            @endif--}}
+                            <li><a href="{{ route('site.lookUp') }}">Tra cứu sản phẩm</a></li>
                         </ul>
+                        <div class="pull-right">
+                            @if(Auth::guard('customers')->check())
+                                <div style="display: flex; align-items: center">
+                                    <span>{{ auth('customers')->user()->name }}</span>&nbsp; &nbsp; &nbsp;
+                                    <form action="{{ route('site.logout') }}" method="post">
+                                        @csrf
+                                        <button class="btn btn-default">Đăng xuất</button>
+                                    </form>
+                                </div>
+                            @else
+                                <a id="btn-login" href="{{ route('site.login') }}" class="btn btn-default" style="margin-right: 15px">Đăng nhập</a>
+                            @endif
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-sm-3">
-                    <div class="pull-right">
-                        @if(Auth::guard('customers')->check())
-                            <div style="display: flex; align-items: center">
-                                <span>{{ auth('customers')->user()->name }}</span>&nbsp; &nbsp; &nbsp;
-                                <form action="{{ route('site.logout') }}" method="post">
-                                    @csrf
-                                    <button class="btn btn-default">Đăng xuất</button>
-                                </form>
-                            </div>
-                        @else
-                            <a id="btn-login" href="{{ route('site.login') }}" class="btn btn-default">Đăng nhập</a>
-                        @endif
-                    </div>
                 </div>
-
-            </div>
+            </nav>
         </div>
-    </div><!--/header-bottom-->
+    </div>
+
+
 </header><!--/header-->
 
 <style>
     .gio-hang1:hover .gio-hang-icon{
         background: orangered !important;
         transition: 0.9s;
+    }
+    @media (min-width: 1388px){
+        .container-fluid-2 {
+            max-width: 1388px !important;
+        }
     }
 </style>
 

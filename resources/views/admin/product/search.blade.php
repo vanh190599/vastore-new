@@ -259,6 +259,9 @@
                                                         @else
                                                             <a href="" class="btn btn-outline-primary btn-sm">Hiển thị</a>
                                                         @endif
+
+                                                        <a href="{{ route('admin.product.log', ['id' => $value->id ]) }}" class="btn btn-outline-warning btn-sm">Lịch sử</a>
+
                                                     </td>
 
                                                 </tr>

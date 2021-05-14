@@ -192,7 +192,71 @@
     .text-1 {
         color: #288ad6;
         input {
-            margin-right: 5px;
+            margin-right: 15px;
         }
     }
 }
+
+.box-brand {
+    display: flex;
+    flex-wrap: wrap;
+
+    .brand-item {
+        height: 36px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 52px;
+        width: fit-content;
+        margin: 0 10px 10px 0;
+
+        img {
+            height: 20px;
+        }
+    }
+}
+
+.header-bottom-2 {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px;
+
+    .navbar {
+        margin-bottom: 0 !important;
+        .dropdown-menu {
+            li {
+                a {
+                    padding: 10px 10px;
+                }
+            }
+        }
+    }
+}
+
+#box-filter-2 {
+    padding: 10px 0;
+
+    //#modalFilter {
+    //    .modal-dialog {
+    //        max-width: 800px;
+    //    }
+    //}
+}
+
+.box-price {
+    .price-item {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

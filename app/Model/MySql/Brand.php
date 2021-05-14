@@ -12,6 +12,8 @@ class Brand extends Model
     protected $fillable = [
         'name',
         'description',
+        'image',
+        'status',
     ];
 
     protected $dates = ['deleted_at'];

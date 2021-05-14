@@ -979,8 +979,10 @@
 @stack('scripts')
 @yield('scripts')
 @yield('custom_js')
+<script>
+
+</script>
 
 </body>
 <!--end::Body-->
-
 </html>

@@ -41,7 +41,7 @@
 <style>
     @media (min-width: 1388px){
         .container-fluid {
-            max-width: 1388px;
+            max-width: 1388px !important;
         }
     }
 
@@ -52,30 +52,29 @@
 </style>
 
 
-
 @include('site.layout.header')
 
-@yield('slide')
+{{--@yield('slide')--}}
 
-<div style="width: 100%; margin-top: 30px">
+<div style="width: 100%">
     <div class="container-fluid" style="margin: auto">
-{{--        @yield('filter')--}}
+        @yield('filter')
+        @yield('brand')
 
         <div class="row">
             <div class="col-sm-3">
-
                 <div class="left-sidebar">
                     @yield('cate')
 
 {{--                    <div class="brands_products"><!--products-->--}}
-{{--                        <h2 style="color: orangered">Tin tức</h2>--}}
+{{--                        <h2 style="color: orangered">Thương hiệu</h2>--}}
 {{--                        <div class="">--}}
 {{--                            <ul class="list-group" style="border-bottom: 2px solid #dddddd">--}}
-{{--                                @if(!empty($cate_news))--}}
-{{--                                    @foreach($cate_news as $k => $v)--}}
+{{--                                @if(!empty($data_brand))--}}
+{{--                                    @foreach($data_brand as $k => $v)--}}
 {{--                                        <li class="">--}}
 {{--                                            <a class="list-group-item text-dark" style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px"--}}
-{{--                                               href="{{ route('site.news.index', ['id'=>$v->id]) }}">--}}
+{{--                                               href="{{ route('site.list.index', ['brand_id'=>$v->id]) }}">--}}
 {{--                                                {{ $v->name }}</a>--}}
 {{--                                        </li>--}}
 {{--                                    @endforeach--}}
@@ -83,24 +82,6 @@
 {{--                            </ul>--}}
 {{--                        </div>--}}
 {{--                    </div><!--/products-->--}}
-
-
-                    <div class="brands_products"><!--products-->
-                        <h2 style="color: orangered">Thương hiệu</h2>
-                        <div class="">
-                            <ul class="list-group" style="border-bottom: 2px solid #dddddd">
-                                @if(!empty($data_brand))
-                                    @foreach($data_brand as $k => $v)
-                                        <li class="">
-                                            <a class="list-group-item text-dark" style="color: #111111; border-bottom: none ;border-radius: 0; padding-left: 30px"
-                                               href="{{ route('site.list.index', ['brand_id'=>$v->id]) }}">
-                                                {{ $v->name }}</a>
-                                        </li>
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-                    </div><!--/products-->
 
                     <div class="brands_products"><!--products-->
                         <h2 style="color: orangered">SẢN PHẨM</h2>
@@ -168,8 +149,6 @@
 
 @include('site.layout.footer')
 
-
-
 <script src="eshoper/js/jquery.js"></script>
 <script src="eshoper/js/bootstrap.min.js"></script>
 <script src="eshoper/js/jquery.scrollUp.min.js"></script>
@@ -178,11 +157,65 @@
 <script src="eshoper/js/main.js"></script>
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"></script>--}}
+
+<style>
+    .modal-dialog {
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 100vh;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .modal.fade .modal-dialog {
+        -webkit-transform: translate(0, -100%);
+        transform: translate(0, -100%);
+    }
+    .modal.in .modal-dialog {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            width: 790px !important;
+            margin: 30px auto;
+        }
+    }
+    .modal-footer {
+        margin-top: 0 !important;
+    }
+
+</style>
+
 <script src="{{ asset('lib/carousel/carousel.js') }}"></script>
-
-
 @yield('custom_js')
 
+<script>
+    $('.show-modal-filter').click(function (){
+        $('#modalFilter').modal('show')
+    })
+
+    $('.show-modal-price').click(function (){
+        $('#modalPrice').modal('show')
+    })
+
+    //filter
+    $('#modalFilter').find('.brand-item').on('click', function (){
+        $('#modalFilter').find('.brand-item').css('border', '1px solid #dddddd')
+        $(this).css('border', '1px solid #FE980F')
+    })
+</script>
 </body>
 </html>
 

@@ -178,6 +178,55 @@ class ProductService
         }
     }
 
+    public function editProduct($params){
+        DB::beginTransaction();
+        try {
+            $product = $this->first(['id' => $params["id"]]);
+            $before = $product->toArray();
+
+            $user = auth('admin')->user();
+
+            $data["name"] = $params["name"];
+            $data["colors"] = $params["colors"];
+            $data["brand_id"] = (int) $params["brand_id"];
+            $data["price"] = $params["price"];
+            $data["price_discount"] = $params["price_discount"];
+            $data["unit_num"] = (int) $params["unit_num"];
+            $data["unit_label"] = (int) $params["unit_label"];
+            $data["release_date"] = !empty($data["release_date"]) ? strtotime($data["release_date"]) : 0;
+            $data["height"] = $params["height"];
+            $data["width"] = $params["width"];
+            $data["depth"] = $params["depth"];
+            $data["tech_screen"] = $params["tech_screen"];
+            $data["size"] = $params["size"];
+            $data["cpu"] = $params["cpu"];
+            $data["ram"] = $params["ram"];
+            $data["rom"] = $params["rom"];
+            $data["battery_capacity"] = $params["battery_capacity"];
+            $data["camera_before"] = $params["camera_before"];
+            $data["camera_after"] = $params["camera_after"];
+            $data["description"] = $params["description"];
+            $data["image"] = $params["image"];
+            $data["status"] = 1;
+            $data["attach"] = $params["attach"];
+            $data["attach_image"] = $params["attach_image"];
+            $data["qty"] = (int) $params["qty"];
+            $data["sold"] = isset($params["sold"]) ? (int) $params["sold"] : 0;
+
+            $product = $this->edit($product, $data);
+
+            if ($product) {
+                $this->createLog($product->id, "Sửa sản phẩm", ProductService::DB_UPDATE, $before, $product->toArray(), $user);
+            }
+
+            DB::commit();
+            return $product;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
     public function createLog($product_id, $name, $action, $before, $after, $user) {
         $log = $this->log;
 

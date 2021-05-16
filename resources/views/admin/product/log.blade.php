@@ -186,7 +186,7 @@
                                                                 {{ isset($ProductService::$aryActionDB[$value->action]) ? $ProductService::$aryActionDB[$value->action] : '' }}
                                                             </span>
                                                         @elseif($ProductService::DB_UPDATE == $value->action)
-                                                            <span class="label label-success label-pill label-inline mr-2">
+                                                            <span class="label label-warning label-pill label-inline mr-2">
                                                                 {{ isset($ProductService::$aryActionDB[$value->action]) ? $ProductService::$aryActionDB[$value->action] : '' }}
                                                             </span>
                                                         @elseif($ProductService::DB_DELETE == $value->action)

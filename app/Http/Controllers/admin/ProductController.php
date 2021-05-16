@@ -107,38 +107,9 @@ class ProductController extends Controller{
 
     public function submitEdit(Request $request){
         $request->flash();
-        $data = $request->only([
-            "name",
-            'brand_id',
-            "price",
-            "price_discount",
-            "unit_num",
-            "unit_label",
-            "release_date",
-            "height",
-            "width",
-            "depth",
-            "tech_screen",
-            "size",
-            "cpu",
-            "ram",
-            "rom",
-            "battery_capacity",
-            "camera_before",
-            "camera_after",
-            "description",
-            "image",
-            "status",
-            "attach",
-            "attach_image",
-            "qty",
-            "sold",
-            "colors",
-        ]);
-        $data["release_date"] = strtotime($data["release_date"]);
+        $params = $request->all();
 
-        $product = $this->productService->first(['id'=>$request->id]);
-        $this->productService->edit($product, $data);
+        $this->productService->editProduct($params);
         return redirect()->route('admin.product.search');
     }
 

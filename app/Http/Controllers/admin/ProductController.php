@@ -116,6 +116,6 @@ class ProductController extends Controller{
     public function log(Request $request){
         $log = $this->log->where('product_id', $request->id)->orderBy('id', 'desc')->paginate(10);
 
-        return view('admin.product.log', compact('log')
+        return view('admin.product.log', compact('log'));
     }
 }

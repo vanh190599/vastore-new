@@ -1,7 +1,9 @@
 <div style="font-size: 16px; padding: 10px 0">
     Cảm ơn bạn đã mua sản phẩm của chúng tôi!
 </div>
-
+@php
+    $data = Cart::content();
+@endphp
 <table style="border-collapse: collapse" border="1" cellpadding="10">
     <thead>
         <tr>

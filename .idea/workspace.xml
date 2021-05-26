@@ -24,8 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b82677ca-9fb4-4761-8ed2-f49fe0ac5a2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/site/email/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/email/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -250,7 +250,8 @@
       <workItem from="1621094681912" duration="8000" />
       <workItem from="1621180789754" duration="1856000" />
       <workItem from="1621221574132" duration="163000" />
-      <workItem from="1622017420243" duration="8626000" />
+      <workItem from="1622017420243" duration="9071000" />
+      <workItem from="1622041402084" duration="5595000" />
     </task>
     <servers />
   </component>
@@ -274,10 +275,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="620" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1618690787031" />
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620658290041">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1622041993726">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1620658290041" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1622041993726" />
     <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1622021291847">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -311,19 +312,19 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1618715566689" />
-    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1622020493329">
+    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1622045717637">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622020493329" />
+    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622045717637" />
     <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1621181565831">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1621181565831" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1622026689923">
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1622041965773">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="583" y="155" width="672" height="477" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1619321655661" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622026689923" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622041965773" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -355,7 +356,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/site/CartController.php</url>
-          <line>290</line>
+          <line>316</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\site\CartController" />
             <option name="methodName" value="pushShipping" />

@@ -14,6 +14,7 @@ use App\Services\ShippingService;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use mysql_xdevapi\Exception;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -86,6 +87,17 @@ class CartController extends Controller {
         return view('site.cart.shipping');
    }
 
+   public function sendMail($email, $subject){
+        $data['email'] = $email;
+        $data['subject'] = $subject;
+        if (! empty($email)) {
+            Mail::send('site.email.index', [], function ($msg) use ($data) {
+                $msg->from('anh195np@gmail.com', 'VASTORE');
+                $msg->to($data['email'], "You")->subject($data['subject']);
+            });
+        }
+   }
+
    public function postShipping(Request $request){
        try {
            DB::beginTransaction();
@@ -101,13 +113,6 @@ class CartController extends Controller {
            $user = auth('customers')->user();
            $brands = $this->brandService->get([])->pluck('name', 'id');
            $data = session('shipping');
-
-           //send main
-           $content_mail = $data = Cart::content();
-           $receiver_info = $data;
-           return view('site.email.index')->with('data', $content_mail);
-           dd($receiver_info, $content_mail);
-           //end send main
 
            $shipping = $this->shippingService->create($data);
 
@@ -142,13 +147,20 @@ class CartController extends Controller {
 
            OrderDetail::insert($data_orderDetails);
 
+           //send mail
+           $receiver_info = session('shipping');
+           $email = $receiver_info['email'];
+           if (! empty($email)) {
+               $subject = '#'.$order->id." Mua hàng thành công!";
+               $this->sendMail($email, $subject);
+           }
+           //end send mail
+
            Cart::destroy();
            session()->put('email', null);
            session()->put('receive', null);
            session()->put('phone', null);
            session()->put('address', null);
-
-           //send mail
 
            DB::commit();
            return redirect()->route('site.cart.finish');
@@ -279,6 +291,20 @@ class CartController extends Controller {
            OrderDetail::insert($data_orderDetails);
 
            Cart::destroy();
+
+           //send mail =====================================================================================
+           /*$content_mail = Cart::content();
+           $receiver_info = $data;
+           $data['data'] = $content_mail;
+           $email = $receiver_info['email'];
+           if (!empty($email)) {
+               Mail::send('site.email.index', $data, function ($msg) use ($email) {
+                   $msg->from('anh195np@gmail.com', 'VASTORE');
+                   $msg->to($email, 'Nguyen Van Anh')->subject('Đặt hàng thành công!');
+               });
+               //return view('site.email.index')->with('data', $content_mail);
+           }*/
+           //end send main ==================================================================================
 
            DB::commit();
            return redirect()->route('site.cart.finish');

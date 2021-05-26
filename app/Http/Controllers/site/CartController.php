@@ -102,6 +102,13 @@ class CartController extends Controller {
            $brands = $this->brandService->get([])->pluck('name', 'id');
            $data = session('shipping');
 
+           //send main
+           $content_mail = $data = Cart::content();
+           $receiver_info = $data;
+           return view('site.email.index')->with('data', $content_mail);
+           dd($receiver_info, $content_mail);
+           //end send main
+
            $shipping = $this->shippingService->create($data);
 
            $order = [];
@@ -132,6 +139,7 @@ class CartController extends Controller {
                    ]);
                }
            }
+
            OrderDetail::insert($data_orderDetails);
 
            Cart::destroy();
@@ -139,6 +147,8 @@ class CartController extends Controller {
            session()->put('receive', null);
            session()->put('phone', null);
            session()->put('address', null);
+
+           //send mail
 
            DB::commit();
            return redirect()->route('site.cart.finish');

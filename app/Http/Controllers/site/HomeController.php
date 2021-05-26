@@ -150,8 +150,5 @@ class HomeController extends Controller{
             $msg->from('anh195np@gmail.com', 'Nguyen Van Anh');
             $msg->to('facebook19051999@gmail.com', 'Nguyen Van Anh')->subject('VASTORE SEND SUCCESS!');
         });
-
-        dd(1);
-        return view('site.email.index');
     }
 }

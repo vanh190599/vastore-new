@@ -7,6 +7,11 @@
 
     </style>
 
+    <form action="{{ route('site.sendMail') }}" method="post">
+        @csrf
+        <button class="btn btn-primary">Send Mail</button>
+    </form>
+
     <div id="look-up" class="row">
         <div class="col-lg-12">
             <div style="font-size: 20px">
@@ -22,7 +27,6 @@
                 </form>
             </div>
             <hr>
-
 
                 <table class="table table-bordered">
                     <thead>

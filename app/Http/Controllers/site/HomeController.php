@@ -9,6 +9,7 @@ use App\Services\orderService;
 use App\Services\ProductService;
 use App\Services\ShippingService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 session_start();
 class HomeController extends Controller{
@@ -141,5 +142,16 @@ class HomeController extends Controller{
         }
 
         return view('site.look_up.index', compact('products', 'shipping_names'));
+    }
+
+    public function sendMail(){
+        $data = [];
+        Mail::send('site.email.index', $data, function ($msg) {
+            $msg->from('anh195np@gmail.com', 'Nguyen Van Anh');
+            $msg->to('facebook19051999@gmail.com', 'Nguyen Van Anh')->subject('VASTORE SEND SUCCESS!');
+        });
+
+        dd(1);
+        return view('site.email.index');
     }
 }

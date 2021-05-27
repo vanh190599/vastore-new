@@ -52,7 +52,9 @@
                             </div>
                         </a>
                     @endforeach
+{{--
                     <div style="color: grey" class="text-center">Không có dữ liệu</div>
+--}}
                 @endif
             </div>
         </div>

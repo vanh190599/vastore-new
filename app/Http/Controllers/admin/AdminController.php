@@ -88,7 +88,7 @@ class AdminController extends Controller{
         $data = $request->only('name', 'email', 'phone', 'avatar');
         $data['password'] = Hash::make('123456');
         $data['status'] = CGlobal::STATUS_ACTIVE;
-        $data['type'] = 1;
+        $data['type'] = 0;
 
         $admin = $this->adminService->create($data);
         return redirect()->route('admin.account.search')->with('success_message', 'Thêm quản trị viên thành công!');

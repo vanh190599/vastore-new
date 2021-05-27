@@ -23,11 +23,18 @@ class NewsController extends Controller{
     public function search(Request $request)
     {
         $conditions = [];
-        if (! empty($request->name)) {
+        if (! empty($request->title)) {
             array_push($conditions, [
-                'key' => 'name',
-                'value' => $request->name,
+                'key' => 'title',
+                'value' => $request->title,
                 'operator' => 'like'
+            ]);
+        }
+
+        if (isset($request->status) && $request->status != -1) {
+            array_push($conditions, [
+                'key' => 'status',
+                'value' => $request->status,
             ]);
         }
 

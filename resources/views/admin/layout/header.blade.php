@@ -760,13 +760,7 @@
     <div class="offcanvas-content pr-5 mr-n5">
         <!--begin::Header-->
         <div class="d-flex align-items-center mt-5">
-            <div class="symbol symbol-100 mr-5">
-{{--                <div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')"></div>--}}
 
-                <img src="{{ auth('admin')->user()->avatar }}" alt="">
-
-                <i class="symbol-badge bg-success"></i>
-            </div>
             <div class="d-flex flex-column">
                 <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{ auth('admin')->user()->name }}</a>
                 <div class="text-muted mt-1">{{ auth('admin')->user()->phone }}</div>

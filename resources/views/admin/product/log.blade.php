@@ -171,7 +171,7 @@
                                             @foreach($log as $key => $value)
                                                 <tr>
                                                     <td class="align-middle">
-                                                        <a href="javascript:void(0)" data-show="0" class="show-content show-content-{{ $value->product_id }}" data-id="{{ $value->product_id }}">
+                                                        <a href="javascript:void(0)" data-show="0" class="show-content show-content-{{ $value->id }}" data-id="{{ $value->id }}">
                                                             <i class="fas fa-angle-right text-primary mr-5"></i>
                                                         </a>
                                                     </td>
@@ -205,7 +205,7 @@
                                                     </td>
                                                 </tr>
 
-                                                <tr class="content-{{ $value->product_id }}" style="display: none ">
+                                                <tr class="content-{{ $value->id }}" style="display: none ">
                                                     <td colspan="5">
                                                         <div class="d-flex justify-content-between">
                                                             @php
@@ -268,109 +268,109 @@
 
                                                                 <tr>
                                                                     <td>Tên</td>
-                                                                    <td>{{ isset($before['name']) ? $before['name'] : '-'}}</td>
+                                                                    <td>{{ isset($before['name']) ? $before['name'] : ''}}</td>
                                                                     <td>{{ isset($after['name'])  ? $after['name'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Giá</td>
-                                                                    <td>{{ isset($before['price']) ? number_format($before['price']).' đ' : '-'}}</td>
+                                                                    <td>{{ isset($before['price']) ? number_format($before['price']).' đ' : ''}}</td>
                                                                     <td>{{ isset($after['price'])  ? number_format($after['price']).' đ' : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Giảm giá</td>
-                                                                    <td>{{ isset($before['price_discount']) ? number_format($before['price_discount']).' đ' : '-'}}</td>
+                                                                    <td>{{ isset($before['price_discount']) ? number_format($before['price_discount']).' đ' : ''}}</td>
                                                                     <td>{{ isset($after['price_discount'])  ? number_format($after['price_discount']).' đ' : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Bảo hành</td>
-                                                                    <td>{{ isset($before['price_discount']) ? number_format($before['price_discount']).' đ' : '-'}}</td>
+                                                                    <td>{{ isset($before['price_discount']) ? number_format($before['price_discount']).' đ' : ''}}</td>
                                                                     <td>{{ isset($after['price_discount'])  ? number_format($after['price_discount']).' đ' : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Ngày ra mắt</td>
-                                                                    <td>{{ isset($before['release_date']) ? date('h:i:s d-m-Y', $before['release_date']) : '-'}}</td>
+                                                                    <td>{{ isset($before['release_date']) ? date('h:i:s d-m-Y', $before['release_date']) : ''}}</td>
                                                                     <td>{{ isset($after['release_date'])  ? date('h:i:s d-m-Y', $after['release_date']) : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Chiều cao</td>
-                                                                    <td>{{ isset($before['height']) ? $before['height'] : '-'}}</td>
+                                                                    <td>{{ isset($before['height']) ? $before['height'] : ''}}</td>
                                                                     <td>{{ isset($after['height'])  ? $after['height'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Chiều rộng</td>
-                                                                    <td>{{ isset($before['width']) ? $before['width'] : '-'}}</td>
+                                                                    <td>{{ isset($before['width']) ? $before['width'] : ''}}</td>
                                                                     <td>{{ isset($after['width'])  ? $after['width']: ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Chiều sâu</td>
-                                                                    <td>{{ isset($before['depth']) ? $before['depth'] : '-'}}</td>
+                                                                    <td>{{ isset($before['depth']) ? $before['depth'] : ''}}</td>
                                                                     <td>{{ isset($after['depth'])  ? $after['depth'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Màn hình</td>
-                                                                    <td>{{ isset($before['tech_screen']) ? $before['tech_screen'] : '-'}}</td>
+                                                                    <td>{{ isset($before['tech_screen']) ? $before['tech_screen'] : ''}}</td>
                                                                     <td>{{ isset($after['tech_screen'])  ? $after['tech_screen'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Size</td>
-                                                                    <td>{{ isset($before['size']) ? $before['size'] : '-'}}</td>
+                                                                    <td>{{ isset($before['size']) ? $before['size'] : ''}}</td>
                                                                     <td>{{ isset($after['size'])  ? $after['size'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>CPU</td>
-                                                                    <td>{{ isset($before['cpu']) ? $before['cpu'] : '-'}}</td>
+                                                                    <td>{{ isset($before['cpu']) ? $before['cpu'] : ''}}</td>
                                                                     <td>{{ isset($after['cpu'])  ? $after['cpu'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>ram</td>
-                                                                    <td>{{ isset($before['ram']) ? $before['ram'] : '-'}}</td>
+                                                                    <td>{{ isset($before['ram']) ? $before['ram'] : ''}}</td>
                                                                     <td>{{ isset($after['ram'])  ? $after['ram'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>rom</td>
-                                                                    <td>{{ isset($before['rom']) ? $before['rom'] : '-'}}</td>
+                                                                    <td>{{ isset($before['rom']) ? $before['rom'] : ''}}</td>
                                                                     <td>{{ isset($after['rom'])  ? $after['rom'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Dung lượng pin</td>
-                                                                    <td>{{ isset($before['battery_capacity']) ? $before['battery_capacity'] : '-'}}</td>
+                                                                    <td>{{ isset($before['battery_capacity']) ? $before['battery_capacity'] : ''}}</td>
                                                                     <td>{{ isset($after['battery_capacity'])  ? $after['battery_capacity'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>camera trước</td></td>
-                                                                    <td>{{ isset($before['camera_before']) ? $before['camera_before'] : '-'}}</td>
+                                                                    <td>{{ isset($before['camera_before']) ? $before['camera_before'] : ''}}</td>
                                                                     <td>{{ isset($after['camera_before'])  ? $after['camera_before'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>camera sau</td></td>
-                                                                    <td>{{ isset($before['camera_after']) ? $before['camera_after'] : '-'}}</td>
+                                                                    <td>{{ isset($before['camera_after']) ? $before['camera_after'] : ''}}</td>
                                                                     <td>{{ isset($after['camera_after'])  ? $after['camera_after'] : ''}}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Mô tả</td></td>
-                                                                    <td>{!! isset($before['description']) ? $before['description'] : '-' !!}</td>
+                                                                    <td>{!! isset($before['description']) ? $before['description'] : '' !!}</td>
                                                                     <td>{!! isset($after['description'])  ? $after['description'] : '' !!}</td>
                                                                 </tr>
 
                                                                 <tr>
                                                                     <td>Đính kèm</td></td>
-                                                                    <td>{!! isset($before['attach']) ? $before['attach'] : '-' !!}</td>
+                                                                    <td>{!! isset($before['attach']) ? $before['attach'] : '' !!}</td>
                                                                     <td>{!! isset($after['attach'])  ? $after['attach'] : '' !!}</td>
                                                                 </tr>
 

@@ -158,7 +158,7 @@ class OrderDetailService
         $cate = [];
         foreach ($period as $key => $value) {
             if ($key < $numberDayOfCurrentMonth) {
-                $qty = $detail->whereBetween('date', [$period[$key], $period[$key+1] - 1])->sum('qty');
+                $qty = $detail->whereBetween('date', [$period[$key], $period[$key+1] - 1])->where('status', 1)->sum('qty');
                 $result[] = (int) $qty;
                 $cate[]   = date('d-m-Y' ,$value);
             }
@@ -191,7 +191,7 @@ class OrderDetailService
         $cate = [];
         foreach ($period as $key => $value) {
             if ($key < 12) {
-                $qty = $detail->whereBetween('date', [$period[$key], $period[$key+1] - 1])->sum('qty');
+                $qty = $detail->whereBetween('date', [$period[$key], $period[$key+1] - 1])->where('status', 1)->sum('qty');
                 $result[] = (int) $qty;
                 $cate[]   = date('d-m-Y' ,$value);
             }

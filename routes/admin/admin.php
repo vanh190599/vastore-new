@@ -21,6 +21,8 @@ Route::middleware(['auth:admin'])->group(function (){
 
         Route::get('get-admin-by-id', 'AdminController@getAdminByID')->name('account.getAdminByID');
         Route::post('change-status', 'AdminController@changeStatus')->name('account.changeStatus');
+
+        Route::post('delete', 'AdminController@delete')->name('account.delete');
     });
 
     //product
@@ -32,6 +34,8 @@ Route::middleware(['auth:admin'])->group(function (){
         Route::get('edit', 'ProductController@edit')->name('product.edit');
         Route::post('edit', 'ProductController@submitEdit')->name('product.submitEdit');
         Route::get('log', 'ProductController@log')->name('product.log');
+        Route::post('changeStatus', 'ProductController@changeStatus')->name('product.changeStatus');
+        Route::post('delete', 'ProductController@delete')->name('product.delete');
     });
 
     //brand

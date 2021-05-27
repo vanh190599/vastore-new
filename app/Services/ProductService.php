@@ -54,6 +54,8 @@ class ProductService
             }
         }
 
+        $query = $query->where('del_flag', 0);
+
         //filter by price
         if (isset($data['filter']) && sizeof($data['filter']) > 0) {
             $query = $query->whereBetween('price', $data['filter']);
@@ -217,6 +219,30 @@ class ProductService
 
             if ($product) {
                 $this->createLog($product->id, "Sửa sản phẩm", ProductService::DB_UPDATE, $before, $product->toArray(), $user);
+            }
+
+            DB::commit();
+            return $product;
+        } catch (Exception  $e) {
+            DB::rollBack();
+            throw $e;
+        }
+    }
+
+    public function deleteProduct($params){
+        DB::beginTransaction();
+        try {
+            $product = $this->first(['id' => $params["id"]]);
+            $before = $product->toArray();
+
+            $user = auth('admin')->user();
+
+            $data["del_flag"] = 1;
+
+            $product = $this->edit($product, $data);
+
+            if ($product) {
+                $this->createLog($product->id, "Xóa sản phẩm", ProductService::DB_UPDATE, $before, $product->toArray(), $user);
             }
 
             DB::commit();

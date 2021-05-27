@@ -21,7 +21,7 @@
                                     @endforeach
                                 @endif
                             </select>
-                            <input type="text" name="name" value="" class="form-control" placeholder="Tìm kiếm"/>
+                            <input type="text" name="name" value="{{ request('name') }}" class="form-control" placeholder="Tìm kiếm"/>
                             <button  class="btn" style="color: orangered; margin-left: 5px"><span>Tìm kiếm </span><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </form>
@@ -67,7 +67,7 @@
                                 </ul>
                             </li>
 
-                            <li><a href="#">Liên hệ</a></li>
+                            {{--<li><a href="#">Liên hệ</a></li>--}}
 
                             <li><a href="{{ route('site.lookUp') }}">Tra cứu sản phẩm</a></li>
                         </ul>

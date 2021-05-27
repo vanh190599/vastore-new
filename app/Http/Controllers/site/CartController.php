@@ -102,14 +102,6 @@ class CartController extends Controller {
        try {
            DB::beginTransaction();
 
-           /*
-           $gmail = $request->email;
-           $checkMail = $this->checkExist($gmail);
-           if ($checkMail['input01']['Valid'] == "true") {
-               return  back()->with('error', 'email không tồn tại');
-           }
-           */
-
            $user = auth('customers')->user();
            $brands = $this->brandService->get([])->pluck('name', 'id');
            $data = session('shipping');
@@ -189,8 +181,10 @@ class CartController extends Controller {
        $vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
        //$vnp_Returnurl = "http://localhost:8089?message=success";
        $vnp_Returnurl = "http://localhost:8080/vastore/public/payment/callback";
-       $vnp_TmnCode = "Y4U88XFK"; //Mã website tại VNPAY
-       $vnp_HashSecret = "DTHXNFNBUMNKFKQOZVHTXUXNUQUUXMTV"; //Chuỗi bí mật
+       /*$vnp_TmnCode = "Y4U88XFK"; //Mã website tại VNPAY
+       $vnp_HashSecret = "DTHXNFNBUMNKFKQOZVHTXUXNUQUUXMTV"; //Chuỗi bí mật*/
+       $vnp_TmnCode = "ZQ1PAJKW"; //Mã website tại VNPAY
+       $vnp_HashSecret = "WWYCHWZEJBOVROULDLLWWCEWFCHZTCIZ"; //Chuỗi bí mật
 
        $vnp_TxnRef = date("YmdHis"); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
        $vnp_OrderInfo = "Thanh toán hóa đơn phí dich vụ";
@@ -315,6 +309,15 @@ class CartController extends Controller {
    }
 
    public function pushShipping(Request $request){
+       $gmail = $request->email;
+       if (str_contains($gmail, '@gmail')) {
+           //$gmail = "facebook19051999@gmail.com";
+           $checkMail = $this->checkExist($gmail);
+           if ($checkMail['input01']['Valid'] == "true") {
+               return  back()->with('error', 'Gmail không tồn tại');
+           }
+       }
+
         session(['shipping' => $request->all()]);
         $data = Cart::content();
         return view('site.cart.method_payment', compact('data'));

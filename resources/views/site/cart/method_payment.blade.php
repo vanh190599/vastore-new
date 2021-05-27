@@ -12,6 +12,12 @@
     </style>
 
     <div class="container-fluid">
+        <br>
+        <div class="text-danger">
+            @if(session()->has('error'))
+                <div class="text-danger" style="margin-bottom: 10px; margin-left: -13px;">{{ session('error') }}</div>
+            @endif
+        </div>
 
         <div class="row">
             <table class="table table-bordered">

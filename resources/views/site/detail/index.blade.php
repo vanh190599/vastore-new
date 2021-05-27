@@ -176,7 +176,86 @@
             </table>
         </div>
     </div>
+
+
+
 </div>
+
+<hr>
+<div id="site-home">
+    @if (isset($related) && count($related) > 0)
+            <div style="text-align: center ;color: orangered; font-size: 18px; font-weight: 700; margin-top: 20px">SẢN PHẨM LIÊN QUAN</div>
+            <br>
+            <div class="owl-carousel">
+                @foreach($related as $key => $value)
+                    <div class="col-lg-4 col-md-6 col-sm-6 ">
+                        <a href="{{ route('site.detail.index', [Str::slug($value->name), $value->id])}}" data-toggle="tooltip" title="{{ $value->name }}">
+                            <div class="item-custom">
+                                <div class="image">
+                                    <img class="image-product" src="{{$value->image}}" alt="{{ $value->name }}"
+                                         title="{{ $value->name }}"
+                                         height="214">
+                                </div>
+                                <div class="info">
+                                @if($value->price_discount > 0) <!-- giảm giá -->
+                                    <div class="discount">
+                                        <div class="val">Giảm
+                                            {{  number_format($value->price - $value->price_discount) }} đ
+                                        </div>
+                                    </div>
+                                @else  <!-- không giảm giá -->
+                                    <div style="height: 24px"></div>
+                                    @endif
+
+                                    <div class="name">{{ $value->name }}</div>
+
+                                    <div class="price">
+                                    @if($value->price_discount > 0) <!-- giảm giá -->
+                                        <div class="price-discount">
+                                            {{ number_format($value->price_discount).' đ'}}
+                                        </div>
+                                        <div class="price-root">
+                                            {{ number_format($value->price) }} đ
+                                        </div>
+                                    @else  <!-- không giảm giá -->
+                                        <div class="price-discount">{{ number_format($value->price).' đ'}}</div>
+                                        <div class="price-root"></div>
+                                        @endif
+                                    </div>
+
+                                    <div class="box-config">
+                                        <div class="config">
+                                            <div style="margin-right: 10px; display: flex; align-items: center; height: 24px">
+                                                <img src="{{ asset('eshoper/images/cpu.png') }}" width="18px" height="18px" class="icn-conf" alt="">&nbsp;
+                                                <span>{{ $value->cpu }}</span>
+                                            </div>
+
+                                            <div style="margin-right: 10px; display: flex; align-items: center; height: 24px">
+                                                <img src="{{ asset('eshoper/images/screen.png') }}" width="18px" class="icn-conf" height="18px" alt="">
+                                                <span>{{ $value->size }}</span>
+                                            </div>
+
+                                            <div style="margin-right: 10px; display: flex; align-items: center; height: 24px">
+                                                <img src="{{ asset('eshoper/images/ram.png') }}" width="18px" class="icn-conf" height="18px" alt="">&nbsp;
+                                                <span>{{ $value->ram }}</span>
+                                            </div>
+
+                                            <div style="margin-right: 10px; display: flex; align-items: center; height: 24px">
+                                                <img src="{{ asset('eshoper/images/storage.png') }}" width="18px" class="icn-conf" height="18px" alt="">&nbsp;
+                                                <span>{{ $value->ram }}</span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+</div>
+
 
 <!-- Modal -->
 <div id="modalImage" class="modal fade" role="dialog" style="overflow: hidden">
@@ -209,6 +288,9 @@
         display: inline-block;
         text-align: left;
         vertical-align: middle;
+    }
+    .icn-conf {
+        width: 18px !important;
     }
 </style>
 
@@ -249,6 +331,9 @@
             list-style: none;
             text-align: center;
             left: -81px;
+        }
+        .owl-carousel {
+            border: 1px solid #dddddd;
         }
     </style>
 @endsection
@@ -293,5 +378,7 @@
             }
         })
 
+        $(".owl-carousel").owlCarousel();
     </script>
 @endsection
+

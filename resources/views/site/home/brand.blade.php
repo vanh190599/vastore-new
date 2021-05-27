@@ -1,11 +1,11 @@
 <div id="box-filter-2">
     <div style="display: flex; justify-content: space-between">
-        <div>
+        {{--<div>
             <button class="btn btn-default show-modal-filter" >
                 <img src="{{ asset('images/filter.png') }}" alt="" style="width: 14px">
                 Bộ lọc
             </button>
-        </div>
+        </div>--}}
 
 {{--        <div class="dropdown">--}}
 {{--            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">--}}

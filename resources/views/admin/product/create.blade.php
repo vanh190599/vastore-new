@@ -7,6 +7,10 @@
 @endpush
 @inject('CGlobal', 'App\Library\CGlobal' )
 @section('content')
+    @php
+        $img = "https://codemyway.com/wp-content/themes/new/img/default-thumbnail.jpg";
+    @endphp
+
     <script src="https://cdn.ckeditor.com/4.16.0/full/ckeditor.js"></script>
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Subheader-->
@@ -427,7 +431,6 @@
                                                 <div class="fv-plugins-message-container"></div>
                                             </div>
 
-
                                             <br>
                                             <!--begin::Wizard Actions-->
 {{--                                            <div class="d-flex justify-content-center border-top  pt-5">--}}
@@ -525,7 +528,7 @@
                         <input type="text" class="form-control" name="color">
                     </td>
                     <td class="align-middle">
-                        <img class="image" src="" width="90px" height="90px" alt="" style="object-fit: cover">
+                        <img class="image" src="{{ $img }}" width="90px" height="90px" alt="" style="object-fit: cover">
                         <input class="add-image" type="file" ><br>
                         <input class="mt-1" type="text" name="link_img" value="link ảnh..." disabled style="width: 100%">
                     </td>
@@ -602,5 +605,6 @@
                 return true;
             })
         })
+
     </script>
 @endsection

@@ -86,7 +86,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
-                                                <div class="form-group fv-plugins-icon-container">
+                                               {{-- <div class="form-group fv-plugins-icon-container">
                                                     <label>Trạng thái</label>
                                                     <select type="text" class="form-control form-control-solid form-control-lg" name="is_active">
                                                         <option value="0">Tất cả</option>
@@ -97,13 +97,15 @@
                                                         @endif
                                                     </select>
                                                     <div class="fv-plugins-message-container"></div>
-                                                </div>
+                                                </div>--}}
                                             </div>
                                             <div class="col-lg-4 d-flex align-items-center justify-content-end">
+                                                @if(auth('admin')->user()->type == 1)
                                                 <a href="{{ route('admin.account.create') }}" class="btn btn-lg btn-success mr-4">
                                                     <i class="la la-plus-square"></i>
                                                     Create
                                                 </a>
+                                                @endif
                                                 <button type="reset" class="btn btn-lg btn-secondary btn-secondary--icon mr-4">
                                                     <i class="la la-close"></i>
                                                     Reset
@@ -176,24 +178,33 @@
                                                             </a>
                                                             @endif
 
-                                                            <a href="{{ route('admin.account.edit', ['id'=>$value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
-                                                               data-container="body"
-                                                               data-toggle="popover"
-                                                               data-placement="bottom"
-                                                               data-content="Sửa">
-                                                                <i class="la la-edit"></i>
-                                                            </a>
+                                                            @if($value->type != 1)
+                                                                @if(auth('admin')->user()->type == 1)
+                                                                    <a href="{{ route('admin.account.edit', ['id'=>$value->id]) }}" class="btn btn-icon btn-light btn-hover-warning btn-sm mr-2"
+                                                                       data-container="body"
+                                                                       data-toggle="popover"
+                                                                       data-placement="bottom"
+                                                                       data-content="Sửa">
+                                                                        <i class="la la-edit"></i>
+                                                                    </a>
+                                                                @endif
+                                                            @endif
 
-                                                            <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
-                                                               data-container="body"
-                                                               data-toggle="popover"
-                                                               data-placement="bottom"
-                                                               data-content="Xóa"
-                                                               data-email="{{ $value->email }}"
-                                                               data-id="{{ $value->id }}"
-                                                               data-click="openDelete">
-                                                                <i class="la la-trash"></i>
-                                                            </a>
+                                                            @if(auth('admin')->user()->id != $value->id && $value->type != 1)
+                                                                @if(auth('admin')->user()->type == 1)
+                                                                    <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
+                                                                       data-container="body"
+                                                                       data-toggle="popover"
+                                                                       data-placement="bottom"
+                                                                       data-content="Xóa"
+                                                                       data-email="{{ $value->email }}"
+                                                                       data-id="{{ $value->id }}"
+                                                                       data-click="openDelete">
+                                                                        <i class="la la-trash"></i>
+                                                                    </a>
+                                                                @endif
+                                                            @endif
+
                                                         </td>
                                                     </tr>
                                                 @endforeach

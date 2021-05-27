@@ -71,33 +71,6 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-4">
-                                                <div class="form-group fv-plugins-icon-container">
-                                                    <label>Trạng thái</label>
-                                                    <select type="text" class="form-control form-control-solid form-control-lg" name="is_active">
-                                                        <option value="0">Tất cả</option>
-                                                        <option value="0">Đã hủy</option>
-                                                        <option value="0">Đang chờ</option>
-                                                    </select>
-                                                    <div class="fv-plugins-message-container"></div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-lg-4">
-{{--                                                <div class="form-group fv-plugins-icon-container">--}}
-{{--                                                    <label>Từ ngày</label>--}}
-{{--                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="from" value="{{ request('from') }}">--}}
-{{--                                                    <div class="fv-plugins-message-container"></div>--}}
-{{--                                                </div>--}}
-                                            </div>
-
-                                            <div class="col-lg-4">
-{{--                                                <div class="form-group fv-plugins-icon-container">--}}
-{{--                                                    <label>Đến ngày</label>--}}
-{{--                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="to" value="{{ request('to') }}">--}}
-{{--                                                    <div class="fv-plugins-message-container"></div>--}}
-{{--                                                </div>--}}
-                                            </div>
 
                                             <div class="col-lg-4 d-flex align-items-center justify-content-end">
                                                 <button type="reset" class="btn btn-lg btn-secondary btn-secondary--icon mr-4">

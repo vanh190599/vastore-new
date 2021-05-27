@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\CreateRequest;
 use App\Library\CGlobal;
+use App\Model\MySql\Product;
 use App\Model\MySql\ProductLog;
 use App\Services\AdminService;
 use App\Services\BrandService;
@@ -56,10 +57,10 @@ class ProductController extends Controller{
             ]);
         }
 
-        if (! empty($request->is_active)) {
+        if (isset($request->status) && $request->status != -1) {
             array_push($conditions, [
-                'key' => 'is_active',
-                'value' => (int)$request->is_active,
+                'key' => 'status',
+                'value' => (int)$request->status,
             ]);
         }
 
@@ -69,6 +70,24 @@ class ProductController extends Controller{
             'sortBy' => 'created_at',
             'sortOrder' => 'DESC'
         ];
+
+        if (isset($request->filter) && $request->filter != -1) {
+            if ((int) $request->filter == 0) { // Tăng dần
+                $data = [
+                    'conditions' => $conditions,
+                    'limit' => 10,
+                    'sortBy' => 'sold',
+                    'sortOrder' => 'DESC'
+                ];
+            }  else { //Giảm dần
+                $data = [
+                    'conditions' => $conditions,
+                    'limit' => 10,
+                    'sortBy' => 'sold',
+                    'sortOrder' => 'ASC'
+                ];
+            }
+        }
 
         $aryStatus = CGlobal::$aryStatusShow;
 
@@ -117,5 +136,35 @@ class ProductController extends Controller{
         $log = $this->log->where('product_id', $request->id)->orderBy('id', 'desc')->paginate(10);
 
         return view('admin.product.log', compact('log'));
+    }
+
+    public function changeStatus(Request $request) {
+        $id = $request->id;
+        $product = Product::find($id);
+
+        if (!empty($product)) {
+            if ($product->status == 1) {
+                $product->status = 0;
+                $product->save();
+                return response(['success' => 1, 'message' => 'Đã ẩn sản phẩm']);
+            } else {
+                $product->status = 1;
+                $product->save();
+                return response(['success' => 1, 'message' => 'Đã hiển thị sản phẩm']);
+            }
+        }
+
+        return response(['success' => 1, 'message' => 'Sản phẩm không tồn tại']);
+    }
+
+    public function delete(Request $request){
+        $params = $request->all();
+        $product = $this->productService->deleteProduct($params);
+
+        if (! empty($product)) {
+            return response(['success' => 1, 'message' => 'Xóa thành công!']);
+        }
+
+        return response(['success' => 0, 'message' => 'Có lỗi xảy ra!']);
     }
 }

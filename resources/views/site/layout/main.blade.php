@@ -54,7 +54,7 @@
 
 @include('site.layout.header')
 
-{{--@yield('slide')--}}
+@yield('slide')
 
 <div style="width: 100%">
     <div class="container-fluid" style="margin: auto">
@@ -158,45 +158,6 @@
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"></script>--}}
 
-<style>
-    .modal-dialog {
-        margin-top: 0;
-        margin-bottom: 0;
-        height: 100vh;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    }
-
-    .modal.fade .modal-dialog {
-        -webkit-transform: translate(0, -100%);
-        transform: translate(0, -100%);
-    }
-    .modal.in .modal-dialog {
-        -webkit-transform: translate(0, 0);
-        transform: translate(0, 0);
-    }
-    @media screen and (min-width: 768px) {
-        .modal-dialog {
-            width: 790px !important;
-            margin: 30px auto;
-        }
-    }
-    .modal-footer {
-        margin-top: 0 !important;
-    }
-
-</style>
 
 <script src="{{ asset('lib/carousel/carousel.js') }}"></script>
 @yield('custom_js')

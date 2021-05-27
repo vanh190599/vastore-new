@@ -40,7 +40,7 @@
 <!--begin::Header Mobile-->
 <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
     <!--begin::Logo-->
-    <a href="index.html">
+    <a href="{{ route('admin.dashboard.index') }}">
         <span>VASTORE</span>
     </a>
     <!--end::Logo-->
@@ -83,7 +83,7 @@
             <!--begin::Brand-->
             <div class="brand flex-column-auto" id="kt_brand">
                 <!--begin::Logo-->
-                <a href="index.html" class="brand-logo">
+                <a href="{{ route('admin.dashboard.index') }}" class="brand-logo">
                     <span class="text-white">VASTORE</span>
                 </a>
                 <!--end::Logo-->

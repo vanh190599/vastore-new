@@ -76,7 +76,7 @@ class HomeController extends Controller{
             array_push($conditions, [
                 'key' => 'name',
                 'value' => $request->name,
-                'operator' => 'name'
+                'operator' => 'like'
             ]);
         }
 
@@ -91,6 +91,8 @@ class HomeController extends Controller{
             'sortBy' => 'id',
             'sortOrder' => 'DESC'
         ];
+
+        //dd($data);
 
         if (! empty($request->filter)) {
             if ($request->filter) {

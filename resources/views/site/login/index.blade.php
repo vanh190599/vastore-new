@@ -3,6 +3,7 @@
     <title>Trang chủ</title>
 @endsection
 @section('content')
+    <br>
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
@@ -13,7 +14,7 @@
                         <h4>Chào mừng bạn đến với <span>VASTORE</span></h4>
                         <p>Đăng nhập để thực hiện các chức năng của hệ thống</p>
                         <div class="floating-label">
-                            <input placeholder="Email" type="text" name="email" id="email" autocomplete="off" />
+                            <input placeholder="Email" type="text" name="email" id="email" autocomplete="off" value="{{ old('email') }}" />
                             <label for="email">Email:</label>
                             <div class="icon">
                                 <svg enable-background="new 0 0 100 100" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
@@ -56,9 +57,16 @@
                             <div class="text-danger mb-5" style="margin-bottom: 10px">{{ session('error_login') }}</div>
                         @endif
 
-                        <div style="display: flex; justify-content: center; width: 100%; margin-top: 15px">
-                            <button type="submit" class="btn-login" >Đăng nhập</button>
+                        <div style="display: flex; width: 100%">
+                            <div style="display: flex; justify-content: center; width: 100%; margin-top: 15px">
+                                <button type="submit" class="btn-login" >Đăng nhập</button>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; width: 100%; margin-top: 15px">
+                                <a href="{{ route('site.register') }}" class="btn-login-2" style="background: #b08bf8 !important;" >Đăng ký</a>
+                            </div>
                         </div>
+
 
                     </form>
                 </div>

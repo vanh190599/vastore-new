@@ -24,9 +24,36 @@
   <component name="ChangeListManager">
     <list default="true" id="b82677ca-9fb4-4761-8ed2-f49fe0ac5a2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/NewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/site/email/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/email/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/site/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/site/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/OrderDetailService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/OrderDetailService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/site/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/site/login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/account/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/account/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layout/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/news/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/news/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/log.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/log.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/cart/method_payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/cart/method_payment.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/detail/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/detail/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/home/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/home/brand.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/layout/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/login/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/login/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/news/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/news/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/register/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/register/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,6 +279,8 @@
       <workItem from="1621221574132" duration="163000" />
       <workItem from="1622017420243" duration="9071000" />
       <workItem from="1622041402084" duration="5595000" />
+      <workItem from="1622052586783" duration="617000" />
+      <workItem from="1622122507100" duration="18736000" />
     </task>
     <servers />
   </component>
@@ -312,19 +341,19 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1618715566689" />
-    <state x="785" y="233" width="585" height="592" key="find.popup" timestamp="1622045717637">
+    <state x="785" y="233" width="585" height="624" key="find.popup" timestamp="1622150858365">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="785" y="233" width="585" height="592" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622045717637" />
-    <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1621181565831">
+    <state x="785" y="233" width="585" height="624" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622150858365" />
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup" timestamp="1622139595694">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1621181565831" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1622041965773">
+    <state x="616" y="243" width="672" height="677" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622139595694" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup" timestamp="1622150929870">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="583" y="155" width="672" height="477" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1619321655661" />
-    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622041965773" />
+    <state x="819" y="220" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1622150929870" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,7 +370,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Http/Controllers/admin/NewsController.php</url>
-          <line>54</line>
+          <line>61</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -353,24 +382,6 @@
           <url>file://$PROJECT_DIR$/resources/views/admin/product/edit.blade.php</url>
           <line>103</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/site/CartController.php</url>
-          <line>316</line>
-          <properties>
-            <option name="className" value="\App\Http\Controllers\site\CartController" />
-            <option name="methodName" value="pushShipping" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/admin/ProductController.php</url>
-          <line>115</line>
-          <properties>
-            <option name="className" value="\App\Http\Controllers\admin\ProductController" />
-            <option name="methodName" value="log" />
-          </properties>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

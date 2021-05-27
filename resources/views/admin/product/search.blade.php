@@ -106,14 +106,27 @@
                                             <div class="col-lg-3">
                                                 <div class="form-group fv-plugins-icon-container">
                                                     <label>Trạng thái</label>
-                                                    <select type="text" class="form-control form-control-solid form-control-lg" name="is_active">
-                                                        <option value="0">Tất cả</option>
+                                                    <select type="text" class="form-control form-control-solid form-control-lg" name="status">
+                                                        <option value="0"  @if(request('status') == 0) selected @endif>Ẩn</option>
+                                                        <option value="1"  @if(request('status') == 1) selected @endif>Hiển thị</option>
+                                                        <option value="-1" @if(request('status') == null || request('status') == -1) selected @endif>Tất cả</option>
                                                     </select>
                                                     <div class="fv-plugins-message-container"></div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-3"></div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group fv-plugins-icon-container">
+                                                    <label>Số lượng bán</label>
+                                                    <select type="text" class="form-control form-control-solid form-control-lg" name="filter">
+                                                        <option value="0" @if(request('filter') == 0) selected @endif>Giảm dần</option>
+                                                        <option value="1" @if(request('filter') == 1) selected @endif>Tăng dần</option>
+                                                        <option value="-1" @if(request('filter') == null || request('filter') == -1) selected @endif >Tất cả</option>
+                                                    </select>
+                                                    <div class="fv-plugins-message-container"></div>
+                                                </div>
+                                            </div>
+
 
                                             <div class="col-lg-3">
 {{--                                                <div class="form-group fv-plugins-icon-container">--}}
@@ -244,20 +257,20 @@
                                                            data-content="Sửa">
                                                             <i class="la la-edit"></i>
                                                         </a>
-                                                        <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2"
+                                                        <a href="javascript:void(0)" class="btn btn-icon btn-light btn-hover-danger btn-sm mr-2 delele-product"
                                                            data-container="body"
                                                            data-toggle="popover"
                                                            data-placement="bottom"
                                                            data-content="Xóa"
                                                            data-email="{{ $value->email }}"
                                                            data-id="{{ $value->id }}"
-                                                           data-click="openDelete">
+                                                           >
                                                             <i class="la la-trash"></i>
                                                         </a>
                                                         @if($value->status == 1)
-                                                            <a href="" class="btn btn-outline-warning btn-sm">Ẩn</a>
+                                                            <a href="javascript:void(0)" data-id="{{ $value->id }}" data-name="{{ $value->name }}" class="change-status btn btn-outline-warning btn-sm">Ẩn</a>
                                                         @else
-                                                            <a href="" class="btn btn-outline-primary btn-sm">Hiển thị</a>
+                                                            <a href="javascript:void(0)" data-id="{{ $value->id }}" data-name="{{ $value->name }}" class="change-status btn btn-outline-primary btn-sm">Hiển thị</a>
                                                         @endif
 
                                                         <a href="{{ route('admin.product.log', ['id' => $value->id ]) }}" class="btn btn-outline-warning btn-sm">Lịch sử</a>
@@ -287,4 +300,88 @@
         </div>
         <!--end::Entry-->
     </div>
+@endsection
+
+@section('custom_js')
+    <script>
+        $('.change-status').click(function (){
+            el = $(this)
+            let id = el.data('id')
+            let name = el.data('name')
+
+            Swal.fire({
+                title: 'Thay đổi trạng thái',
+                text: name,
+                icon: "question",
+                buttonsStyling: false,
+                confirmButtonText: "<i class='la la-lock'></i> Đồng ý!",
+                showCancelButton: true,
+                cancelButtonText: "<i class='la la-window-close'></i> Hủy",
+                reverseButtons: true,
+                customClass: {
+                    confirmButton: "btn btn-danger",
+                    cancelButton: "btn btn-default"
+                }
+            }).then(function(result) {
+                if (result.value) {
+                    //do hidden
+                    let url = BASE_URL + '/admin/product/changeStatus'
+                    let data = { id }
+                    $.post(url, data, function(res){
+                        if (res.success == 1) {
+                            toastr.success(res.message)
+                            setTimeout(function(){
+                                window.location.reload()
+                            }, 1000);
+                        } else {
+                            toastr.error(res.message)
+                           /* setTimeout(function(){
+                                window.location.reload()
+                            }, 1000);*/
+                        }
+                    })
+                }
+            });
+        })
+
+        $('.delele-product').on('click', function (){
+            el = $(this)
+            let id = el.data('id')
+            let name = el.data('name')
+
+            Swal.fire({
+                title: 'Xóa sản phẩm',
+                text: name,
+                icon: "question",
+                buttonsStyling: false,
+                confirmButtonText: "<i class='la la-lock'></i> Đồng ý!",
+                showCancelButton: true,
+                cancelButtonText: "<i class='la la-window-close'></i> Hủy",
+                reverseButtons: true,
+                customClass: {
+                    confirmButton: "btn btn-danger",
+                    cancelButton: "btn btn-default"
+                }
+            }).then(function(result) {
+                if (result.value) {
+                    //do delete
+                    let url = BASE_URL + '/admin/product/delete'
+                    let data = { id }
+                    $.post(url, data, function(res){
+                        if (res.success == 1) {
+                            toastr.success(res.message)
+                            setTimeout(function(){
+                                window.location.reload()
+                            }, 1000);
+                        } else {
+                            toastr.error(res.message)
+                            /* setTimeout(function(){
+                                 window.location.reload()
+                             }, 1000);*/
+                        }
+                    })
+                }
+            });
+        })
+    </script>
 @endsection

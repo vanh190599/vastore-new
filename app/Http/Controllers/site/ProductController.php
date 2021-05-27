@@ -26,7 +26,7 @@ class ProductController extends Controller{
             $id = end($arrId);
         };
 
-        $product = $this->productService->first(['id' => $id]);
+        $product = $this->productService->first(['id' => $id, 'status' => 1]);
 
         if (!empty($product->colors)) {
             $colors = json_decode($product->colors, true);
@@ -39,7 +39,12 @@ class ProductController extends Controller{
 
         if (empty($product)) abort(404);
 
-        return view('site.detail.index', compact('product'));
+        //related
+        $related_search['conditions'][] = ['key' => 'brand_id', 'value' => $product->brand_id];
+        $related_search['limit'] = 10;
+        $related = $this->productService->search($related_search);
+
+        return view('site.detail.index', compact('product', 'related'));
     }
 }
 

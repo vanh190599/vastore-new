@@ -59,25 +59,26 @@
                                             <div class="col-lg-4">
                                                 <div class="form-group fv-plugins-icon-container">
                                                     <label>Tên</label>
-                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="name" placeholder="Tên" value="{{ request('name') }}">
+                                                    <input type="text" class="form-control form-control-solid form-control-lg" name="title" placeholder="Tên" value="{{ request('title') }}">
                                                     <div class="fv-plugins-message-container"></div>
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-4">
-                                                <div class="form-group fv-plugins-icon-container">
+                                                {{--<div class="form-group fv-plugins-icon-container">
                                                     <label>Trạng thái</label>
-                                                    <select type="text" class="form-control form-control-solid form-control-lg" name="is_active">
-                                                        <option value="0">Tất cả</option>
+                                                    <select type="text" class="form-control form-control-solid form-control-lg" name="status">
                                                         @if(!empty($aryStatus) && count($aryStatus) > 0 )
                                                             @foreach($aryStatus as $key => $val)
-                                                                <option @if(request('is_active') == $key) selected @endif value="{{ $key }}">{{ $val }}</option>
+                                                                <option @if(request('status') == $key) selected @endif value="{{ $key }}">{{ $val }}</option>
                                                             @endforeach
                                                         @endif
+                                                        <option value="-1" @if(request('status') == null || request('status') == -1) selected @endif == $key >Tất cả</option>
                                                     </select>
                                                     <div class="fv-plugins-message-container"></div>
-                                                </div>
+                                                </div>--}}
                                             </div>
+
                                             <div class="col-lg-4 d-flex align-items-center justify-content-end">
                                                 <a href="{{ route('admin.news.create') }}" class="btn btn-lg btn-success mr-4">
                                                     <i class="la la-plus-square"></i>

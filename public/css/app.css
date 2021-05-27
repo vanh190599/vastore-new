@@ -1772,6 +1772,23 @@ body.waitMe_body .waitMe_container.text > div {
   background: #FE980F !important;
 }
 
+#login .btn-login-2 {
+  -webkit-appearance: none;
+  width: auto;
+  min-width: 100px;
+  border-radius: 24px;
+  text-align: center;
+  padding: 15px 40px;
+  margin-top: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, 0.13);
+  border: none;
+  transition: all 0.3s ease;
+  outline: 0;
+}
+
 #look-up form .box-look-up {
   display: flex;
 }
